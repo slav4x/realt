@@ -166,3 +166,20 @@
       &.active
         border-color: var(--color-black)
         font-weight: 500
+
+  &-top.top
+    position: relative
+    background: url(../img/specialists-top.png) no-repeat bottom center / cover
+    height: 970px
+    overflow: hidden
+    .container
+      position: initial
+      z-index: inherit
+  &-top__photo
+    position: absolute
+    z-index: -1
+    top: 180px
+    left: 0
+    right: 0
+    max-width: 755px
+    margin: 0 auto

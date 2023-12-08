@@ -1,0 +1,94 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Страница специалиста' %}
+{% set clear = true %}
+
+{% block content %}
+
+<section class="top specialists-top">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">Cпециалисты</a></li>
+      <li><a href="#">Шмилович Андрей Аркадьевич</a></li>
+    </ul>
+    <h2 class="top-title">Шмилович Андрей Аркадьевич</h2>
+    <img src="img/specialists-item.png" alt="" class="specialists-top__photo">
+  </div>
+</section>
+
+<section class="principle">
+  <div class="container">
+    <h3 class="subtitle">Подобрать врача</h3>
+    <h2 class="title">Посмотрите интервью<br> с этим специалистом</h2>
+  </div>
+  <a href="#" data-fancybox class="principle-video">
+    <img src="img/principle-video.jpg" alt="" class="principle-video__poster">
+  </a>
+</section>
+
+<section class="specialists-price">
+  <div class="container">
+    <h2 class="title">Прайс-лист</h2>
+    <div class="price-table">
+      <div class="price-row">
+        <div class="price-col">Номер</div>
+        <div class="price-col">Услуга</div>
+        <div class="price-col">Стоимость</div>
+        <div class="price-col">Время</div>
+        <div class="price-col"></div>
+      </div>
+      <div class="price-row">
+        <div class="price-col"></div>
+        <div class="price-col title-sm">Консультация психолога</div>
+        <div class="price-col">от 5 000 руб</div>
+        <div class="price-col">До 10 минут</div>
+        <div class="price-col"><a href="#" class="price-btn">Записаться</a></div>
+      </div>
+      <div class="price-row">
+        <div class="price-col"></div>
+        <div class="price-col title-sm">Консультация психолога</div>
+        <div class="price-col">Бесплатно</div>
+        <div class="price-col">До 10 минут</div>
+        <div class="price-col"><a href="#" class="price-btn">Записаться</a></div>
+      </div>
+      <div class="price-row">
+        <div class="price-col"></div>
+        <div class="price-col title-sm">Консультация психолога</div>
+        <div class="price-col">Бесплатно</div>
+        <div class="price-col">До 10 минут</div>
+        <div class="price-col"><a href="#" class="price-btn">Записаться</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <h3 class="subtitle">Отзывы</h3>
+    <h2 class="title">Блок про отзывы о работе Магарины Надежды Юрьевны</h2>
+  </div>
+  <div class="reviews-wrapper">
+    <div class="container">
+      <div class="reviews-sidebar">
+        <div class="reviews-author">
+          <h4>NNN, Москва</h4>
+          <p>Подпись</p>
+        </div>
+        <div class="reviews-btns">
+          <a href="#" class="btn-outline">Оставить отзыв</a>
+        </div>
+      </div>
+      <div class="reviews-main">
+        {% include "components/reviews-item.html" %}
+        {% include "components/reviews-item.html" %}
+        {% include "components/reviews-item.html" %}
+        {% include "components/reviews-item.html" %}
+        {% include "components/reviews-item.html" %}
+        {% include "components/reviews-item.html" %}
+        {% include "components/reviews-item.html" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
