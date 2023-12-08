@@ -1,0 +1,181 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Контакты' %}
+
+{% block content %}
+
+<section class="contact">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+    <h2 class="contact-address">г. Москва, Всеволожский переулок, 2c2, подъезд 3</h2>
+    <a href="#map" class="contact-view">Показать на карте</a>
+    <ul class="contact-list">
+      <li>
+        <p>Телефон</p>
+        <b class="title-xl"><a href="tel:8 800 800 00 55">8 800 800 00 55</a></b>
+      </li>
+      <li>
+        <p>Часы работы <span>Вс — выходной</span></p>
+        <b class="title-xl">Пн – Сб : 10:00 - 21:00</b>
+      </li>
+      <li>
+        <p>Почта</p>
+        <b class="title-xl"><a href="mailto:info@cdz-alter.ru">info@cdz-alter.ru</a></b>
+      </li>
+    </ul>
+    <ul class="contact-social">
+      <li class="wa"><a href="#">Whatsapp</a></li>
+      <li class="tg"><a href="#">Telegram</a></li>
+      <li class="skype"><a href="#">Skype</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact-map" id="map">
+  <div class="container">
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6f553a132b57c319e749a1895668aff14a816c8e8e49c6e118e344a37c6764ba&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
+    <div class="contact-map__block">
+      <ul class="contact-map__tabs title-sm">
+        <li data-id="1" class="active">На метро</li>
+        <li data-id="2">На автомобиле</li>
+      </ul>
+      <ul class="contact-map__list active" data-id="1">
+        <li>м. Кропоткинская, выход в сторону ул. Пречистенка. Из стеклянных дверей, направо.</li>
+        <li>Далее по ул. Пречистенка до первого поворота налево, поворачиваете на Всеволожский переулок, дом 2, стр.2, по левой стороне, 3 подъезд, 3 этаж</li>
+        <li>На охране скажите, в Клинику доктора Шмиловича "Ре-Альт</li>
+      </ul>
+      <ul class="contact-map__list" data-id="2">
+        <li>Всеволожский переулок д. 2 стр.<br>255°44'34'' с.ш.<br>37°35'55'' в.д.</li>
+      </ul>
+      <div class="btn-wrap"><a href="#" class="btn-green btn-sm">Открыть в яндекс картах</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-info">
+  <div class="container">
+    <div class="contact-info__left">
+      <ul class="contact-info__tabs">
+        <p>Показать реквизиты</p>
+        <li data-id="1" class="active">ООО</li>
+        <li data-id="2">ИП</li>
+      </ul>
+      <div class="contact-info__base active" data-id="1">
+        <h3 class="title-xl">Общество с ограниченной ответственностью «ЦЕНТР ДУШЕВНОГО ЗДОРОВЬЯ»</h3>
+        <p>19034, Москва г, Всеволожский пер, дом № 2, строение 2, этаж 3, помещение IV</p>
+        <div class="btn-wrap"><a href="#" class="btn-outline">Скачать<span>DOC</span></a></div>
+      </div>
+      <div class="contact-info__base" data-id="2">
+        <h3 class="title-xl">Индивидуальный предприниматель Шмилович Андрей Аркадьевич</h3>
+        <p>19034, Москва г, Всеволожский пер, дом № 2, строение 2, этаж 3, помещение IV</p>
+        <div class="btn-wrap"><a href="#" class="btn-outline">Скачать<span>DOC</span></a></div>
+      </div>
+    </div>
+    <div class="contact-info__right">
+      <div class="contact-info__data active" data-id="1">
+        <div class="contact-info__label">
+          <i>Краткое наименование</i>
+          <p>ООО «ЦДЗ»</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Руководитель</i>
+          <p>Генеральный директор Адамиду Виолетта</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Главный бухгалтер</i>
+          <p>Берковская Карина Аркадьевна</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Юридический адрес</i>
+          <p>19034, Москва г, Всеволожский пер, дом № 2, строение 2, этаж 3, помещение IV</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Адрес для корреспонденции</i>
+          <p>119034, Москва г, Всеволожский пер, дом № 2, строение 2, этаж 3, помещение IV</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Номер телефона</i>
+          <p>+7 (495) 114-53-14</p>
+        </div>
+        <div class="contact-info__label">
+          <i>E-mail</i>
+          <p>info@cdz-alter.ru</p>
+        </div>
+        <div class="contact-info__label">
+          <i>КПП</i>
+          <p>770401001</p>
+        </div>
+        <div class="contact-info__label">
+          <i>ИНН</i>
+          <p>7718278615</p>
+        </div>
+        <div class="contact-info__label">
+          <i>ОГРН</i>
+          <p>1157746928690</p>
+        </div>
+        <div class="contact-info__label">
+          <i>ОКПО</i>
+          <p>51109425</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Расчётный счёт</i>
+          <p>40702810301500121718</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Полное наименование банка</i>
+          <p>ООО «Банк Точка» г. Москва</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Кор. счёт</i>
+          <p>30101810745374525104</p>
+        </div>
+        <div class="contact-info__label">
+          <i>БИК</i>
+          <p>044525104</p>
+        </div>
+      </div>
+      <div class="contact-info__data" data-id="2">
+        <div class="contact-info__label">
+          <i>Краткое наименование</i>
+          <p>ИП  Шмилович Андрей Аркадьевич</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Юридический адрес</i>
+          <p>117186, Москва г, ул Нагорная, д. 15, к. 8, кв. 650</p>
+        </div>
+        <div class="contact-info__label">
+          <i>ИНН</i>
+          <p>772732943716</p>
+        </div>
+        <div class="contact-info__label">
+          <i>ОГРНИП</i>
+          <p>322774600193447</p>
+        </div>
+        <div class="contact-info__label">
+          <i>ОКВЭД</i>
+          <p>86.10</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Расчётный счёт</i>
+          <p>40802810901500294437</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Полное наименование банка</i>
+          <p>ООО «Банк Точка» г. Москва</p>
+        </div>
+        <div class="contact-info__label">
+          <i>Кор. счёт</i>
+          <p>30101810745374525104</p>
+        </div>
+        <div class="contact-info__label">
+          <i>БИК</i>
+          <p>044525104</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

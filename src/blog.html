@@ -1,0 +1,53 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Блог' %}
+{% set white = true %}
+
+{% block content %}
+
+<section class="top">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">Блог</a></li>
+    </ul>
+    <h2 class="top-title">Блог</h2>
+  </div>
+</section>
+
+<section class="blog-page">
+  <div class="container">
+    <ul class="blog-themes">
+      <p>Выберите тематику</p>
+      <li><a href="#">Осознание и управление эмоциями</a></li>
+      <li><a href="#">Ревность</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+      <li><a href="#">Панические атаки</a></li>
+    </ul>
+    <div class="blog-grid">
+      {% include 'components/blog-item.html' %}
+      {% include 'components/blog-item.html' %}
+      {% include 'components/blog-item.html' %}
+      {% include 'components/blog-item.html' %}
+      {% include 'components/blog-item.html' %}
+      {% include 'components/blog-item.html' %}
+    </div>
+    <ul class="blog-pagination">
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+    </ul>
+  </div>
+</section>
+
+{% endblock %}

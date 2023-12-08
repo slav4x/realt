@@ -1,0 +1,40 @@
+.advantages
+  padding-top: var(--gap-xl)
+  padding-bottom: var(--gap-lg)
+  &-list
+    margin-top: var(--gap-md)
+    counter-reset: advantages
+    li
+      position: relative
+      padding: 24px 0
+      @include flexbox
+      align-items: flex-start
+      &::before
+        counter-increment: advantages
+        content: '( ' counter(advantages, decimal-leading-zero) ' )'
+        display: block
+        line-height: 1.1
+        letter-spacing: 0.05em
+        font-family: 'Wulkan Display'
+        font-weight: 500
+        font-style: italic
+        margin-bottom: 16px
+        width: var(--width-sidebar)
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: -10000px
+        right: -10000px
+        height: 1px
+        background: var(--color-border)
+      span
+        display: block
+        width: var(--width-main)
+        margin-left: auto
+        h3
+          margin-bottom: 10px
+        p
+          line-height: 1.6
+          letter-spacing: -0.02em
+          color: var(--color-dark)

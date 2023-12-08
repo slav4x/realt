@@ -1,0 +1,57 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Специалисты' %}
+{% set white = true %}
+
+{% block content %}
+
+<section class="top">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">Наши специалисты</a></li>
+    </ul>
+    <h2 class="top-title">Наши специалисты</h2>
+  </div>
+</section>
+
+<section class="specialists-page">
+  <div class="container">
+    <h3 class="subtitle">Подобрать врача</h3>
+    <h2 class="title">Подберем специалиста в соответствии с вашей<br> проблемой</h2>
+    <p class="text">Мы поможем найти психиатра, психоаналитика или психолога, с которым вам будет комфортно согласно вашей проблеме.</p>
+    <div class="specialists-type">
+      <p>Специализация</p>
+      <span class="active">Все</span>
+      <span>Психиатр</span>
+      <span>Психотерапевт</span>
+      <span>Психоаналитик</span>
+      <span>Психолог</span>
+    </div>
+    <div class="specialists-type">
+      <p>Кому нужна помощь</p>
+      <span>Для себя</span>
+      <span>Для ребенка</span>
+      <span>Для подростка</span>
+      <span>Для пары</span>
+      <span>Для семьи</span>
+    </div>
+    <div class="specialists-type">
+      <p>Выберите формат</p>
+      <span class="active">Лично</span>
+      <span>Онлайн</span>
+      <span>Выезд на дом</span>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="specialists-grid">
+      {% include 'components/specialists-item.html' %}
+      {% include 'components/specialists-item.html' %}
+      {% include 'components/specialists-item.html' %}
+      {% include 'components/specialists-item.html' %}
+      {% include 'components/specialists-item.html' %}
+      {% include 'components/specialists-item.html' %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

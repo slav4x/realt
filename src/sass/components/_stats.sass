@@ -1,0 +1,31 @@
+.stats
+  padding: var(--gap-lg) 0
+  background: url(../img/stats-bg.jpg) no-repeat top center / cover
+  color: #fff
+  &-item
+    width: var(--width-main)
+    margin-left: auto
+    padding: 84px 0
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      right: -10000px
+      height: 1px
+      opacity: 0.1
+      background: #fff
+    h2
+      font-family: 'Wulkan Display'
+      font-weight: 500
+      line-height: 1.1
+      letter-spacing: -0.02em
+      font-size: 199px
+      margin-bottom: 13px
+    p
+      font-size: 20px
+      text-transform: uppercase
+      line-height: 1.6
+      opacity: 0.7
+      letter-spacing: 0.05em

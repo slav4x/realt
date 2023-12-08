@@ -1,0 +1,119 @@
+.footer
+  background: #fff
+  .container
+    @include flexbox
+  &-sidebar
+    width: var(--width-sidebar)
+    padding-top: 110px
+    padding-right: 90px
+    padding-bottom: 80px
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+  &-main
+    width: var(--width-main)
+    border-left: 1px solid var(--color-border)
+    padding-top: 100px
+    padding-left: 120px
+    padding-bottom: 80px
+    @include flexbox
+    align-items: flex-start
+  &-nav
+    font-family: 'Wulkan Display'
+    font-size: 54px
+    line-height: 1.2
+    font-weight: 500
+    li
+      margin: 20px 0
+      display: block
+  &-subnav
+    margin-left: auto
+    width: 270px
+    margin-right: 60px
+    line-height: 1
+    letter-spacing: -0.02em
+    margin-top: 2px
+    li
+      margin: 20px 0
+      display: block
+  &-contact
+    @include flexbox
+    align-items: flex-start
+    justify-content: space-between
+    width: 100%
+    margin-top: 80px
+    &__item
+      p
+        font-size: 16px
+        line-height: 1.6
+        letter-spacing: -0.02em
+        @include flexbox
+        align-items: center
+        justify-content: space-between
+        span
+          font-size: 14px
+          font-weight: 500
+          margin-left: auto
+      b
+        display: block
+        width: 100%
+        margin-top: 12px
+      &:last-child
+        width: 330px
+  &-logo
+    img
+      height: 85px
+  &-desc
+    max-width: 400px
+    margin-top: 90px
+    font-size: 16px
+    line-height: 1.6
+    letter-spacing: -0.02em
+    b
+      font-weight: 600
+  &-bottom
+    @include flexbox
+    align-items: center
+    border-top: 1px solid var(--color-border)
+    padding: 20px 0
+    font-size: 14px
+    line-height: 1.6
+    font-weight: 500
+  &-copy,
+  &-links
+    color: var(--color-dark)
+  &-copy
+    width: 770px
+  &-links
+    @include flexbox
+    align-items: center
+    gap: 24px
+    margin-left: auto
+    span
+      color: #00574F
+  &-social
+    @include flexbox
+    align-items: flex-start
+    gap: 20px
+    font-size: 16px
+    line-height: 1
+    margin-top: 110px
+    a
+      @include flexbox
+      align-items: center
+      gap: 12px
+      &::before
+        content: ''
+        display: block
+        width: 52px
+        height: 52px
+        border-radius: 100%
+        border: 1px solid var(--color-border)
+        background-repeat: no-repeat
+        background-position: center
+    li.wa a::before
+      background-image: url(../img/svg/wa.svg)
+    li.tg a::before
+      background-image: url(../img/svg/tg.svg)
+  &-address
+    margin-top: auto

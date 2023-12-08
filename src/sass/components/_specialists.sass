@@ -1,0 +1,168 @@
+.specialists
+  padding-top: var(--gap-xl)
+  & + .free
+    margin-top: var(--gap-md)
+  .subtitle
+    color: var(--color-green)
+  &-grid
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 60px 24px
+    margin-top: var(--gap-md)
+  &-item
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+    gap: 20px
+    overflow: hidden
+    position: relative
+    transition: .25s
+    &__photo
+      width: 100%
+      height: 600px
+      background: #e3e4df
+      position: relative
+      overflow: hidden
+      transition: .25s
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: top center
+    &__name
+      font-size: 28px
+      font-weight: 700
+      line-height: 1.2
+      letter-spacing: -0.02em
+    &__label
+      h5
+        text-transform: uppercase
+        font-size: 14px
+        font-weight: 500
+        line-height: 1.6
+        letter-spacing: 0.05em
+        margin: 0 0 2px
+        color: var(--color-dark)
+      p
+        font-weight: 500
+        line-height: 1.6
+        letter-spacing: -0.02em
+    &__spec
+      font-size: 16px
+      line-height: 22px
+      padding: 10px 0
+      border-top: 1px dashed var(--color-border)
+      border-bottom: 1px dashed var(--color-border)
+      color: var(--color-dark)
+      @include flexbox
+      align-items: center
+      width: 100%
+      height: 64px
+      p
+        max-height: 44px
+        overflow: hidden
+        -webkit-line-clamp: 2
+        display: -webkit-box
+        -webkit-box-orient: vertical
+    &__more
+      position: absolute
+      bottom: -48px
+      left: 0
+      right: 0
+      transition: .25s
+      @include flexbox
+      align-items: flex-start
+      a
+        display: block
+        line-height: 1
+        padding: 4px 0
+        border-bottom: 1px solid var(--color-black)
+        font-weight: 500
+        position: relative
+        &::before
+          content: ''
+          position: absolute
+          top: -1000px
+          left: 0
+          right: -1000px
+          bottom: 0
+        &::after
+          position: absolute
+          top: 0
+          bottom: 0
+          right: -20px
+          margin: auto 0
+          content: ''
+          width: 12px
+          height: 12px
+          display: block
+          background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='%23002E25'/%3E%3C/svg%3E%0A") no-repeat center
+    &:hover
+      padding-bottom: 48px
+      .specialists-item__more
+        bottom: 0
+      .specialists-item__photo
+        height: calc(600px - 48px)
+  &-more
+    @include flexbox
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: 14px
+    width: 280px
+    height: 280px
+    margin: var(--gap-md) auto 0
+    border-radius: 100%
+    border: 1px dashed var(--color-green)
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top: -8px
+      left: -8px
+      bottom: -8px
+      right: -8px
+      border-radius: 100%
+      border: 1px dashed var(--color-green)
+    &::after
+      content: ''
+      display: block
+      width: 10px
+      height: 11px
+      background: url("data:image/svg+xml,%3Csvg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1735_8207)'%3E%3Cpath d='M-0.0526733 2.09142L5.69069 4.6528L8.43261 10.5767L9.93333 0.410156L-0.0526733 2.09142Z' fill='%230A0A0B' fill-opacity='0.75'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1735_8207'%3E%3Crect width='10' height='11' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center
+    h5
+      margin: 0
+    p
+      font-size: 20px
+      line-height: 1.2
+      font-weight: 600
+      letter-spacing: -0.02em
+
+  &-page
+    padding: var(--gap-lg) 0
+  &-type
+    padding: 14px 0 16px
+    @include flexbox
+    align-items: flex-start
+    gap: 12px
+    margin-top: 24px
+    &:first-of-type
+      margin-top: 80px
+    p
+      width: 100%
+      font-size: 14px
+      font-weight: 500
+      line-height: 1.6
+      letter-spacing: 0.05em
+      text-transform: uppercase
+      color: var(--color-dark)
+    span
+      display: block
+      padding: 12px 28px
+      border-radius: 99px
+      border: 1px solid var(--color-border)
+      line-height: 24px
+      cursor: pointer
+      &.active
+        border-color: var(--color-black)
+        font-weight: 500

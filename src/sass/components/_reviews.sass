@@ -1,0 +1,100 @@
+.reviews
+  padding-top: var(--gap-xl)
+  &-wrapper
+    margin-top: var(--gap-md)
+    background: #f5f2ef
+    height: 100vh
+    overflow: hidden
+    .container
+      @include flexbox
+  &-sidebar
+    width: var(--width-sidebar)
+    padding: 90px 0
+    @include flexbox
+    align-items: flex-start
+    flex-direction: column
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top: 100px
+      right: 20px
+      width: 28px
+      height: 28px
+      background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.29513 11.2044C-4.56173 24.8337 3.52287 28.3169 7.99527 27.978C8.49221 27.978 10.2522 27.4697 11.246 26.4531C13.496 24.1517 13.2338 22.3868 7.27058 17.8121C2.21063 13.9304 8.98914 4.08816 10.4799 2.56328C11.9707 1.03839 12.9647 -5.56939 3.29513 11.2044Z' fill='%23CD7F74'/%3E%3Cpath d='M18.7445 11.2044C10.8876 24.8337 18.9722 28.3169 23.4446 27.978C23.9416 27.978 25.7015 27.4697 26.6954 26.4531C28.9454 24.1517 28.6831 22.3868 22.7199 17.8121C17.66 13.9304 24.4385 4.08816 25.9293 2.56328C27.4201 1.03839 28.414 -5.56939 18.7445 11.2044Z' fill='%23CD7F74'/%3E%3C/svg%3E%0A") no-repeat center
+  &-main
+    width: var(--width-main)
+    margin-left: auto
+    position: relative
+    height: 100vh
+    overflow-y: scroll
+    &::-webkit-scrollbar
+      width: 0px
+      background: transparent
+    &::before
+      content: ''
+      display: block
+      position: sticky
+      z-index: 50
+      top: 0
+      left: 0
+      right: 0
+      width: 100%
+      height: 90px
+      background: linear-gradient(180deg, #F4F1EE 0%, rgba(255, 255, 255, 0.00) 100%, rgba(245, 242, 239, 0.00) 100%)
+    &::after
+      content: ''
+      display: block
+      position: sticky
+      z-index: 50
+      bottom: 0
+      left: 0
+      right: 0
+      width: 100%
+      height: 90px
+      background: linear-gradient(0deg, #F4F1EE 0%, rgba(255, 255, 255, 0.00) 100%, rgba(245, 242, 239, 0.00) 100%)
+  &-item
+    margin-bottom: 40px
+    &:last-child
+      margin-bottom: 0
+    &__date
+      line-height: 1.6
+      letter-spacing: -0.02em
+      color: var(--color-dark)
+      margin-bottom: 20px
+    .title-md
+      margin-bottom: 20px
+      max-width: 940px
+    &__text
+      max-width: 480px
+      overflow: hidden
+      line-height: 1.6
+      letter-spacing: -0.02em
+      -webkit-line-clamp: 3
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      margin-bottom: 20px
+    &__more
+      line-height: 1
+      font-weight: 500
+      color: var(--color-brown)
+      border-bottom: 1px solid transparent
+      transition: .25s
+      &:hover
+        border-color: var(--color-brown)
+  &-author
+    h4
+      font-size: 32px
+      font-family: 'Wulkan Display'
+      font-weight: 500
+      letter-spacing: -0.02em
+    p
+      font-size: 14px
+      margin-top: 12px
+      line-height: 1.6
+      color: var(--color-dark)
+  &-btns
+    margin-top: auto
+    @include flexbox
+    align-items: flex-start
+    gap: 12px

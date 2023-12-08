@@ -1,0 +1,228 @@
+.contact
+  padding-top: 160px
+  padding-bottom: 30px
+  &-address
+    font-size: 90px
+    font-family: 'Wulkan Display'
+    font-weight: 500
+    line-height: 1
+    letter-spacing: -0.02em
+    max-width: 1440px
+    margin-bottom: 16px
+  &-list
+    @include flexbox
+    align-items: flex-start
+    gap: 64px
+    width: 100%
+    margin-top: 100px
+    li
+      p
+        font-size: 14px
+        line-height: 1.6
+        letter-spacing: 0.05em
+        color: var(--color-dark)
+        font-weight: 500
+        text-transform: uppercase
+        @include flexbox
+        align-items: center
+        justify-content: space-between
+        span
+          text-transform: none
+          margin-left: auto
+      b
+        display: block
+        width: 100%
+        margin-top: 16px
+  &-map
+    height: 1085px
+    position: relative
+    overflow: hidden
+    background: #eee
+    .container
+      height: 100%
+      @include flexbox
+      align-items: flex-end
+      padding-bottom: 50px
+      position: initial
+      & > iframe
+        position: absolute
+        top: 0
+        left: 0
+        width: 100% !important
+        height: 100% !important
+    &__block
+      padding: 44px
+      background: #fbfaf9
+      max-width: 530px
+      width: 100%
+      min-height: 460px
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      position: relative
+      z-index: 5
+    &__tabs
+      @include flexbox
+      align-items: center
+      margin-bottom: 36px
+      li
+        color: rgba(0, 46, 37, 0.50)
+        cursor: pointer
+        &.active
+          color: var(--color-black)
+        &::after
+          content: '/'
+          color: var(--color-black)
+          display: inline-block
+          padding: 0 12px
+        &:last-child::after
+          display: none
+    &__list
+      counter-reset: mapList
+      display: none
+      margin-bottom: 36px
+      &.active
+        display: block
+      li
+        margin-bottom: 12px
+        padding-left: 50px
+        position: relative
+        &::before
+          counter-increment: mapList
+          content: counter(mapList, decimal-leading-zero)
+          position: absolute
+          top: 0
+          left: 0
+          opacity: 0.8
+        &:last-child
+          margin-bottom: 0
+    .btn-wrap
+      margin-top: auto
+  &-social
+    @include flexbox
+    align-items: flex-start
+    gap: 20px
+    font-size: 16px
+    line-height: 1
+    margin-top: 70px
+    a
+      @include flexbox
+      align-items: center
+      gap: 12px
+      &::before
+        content: ''
+        display: block
+        width: 52px
+        height: 52px
+        border-radius: 100%
+        border: 1px solid var(--color-border)
+        background-repeat: no-repeat
+        background-position: center
+    li.wa a::before
+      background-image: url(../img/svg/wa.svg)
+    li.tg a::before
+      background-image: url(../img/svg/tg.svg)
+    li.skype a::before
+      background-image: url(../img/svg/skype.svg)
+
+  &-info
+    height: 100vh
+    position: relative
+    .container
+      @include flexbox
+      height: 100%
+    &__left
+      width: 50%
+      padding: 90px 90px 90px 0
+    &__right
+      border-left: 1px solid var(--color-border)
+      padding-left: 90px
+      position: relative
+      width: 50%
+      height: 100%
+      overflow-y: scroll
+      &::-webkit-scrollbar
+        width: 0px
+        background: transparent
+      &::before
+        content: ''
+        display: block
+        position: sticky
+        z-index: 50
+        top: 0
+        left: 0
+        right: 0
+        width: 100%
+        height: 90px
+        background: linear-gradient(180deg, #FBFAF9 0%, rgba(255, 255, 255, 0.00) 100%, rgba(245, 242, 239, 0.00) 100%)
+      &::after
+        content: ''
+        display: block
+        position: sticky
+        z-index: 50
+        bottom: 0
+        left: 0
+        right: 0
+        width: 100%
+        height: 90px
+        background: linear-gradient(0deg, #FBFAF9 0%, rgba(255, 255, 255, 0.00) 100%, rgba(245, 242, 239, 0.00) 100%)
+    &__label
+      margin-bottom: 32px
+      &:last-child
+        margin-bottom: 0
+      i
+        font-style: normal
+        font-size: 16px
+        font-weight: 500
+        color: var(--color-dark)
+        display: block
+        margin-bottom: 8px
+      p
+        font-size: 22px
+        line-height: 1.2
+        font-weight: 500
+    &__base
+      display: none
+      &.active
+        display: block
+      .title-xl
+        margin-bottom: 20px
+      p
+        max-width: 525px
+        color: var(--color-dark)
+        margin-bottom: 32px
+      .btn-outline
+        padding: 20px 35px
+        gap: 9px
+        span
+          opacity: 0.5
+          color: var(--color-green)
+    &__data
+      display: none
+      &.active
+        display: block
+    &__tabs
+      @include flexbox
+      align-items: flex-start
+      gap: 12px
+      margin-bottom: 50px
+      p
+        font-size: 14px
+        text-transform: uppercase
+        width: 100%
+        font-weight: 500
+        line-height: 16px
+        letter-spacing: 0.05em
+      li
+        padding: 12px 28px
+        border-radius: 99px
+        border: 1px solid var(--color-border)
+        color: var(--color-dark)
+        line-height: 24px
+        cursor: pointer
+        font-weight: 500
+        transition: .25s
+        &.active
+          color: #fff
+          background: var(--color-black)
+          border-color: var(--color-black)
