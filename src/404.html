@@ -1,0 +1,17 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = '404' %}
+{% set page404 = true %}
+
+{% block content %}
+
+<section class="page404">
+  <div class="container">
+    <div class="page404-text">
+      <h2 class="title-xl">Страница, <i>которую вы запрашиваете,</i> не существует</h2>
+      <p>Кажется что-то пошло не так!</p>
+      <div class="btn-wrap"><a href="/" class="btn-back">Вернуться на главную</a></div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
