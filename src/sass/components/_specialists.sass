@@ -183,3 +183,164 @@
     right: 0
     max-width: 755px
     margin: 0 auto
+
+  &-price
+    padding-top: var(--gap-xl)
+
+  &-list
+    padding-top: var(--gap-xl)
+    &__group
+      counter-reset: specialistsList
+      margin-top: var(--gap-md)
+      li
+        position: relative
+        padding: 40px 0
+        @include flexbox
+        align-items: flex-start
+        &::before
+          counter-increment: specialistsList
+          content: '( ' counter(specialistsList, decimal-leading-zero) ' )'
+          display: block
+          line-height: 1.1
+          letter-spacing: 0.05em
+          font-style: italic
+          font-family: 'Wulkan Display'
+          font-weight: 500
+          color: var(--color-dark)
+          width: var(--width-sidebar)
+        &::after
+          content: ''
+          position: absolute
+          top: 0
+          left: -1000px
+          right: -1000px
+          bottom: 0
+          z-index: -1
+          border-top: 1px solid var(--color-border)
+          transition: .25s
+      &-links
+        .specialists-list__text
+          padding-right: 90px
+        li:hover
+          &::after
+            background: #f1f3f2
+          a::after
+            opacity: 1
+        a
+          &::before
+            content: ''
+            position: absolute
+            top: 0
+            left: -1000px
+            right: -1000px
+            bottom: 0
+          &::after
+            content: ''
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            margin: auto 0
+            width: 60px
+            height: 60px
+            border-radius: 100%
+            background-color: var(--color-green)
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36279 0.391113L4.61279 6.26345L2.36279 12.3911L10.6128 6.26345L2.36279 0.391113Z' fill='white'/%3E%3C/svg%3E%0A")
+            background-repeat: no-repeat
+            background-position: center
+            border: 1px dashed #fff
+            box-shadow: 0 0 0 6px var(--color-green)
+            opacity: 0
+            transition: .25s
+    &__text
+      width: var(--width-main)
+      p
+        max-width: 500px
+        line-height: 1.6
+        color: var(--color-dark)
+        margin-top: 10px
+
+  &-ask
+    height: 100vh
+    @include flexbox
+    align-items: center
+    text-align: center
+    .subtitle
+      margin-bottom: 24px
+    .title-xl
+      max-width: 1100px
+      margin: 0 auto 140px
+    &__phone
+      font-family: 'Wulkan Display'
+      line-height: 1
+      font-size: 130px
+      letter-spacing: -0.02em
+      font-weight: 300
+    .btn-wrap
+      justify-content: center
+      margin-top: 50px
+      .btn
+        width: 240px
+        justify-content: center
+        &::after
+          display: none
+
+  &-edu
+    background: #f5f2ef
+    height: 100vh
+    overflow: hidden
+    .container
+      @include flexbox
+    &__sidebar
+      width: var(--width-sidebar)
+      padding: 90px 90px 90px 0
+    &__text
+      width: 530px
+      .text
+        max-width: 430px
+    &__main
+      width: var(--width-main)
+      margin-left: auto
+      position: relative
+      height: 100vh
+      overflow-y: scroll
+      -ms-overflow-style: none
+      scrollbar-width: none
+      &::-webkit-scrollbar
+        width: 0px
+        background: transparent
+      &::before
+        content: ''
+        display: block
+        position: sticky
+        z-index: 50
+        top: 0
+        left: 0
+        right: 0
+        width: 100%
+        height: 90px
+        background: linear-gradient(180deg, #F4F1EE 0%, rgba(255, 255, 255, 0.00) 100%, rgba(245, 242, 239, 0.00) 100%)
+      &::after
+        content: ''
+        display: block
+        position: sticky
+        z-index: 50
+        bottom: 0
+        left: 0
+        right: 0
+        width: 100%
+        height: 90px
+        background: linear-gradient(0deg, #F4F1EE 0%, rgba(255, 255, 255, 0.00) 100%, rgba(245, 242, 239, 0.00) 100%)
+    &__list
+      li
+        padding: 24px 0
+        border-bottom: 1px solid var(--color-border)
+        padding-right: 50px
+        &:last-child
+          border: 0
+        p
+          font-size: 16px
+          line-height: 1.2
+          font-weight: 600
+          color: var(--color-dark)
+          margin-top: 16px
