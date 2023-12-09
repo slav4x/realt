@@ -344,3 +344,84 @@
           font-weight: 600
           color: var(--color-dark)
           margin-top: 16px
+
+  &-card
+    padding-top: 40px
+    .container
+      @include flexbox
+      align-items: center
+    &__main
+      width: calc(100% - 740px)
+      padding-right: 80px
+      @include flexbox
+      align-items: flex-start
+      flex-direction: column
+      gap: 36px
+    &__photo
+      width: 740px
+      height: 940px
+      background: #e9eae6
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: center
+    &__label
+      p
+        font-size: 14px
+        line-height: 1.6
+        font-weight: 500
+        color: var(--color-dark)
+        margin-bottom: 8px
+        text-transform: uppercase
+        letter-spacing: -0.02em
+      b
+        display: block
+        font-weight: 500
+        letter-spacing: -0.02em
+    &__list
+      @include flexbox
+      align-items: flex-start
+      gap: 8px 12px
+      margin-bottom: -10px
+      p
+        font-size: 14px
+        line-height: 1.6
+        font-weight: 500
+        color: var(--color-dark)
+        text-transform: uppercase
+        letter-spacing: -0.02em
+        width: 100%
+      li
+        padding: 5px 19px
+        border-radius: 99px
+        border: 1px solid var(--color-border)
+    &__year
+      p
+        font-size: 14px
+        line-height: 1.6
+        font-weight: 500
+        color: var(--color-dark)
+        margin-bottom: 8px
+        text-transform: uppercase
+        letter-spacing: -0.02em
+    &__cta
+      @include flexbox
+      align-items: center
+      gap: 30px
+      .btn
+        width: 260px
+        justify-content: center
+    &__price
+      p
+        font-size: 14px
+        line-height: 1.6
+        font-weight: 500
+        color: var(--color-dark)
+        margin-bottom: 8px
+        text-transform: uppercase
+        letter-spacing: -0.02em
+      b
+        display: block
+        font-weight: 500
+        letter-spacing: -0.02em
