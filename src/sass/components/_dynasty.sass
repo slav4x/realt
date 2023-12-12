@@ -1,0 +1,82 @@
+.dynasty
+  &-section
+    padding: var(--gap-lg) 0
+    .container
+      @include flexbox
+      align-items: flex-end
+      position: inherit
+  &-date
+    width: var(--width-sidebar)
+    position: sticky
+    bottom: var(--gap-md)
+    font-family: 'Wulkan Display'
+    font-size: 150px
+    font-weight: 300
+    line-height: 1
+    letter-spacing: -0.02em
+  &-main
+    width: var(--width-main)
+  &-photo
+    .title
+      margin-top: 16px
+    img
+      width: 100%
+      height: 920px
+      object-fit: cover
+      object-position: center
+    &-v2
+      .title-xl
+        max-width: 840px
+      .text
+        margin-top: 24px
+      img
+        width: 100%
+        height: 620px
+        object-fit: cover
+        object-position: center
+        margin-top: 24px
+  &-text
+    .title-xl
+      max-width: 840px
+  &-list
+    .title-xl
+      margin-top: var(--gap-md)
+      max-width: 840px
+      &:first-child
+        margin-top: 0
+    .text
+      margin-top: 24px
+      max-width: 480px
+    ul
+      margin-top: 40px
+      counter-reset: list
+      li
+        padding: 24px 0
+        position: relative
+        padding-right: 80px
+        border-bottom: 1px solid var(--color-border)
+        &::before
+          counter-increment: list
+          content: '( ' counter(list, decimal-leading-zero) ' )'
+          display: block
+          line-height: 1.1
+          letter-spacing: 0.05em
+          font-style: italic
+          font-family: 'Wulkan Display'
+          font-weight: 500
+          position: absolute
+          top: 24px
+          right: 0
+          width: 60px
+          color: var(--color-dark)
+        p
+          margin-top: 6px
+          line-height: 1.6
+          color: var(--color-dark)
+        a
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          z-index: 5
