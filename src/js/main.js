@@ -167,4 +167,13 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  const blogSpecialists = new Swiper('.blog-specialists__slider', {
+    slidesPerView: 3,
+    spaceBetween: 24,
+    navigation: {
+      nextEl: '.blog-specialists__next',
+      prevEl: '.blog-specialists__prev',
+    },
+  });
 });
