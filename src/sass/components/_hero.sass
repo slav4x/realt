@@ -1,7 +1,14 @@
 .hero
   padding: 195px 0
-  background: url(../img/hero-bg.jpg) no-repeat top center / cover
+  background: #fff
   overflow: hidden
+  height: 94vh
+  .container-fluid
+    height: 100%
+    @include flexbox
+    align-items: flex-start
+    flex-direction: column
+    justify-content: center
   h3
     font-size: 14px
     text-transform: uppercase
@@ -25,5 +32,31 @@
   &-photos
     position: absolute
     top: -195px
-    left: 1110px
+    right: 0
+    bottom: -195px
+    width: 640px
     z-index: -1
+    &::before
+      content: ''
+      height: 200px
+      position: absolute
+      top: 101px
+      left: -200px
+      right: -1000px
+      background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)
+      z-index: 2
+    &::after
+      content: ''
+      height: 200px
+      position: absolute
+      bottom: 0
+      left: -200px
+      right: -1000px
+      background: linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)
+      z-index: 2
+    img
+      position: absolute
+      top: 50%
+      left: 0
+      max-width: initial
+      transform: translateY(-50%) rotate(15deg)
