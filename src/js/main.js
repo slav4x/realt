@@ -176,4 +176,10 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.blog-specialists__prev',
     },
   });
+
+  Fancybox.bind('[data-fancybox]', {
+    dragToClose: false,
+    autoFocus: false,
+    placeFocusBack: false,
+  });
 });
