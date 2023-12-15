@@ -61,6 +61,12 @@
   .breadcrumbs
     margin-bottom: 24px
 
+  .label
+    p
+      font-size: 12px
+    input
+      height: 40px
+
   .header
     height: 77px
     &-contact
@@ -375,3 +381,56 @@
         margin-bottom: 70px
       &__phone
         font-size: 80px
+
+  .service
+    &-head
+      height: 70px
+      ul
+        font-size: 14px
+        gap: 24px
+    &-main
+      width: 830px
+    &-form
+      width: calc(100% - 830px)
+      height: calc(100vh - 70px)
+      padding-left: 80px
+      top: 70px
+      .title-xl
+        margin-bottom: 24px
+      .btn-green
+        margin: 24px 0
+      small
+        font-size: 12px
+    &-item
+      padding-top: 24px
+      padding-bottom: 24px
+      p
+        margin-top: 8px
+      &::after
+        top: 24px
+      span
+        width: 40px
+        height: 40px
+        box-shadow: 0 0 0 4px var(--color-green)
+        top: 36px
+        right: 36px
+    &-element
+      padding: var(--gap-md) 0
+      &__text
+        ul
+          font-size: 20px
+        h5
+          font-size: 14px
+      &__list
+        ul
+          li
+            padding-top: 16px
+            padding-bottom: 16px
+            p
+              font-size: 14px
+    &-price
+      &__text
+        font-size: 14px
+      &__more
+        font-size: 13px
+        line-height: 14px
