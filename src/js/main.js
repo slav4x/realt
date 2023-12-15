@@ -78,10 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const priceSlider = new Swiper('.price-head__slider', {
     slidesPerView: 'auto',
-    spaceBetween: 30,
+    spaceBetween: 24,
     navigation: {
       nextEl: '.price-head__next',
       prevEl: '.price-head__prev',
+    },
+    breakpoints: {
+      1760: {
+        spaceBetween: 30,
+      },
     },
   });
 

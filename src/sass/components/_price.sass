@@ -15,8 +15,10 @@
     position: relative
     @include flexbox
     align-items: center
+    min-height: 100px
     &:first-child
       height: 60px
+      min-height: 0
       text-transform: uppercase
       font-size: 14px
       color: rgba(15, 15, 17, 0.70)
@@ -33,13 +35,17 @@
         z-index: -1
       .price-col
         height: auto
-    &:not(:first-child) .price-col:nth-child(1)::before
-      counter-increment: priceSection
-      content: '( ' counter(priceSection, decimal-leading-zero) ' )'
+    &:not(:first-child)
+      .price-col
+        padding-top: 18px
+        padding-bottom: 18px
+        &:nth-child(1)::before
+          counter-increment: priceSection
+          content: '( ' counter(priceSection, decimal-leading-zero) ' )'
+
   &-col
     @include flexbox
     align-items: center
-    height: 100px
     line-height: 30px
     &:nth-child(1)
       width: 120px
