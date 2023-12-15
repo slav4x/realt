@@ -47,22 +47,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const blogSlider = new Swiper('.blog-slider', {
     slidesPerView: 3,
-    spaceBetween: 24,
+    spaceBetween: 12,
     navigation: {
       nextEl: '.blog-next',
       prevEl: '.blog-prev',
+    },
+    breakpoints: {
+      1760: {
+        spaceBetween: 24,
+      },
     },
   });
 
   const licenseSlider = new Swiper('.license-slider', {
     slidesPerView: 2,
-    spaceBetween: 24,
+    spaceBetween: 12,
     navigation: {
       nextEl: '.license-next',
       prevEl: '.license-prev',
     },
     scrollbar: {
       el: '.license-scrollbar',
+    },
+    breakpoints: {
+      1760: {
+        spaceBetween: 24,
+      },
     },
   });
 
