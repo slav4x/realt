@@ -197,4 +197,29 @@ document.addEventListener('DOMContentLoaded', function () {
     autoFocus: false,
     placeFocusBack: false,
   });
+
+  const links = document.querySelectorAll('.directions-links li');
+  const sidebarItems = document.querySelectorAll('.directions-sidebar__item');
+
+  links.forEach((link) => {
+    // Добавляем обработчик событий для наведения мыши
+    link.addEventListener('mouseover', function () {
+      // Убираем класс active у всех элементов списка
+      links.forEach((li) => li.classList.remove('active'));
+
+      // Добавляем класс active текущему элементу
+      this.classList.add('active');
+
+      // Получаем data-id текущего элемента
+      const activeDataId = this.getAttribute('data-id');
+
+      // Обновляем классы для элементов сайдбара
+      sidebarItems.forEach((item) => {
+        item.classList.remove('active');
+        if (item.getAttribute('data-id') === activeDataId) {
+          item.classList.add('active');
+        }
+      });
+    });
+  });
 });
