@@ -198,28 +198,25 @@ document.addEventListener('DOMContentLoaded', function () {
     placeFocusBack: false,
   });
 
-  const links = document.querySelectorAll('.directions-links li');
-  const sidebarItems = document.querySelectorAll('.directions-sidebar__item');
+  const directions = document.querySelector('.directions-links');
+  if (directions) {
+    const links = directions.querySelectorAll('li');
+    const sidebarItems = document.querySelectorAll('.directions-sidebar__item');
 
-  links.forEach((link) => {
-    // Добавляем обработчик событий для наведения мыши
-    link.addEventListener('mouseover', function () {
-      // Убираем класс active у всех элементов списка
-      links.forEach((li) => li.classList.remove('active'));
+    links.forEach((link) => {
+      link.addEventListener('mouseover', function () {
+        links.forEach((li) => li.classList.remove('active'));
+        this.classList.add('active');
 
-      // Добавляем класс active текущему элементу
-      this.classList.add('active');
+        const activeDataId = this.getAttribute('data-id');
 
-      // Получаем data-id текущего элемента
-      const activeDataId = this.getAttribute('data-id');
-
-      // Обновляем классы для элементов сайдбара
-      sidebarItems.forEach((item) => {
-        item.classList.remove('active');
-        if (item.getAttribute('data-id') === activeDataId) {
-          item.classList.add('active');
-        }
+        sidebarItems.forEach((item) => {
+          item.classList.remove('active');
+          if (item.getAttribute('data-id') === activeDataId) {
+            item.classList.add('active');
+          }
+        });
       });
     });
-  });
+  }
 });
