@@ -219,4 +219,26 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  const reviews = document.querySelector('.reviews');
+  if (reviews) {
+    const items = document.querySelectorAll('.reviews-item');
+    const reviewsAuthor = document.querySelectorAll('.reviews-author__item');
+
+    items.forEach((link) => {
+      link.addEventListener('mouseover', function () {
+        items.forEach((li) => li.classList.remove('active'));
+        this.classList.add('active');
+
+        const activeDataId = this.getAttribute('data-id');
+
+        reviewsAuthor.forEach((item) => {
+          item.classList.remove('active');
+          if (item.getAttribute('data-id') === activeDataId) {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+  }
 });

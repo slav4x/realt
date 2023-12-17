@@ -85,6 +85,9 @@
       &:hover
         border-color: var(--color-brown)
   &-author
+    position: relative
+    padding-right: 80px
+    width: 100%
     h4
       font-size: 32px
       font-family: 'Wulkan Display'
@@ -95,6 +98,15 @@
       margin-top: 12px
       line-height: 1.6
       color: var(--color-dark)
+    &__item
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      opacity: 0
+      transition: .5s
+      &.active
+        opacity: 1
   &-btns
     margin-top: auto
     @include flexbox
