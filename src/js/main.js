@@ -88,6 +88,16 @@ document.addEventListener('DOMContentLoaded', function () {
         spaceBetween: 30,
       },
     },
+    on: {
+      init: function () {
+        setTimeout(() => {
+          const lastSlide = this.slides[this.slides.length - 1];
+          const lastSlideWidth = lastSlide.offsetWidth;
+          const slider = document.querySelector('.price-head__slider');
+          slider.style.width = lastSlideWidth + 'px';
+        }, 1000);
+      },
+    },
   });
 
   const service = document.querySelector('.service');
