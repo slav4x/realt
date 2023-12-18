@@ -12,6 +12,9 @@
   .container-fluid
     @include flexbox
     align-items: center
+    z-index: initial
+  &.fixed
+    position: fixed
   &-col
     flex: 1
     @include flexbox
@@ -21,6 +24,8 @@
     width: 172px
     height: 42px
     background: url(../img/svg/logo.svg) no-repeat center
+    position: relative
+    z-index: 20
   &-contact
     @include flexbox
     flex-direction: column
@@ -51,6 +56,8 @@
     @include flexbox
     align-items: center
     justify-content: center
+    position: relative
+    z-index: 20
     a
       width: 54px !important
       height: 54px !important
@@ -65,6 +72,7 @@
         width: 18px
         height: 2px
         background: var(--color-black)
+        transition: .25s
       &::before
         content: ''
         position: absolute
@@ -84,6 +92,14 @@
           background: #fff
         &::before
           opacity: 1
+    &.open a
+      gap: 0px
+      span
+        margin: -1px 0
+        &:nth-child(1)
+          transform: rotate(45deg)
+        &:nth-child(2)
+          transform: rotate(-45deg)
   &-social
     @include flexbox
     align-items: center

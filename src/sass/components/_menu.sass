@@ -1,0 +1,131 @@
+.menu
+  position: absolute
+  z-index: 18
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  overflow: hidden
+  width: 100%
+  height: 0
+  transition: .5s ease-out
+  &.open
+    height: 100vh
+    height: var(--app-height)
+    transition-duration: .5s
+  &-bg
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    height: 100%
+    background: var(--color-bg)
+  &-wrapper
+    height: 100vh
+    height: var(--app-height)
+    .container-fluid
+      @include flexbox
+      align-items: stretch
+      height: 100%
+  &-left
+    width: 720px
+    border-right: 1px solid var(--color-border)
+    padding-top: 155px
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+  &-right
+    width: calc(100% - 720px)
+    padding-top: 155px
+    padding-left: 100px
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+    &__wrapper
+      width: 100%
+      height: 660px
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      justify-content: space-between
+  &-main
+    font-family: 'Wulkan Display'
+    font-size: 90px
+    font-weight: 500
+    line-height: 1
+    li
+      a
+        padding: 10px 0
+        display: block
+  &-footer
+    margin-top: auto
+    height: 72px
+    @include flexbox
+    align-items: center
+    justify-content: space-between
+    width: 100%
+  &-copy
+    font-size: 16px
+    font-weight: 500
+    line-height: 1.5
+    color: var(--color-dark)
+  &-sub
+    font-size: 20px
+    line-height: 1
+    li
+      a
+        display: block
+        padding: 10px 0
+  &-contact
+    li
+      margin-top: 30px
+      &:first-child
+        margin-top: 0
+      span
+        display: block
+        font-size: 14px
+        font-weight: 500
+        text-transform: uppercase
+        letter-spacing: 0.05em
+        color: var(--color-dark)
+        margin-bottom: 12px
+      p
+        font-family: 'Wulkan Display'
+        font-weight: 500
+        line-height: 1
+        font-size: 54px
+        margin-bottom: 12px
+        &:last-child
+          margin-bottom: 0
+      a
+        line-height: 1.6
+  &-license
+    font-size: 16px
+    line-height: 1
+    font-weight: 500
+  &-social
+    @include flexbox
+    align-items: flex-start
+    gap: 20px
+    font-size: 16px
+    line-height: 1
+    a
+      @include flexbox
+      align-items: center
+      gap: 12px
+      &::before
+        content: ''
+        display: block
+        width: 52px
+        height: 52px
+        border-radius: 100%
+        border: 1px solid var(--color-border)
+        background-repeat: no-repeat
+        background-position: center
+    li.wa a::before
+      background-image: url(../img/svg/wa.svg)
+    li.tg a::before
+      background-image: url(../img/svg/tg.svg)
+    li.skype a::before
+      background-image: url(../img/svg/skype.svg)
