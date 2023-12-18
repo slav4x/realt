@@ -25,7 +25,7 @@
         <b>Врач-психиатр, психотерапевт</b>
       </div>
       <div class="specialists-card__cta">
-        <a href="#" class="btn">Записаться</a>
+        <button class="btn btn-green btn-lg"><p>Записаться</p></button>
         <div class="specialists-card__price">
           <p>Первичный, повторный приём</p>
           <b>10 000 ₽  /  7 000 ₽</b>
@@ -221,21 +221,72 @@
     <div class="container">
       <div class="reviews-sidebar">
         <div class="reviews-author">
-          <h4>NNN, Москва</h4>
-          <p>Подпись</p>
+          <div class="reviews-author__item active" data-id="1">
+            <h4>Автор 1, Москва</h4>
+            <p>Подпись</p>
+          </div>
+          <div class="reviews-author__item" data-id="2">
+            <h4>Автор 2, Москва</h4>
+            <p>Подпись</p>
+          </div>
+          <div class="reviews-author__item" data-id="3">
+            <h4>Автор 3, Москва</h4>
+            <p>Подпись</p>
+          </div>
+          <div class="reviews-author__item" data-id="4">
+            <h4>Автор 4, Москва</h4>
+            <p>Подпись</p>
+          </div>
+          <div class="reviews-author__item" data-id="5">
+            <h4>Автор 5, Москва</h4>
+            <p>Подпись</p>
+          </div>
+          <div class="reviews-author__item" data-id="6">
+            <h4>Автор 6, Москва</h4>
+            <p>Подпись</p>
+          </div>
         </div>
         <div class="reviews-btns">
-          <a href="#" class="btn-outline">Оставить отзыв</a>
+          <a href="#" class="btn btn-outline btn-noarrow btn-lg"><p>Оставить отзыв</p></a>
         </div>
       </div>
       <div class="reviews-main">
-        {% include "components/reviews-item.html" %}
-        {% include "components/reviews-item.html" %}
-        {% include "components/reviews-item.html" %}
-        {% include "components/reviews-item.html" %}
-        {% include "components/reviews-item.html" %}
-        {% include "components/reviews-item.html" %}
-        {% include "components/reviews-item.html" %}
+        <div class="reviews-item active" data-id="1">
+          <p class="reviews-item__date">16 июня 2023</p>
+          <h4 class="title-md">Столько позитива, внимания и профессионализма!</h4>
+          <p class="reviews-item__text">Много лет наблюдаюсь у доктора Варданян Карины Левоновны! Столько позитива, внимания и профессионализма!!! Спасибо большое за ваш труд!</p>
+          <a href="#" class="reviews-item__more">Показать весь отзыв</a>
+        </div>
+        <div class="reviews-item" data-id="2">
+          <p class="reviews-item__date">16 июня 2023</p>
+          <h4 class="title-md">Столько позитива, внимания и профессионализма!</h4>
+          <p class="reviews-item__text">Много лет наблюдаюсь у доктора Варданян Карины Левоновны! Столько позитива, внимания и профессионализма!!! Спасибо большое за ваш труд!</p>
+          <a href="#" class="reviews-item__more">Показать весь отзыв</a>
+        </div>
+        <div class="reviews-item" data-id="3">
+          <p class="reviews-item__date">16 июня 2023</p>
+          <h4 class="title-md">Столько позитива, внимания и профессионализма!</h4>
+          <p class="reviews-item__text">Много лет наблюдаюсь у доктора Варданян Карины Левоновны! Столько позитива, внимания и профессионализма!!! Спасибо большое за ваш труд!</p>
+          <a href="#" class="reviews-item__more">Показать весь отзыв</a>
+        </div>
+        <div class="reviews-item" data-id="4">
+          <p class="reviews-item__date">16 июня 2023</p>
+          <h4 class="title-md">Столько позитива, внимания и профессионализма!</h4>
+          <p class="reviews-item__text">Много лет наблюдаюсь у доктора Варданян Карины Левоновны! Столько позитива, внимания и профессионализма!!! Спасибо большое за ваш труд!</p>
+          <a href="#" class="reviews-item__more">Показать весь отзыв</a>
+        </div>
+        <div class="reviews-item" data-id="5">
+          <p class="reviews-item__date">16 июня 2023</p>
+          <h4 class="title-md">Столько позитива, внимания и профессионализма!</h4>
+          <p class="reviews-item__text">Много лет наблюдаюсь у доктора Варданян Карины Левоновны! Столько позитива, внимания и профессионализма!!! Спасибо большое за ваш труд!</p>
+          <a href="#" class="reviews-item__more">Показать весь отзыв</a>
+        </div>
+        <div class="reviews-item" data-id="6">
+          <p class="reviews-item__date">16 июня 2023</p>
+          <h4 class="title-md">Столько позитива, внимания и профессионализма!</h4>
+          <p class="reviews-item__text">Много лет наблюдаюсь у доктора Варданян Карины Левоновны! Столько позитива, внимания и профессионализма!!! Спасибо большое за ваш труд!</p>
+          <a href="#" class="reviews-item__more">Показать весь отзыв</a>
+        </div>
       </div>
     </div>
   </div>
@@ -246,7 +297,7 @@
     <h3 class="subtitle">У вас есть вопросы? мы поможем найти ответы</h3>
     <h2 class="title-xl">Выделим лучших клинических психологов для оперативного консультирования по вопросам лечения в нашей клинике</h2>
     <a href="tel:+7 (495) 864 74 41" class="specialists-ask__phone">+7 (495) 864 74 41</a>
-    <div class="btn-wrap"><a href="#" class="btn">Позвонить</a></div>
+    <div class="btn-wrap"><a href="#" class="btn btn-green btn-noarrow btn-lg"><p>Позвонить</p></a></div>
   </div>
 </section>
 

@@ -187,16 +187,19 @@
         display: block
       .title-xl
         margin-bottom: 20px
-      p
+      & > p
         max-width: 525px
         color: var(--color-dark)
         margin-bottom: 32px
-      .btn-outline
-        padding: 20px 35px
-        gap: 9px
+      .btn
+        p::after
+          display: none
         span
           opacity: 0.5
           color: var(--color-green)
+          transition: .25s
+        &:hover span
+          color: #fff
     &__data
       display: none
       &.active

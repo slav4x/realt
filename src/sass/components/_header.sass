@@ -59,10 +59,31 @@
       gap: 5px
       flex-direction: column
       background: #fff
+      transition: .25s
+      position: relative
       span
         width: 18px
         height: 2px
         background: var(--color-black)
+      &::before
+        content: ''
+        position: absolute
+        top: 4px
+        left: 4px
+        right: 4px
+        bottom: 4px
+        border-radius: 100%
+        border: 1px dashed #fff
+        opacity: 0
+      &:hover
+        background: var(--color-brown)
+        transform: rotate(90deg)
+        border-color: transparent
+        transition: .25s
+        span
+          background: #fff
+        &::before
+          opacity: 1
   &-social
     @include flexbox
     align-items: center
@@ -81,34 +102,8 @@
           background-image: url(../img/svg/wa.svg)
         &.tg
           background-image: url(../img/svg/tg.svg)
-  &-btn
-    @include flexbox
-    align-items: center
-    justify-content: center
-    gap: 14px
-    width: 196px
-    height: 48px
-    border: 1px solid var(--color-black)
-    background: #fff
-    border-radius: 99px
-    font-weight: 600
-    position: relative
+  .btn-outline
     margin-left: 16px
-    &::after
-      content: ''
-      width: 12px
-      height: 12px
-      display: block
-      background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='%2300574F'/%3E%3C/svg%3E%0A") no-repeat center
-    &::before
-      content: ''
-      position: absolute
-      top: -5px
-      left: -5px
-      right: -5px
-      bottom: -5px
-      border-radius: 99px
-      border: 1px dashed var(--color-black)
   &-white
     background: transparent
     color: #fff
@@ -123,12 +118,21 @@
             background-image: url(../img/svg/wa-white.svg)
           &.tg
             background-image: url(../img/svg/tg-white.svg)
-    .header-btn
-      border: 1px solid rgba(255,255,255,.7)
-      background: transparent
-      &::after
-        background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
-      &::before
-        border: 1px dashed #fff
+    .btn-outline
+      border: 1px dashed #fff
+      color: #fff
+      p
+        &::after
+          background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A") no-repeat center
+        &::before
+          border: 1px solid #fff
+      &:hover
+        background: #fff
+        color: var(--color-green)
+        p
+          &::after
+            background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='%2300574F'/%3E%3C/svg%3E%0A") no-repeat center
+          &::before
+            border: 1px dashed var(--color-green)
   &-clear
     background: transparent

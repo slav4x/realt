@@ -88,14 +88,18 @@
     overflow: hidden
     .title-xl
       margin-bottom: 16px
-    p
-      color: var(--color-dark)
-      margin-bottom: 24px
-    .btn-outline
-      gap: 10px
+      & + p
+        color: var(--color-dark)
+        margin-bottom: 24px
+    .btn
+      p::after
+        display: none
       span
-        color: var(--color-green)
         opacity: 0.5
+        color: var(--color-green)
+        transition: .25s
+      &:hover span
+        color: #fff
     &__img
       position: absolute
       top: -330px
@@ -106,12 +110,6 @@
     padding: var(--gap-md) 0
     .btn-wrap
       justify-content: center
-    .btn-outline::after
-      content: ''
-      display: block
-      width: 13px
-      height: 9px
-      background: url("data:image/svg+xml,%3Csvg width='13' height='9' viewBox='0 0 13 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.487793 8.51611L6.36013 6.26611L12.4878 8.51611L6.36013 0.266114L0.487793 8.51611Z' fill='%23002E25'/%3E%3C/svg%3E%0A") no-repeat center
   &-head
     height: 96px
     background: #fff
