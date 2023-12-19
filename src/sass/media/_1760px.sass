@@ -276,10 +276,16 @@
       height: 83px
       &__slider
         font-size: 14px
-        .swiper-slide
-          padding: 0
+        gap: 24px
+        padding-right: 24px
+      &__item
+        padding: 0
     &-section
-      padding: 60px 0
+      padding: 120px 0 0
+      &:first-child
+        margin-top: -60px
+    &-col:nth-child(5)
+      width: 175px
 
   .contact
     &-address

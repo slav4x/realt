@@ -295,6 +295,34 @@ input
           left: 2px
           right: 2px
           bottom: 2px
+  &-transparent
+    color: var(--color-green)
+    border-color: transparent
+    p
+      &::before
+        border-color: transparent
+      &::after
+        background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='%2300574F'/%3E%3C/svg%3E%0A") no-repeat center
+    &:hover
+      background: var(--color-green)
+      color: #fff
+      p
+        &::after
+          background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A") no-repeat center
+        &::before
+          border: 1px dashed #fff
+      &.btn-lg
+        p::before
+          top: 3px
+          left: 3px
+          right: 3px
+          bottom: 3px
+      &.btn-md, &.btn-sm
+        p::before
+          top: 2px
+          left: 2px
+          right: 2px
+          bottom: 2px
   &-lg
     padding: 5px
     height: 72px

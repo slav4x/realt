@@ -5,8 +5,8 @@
   &-section
     padding: var(--gap-lg) 0
     counter-reset: priceSection
-    &:first-child
-      padding-top: 0
+    // &:first-child
+    //   padding-top: 0
     &:last-child
       padding-bottom: 0
   &-table
@@ -42,7 +42,19 @@
         &:nth-child(1)::before
           counter-increment: priceSection
           content: '( ' counter(priceSection, decimal-leading-zero) ' )'
-
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: -1000px
+        right: -1000px
+        bottom: 0
+        background: #F1F3F2
+        z-index: -1
+        opacity: 0
+        transition: .25s
+      &:hover::after
+        opacity: 1
   &-col
     @include flexbox
     align-items: center
@@ -67,20 +79,8 @@
       text-align: right
       justify-content: flex-end
     &:nth-child(5)
-      width: 230px
+      width: 215px
       padding-left: 20px
-  &-btn
-    @include flexbox
-    align-items: center
-    gap: 14px
-    font-weight: 600
-    padding: 12px 30px
-    &::after
-      content: ''
-      display: block
-      width: 8px
-      height: 12px
-      background: url("data:image/svg+xml,%3Csvg width='8' height='12' viewBox='0 0 8 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 12L2.18182 6.12766L0 0L8 6.12766L0 12Z' fill='%2300574F'/%3E%3C/svg%3E%0A") no-repeat center
   &-full
     padding: 100px 0
     background: #e7e8e3
@@ -123,34 +123,46 @@
       align-items: center
     &__wrapper
       height: 100%
-      overflow: hidden
       flex: 1
+      overflow: hidden
     &__slider
+      width: 100%
       height: 100%
       font-size: 16px
       color: var(--color-dark)
       letter-spacing: -0.02em
       line-height: 16px
-      .swiper-slide
-        height: 100%
-        width: auto
-        padding: 0 20px
-        @include flexbox
-        align-items: center
-        position: relative
-        cursor: pointer
-        &::before
-          content: ''
-          position: absolute
-          bottom: 0
-          left: 0
-          right: 0
-          height: 1px
-          background: var(--color-black)
-          opacity: 0.1
-          transition: .3s
-        &.swiper-slide-active::before
-          opacity: 1
+      overflow-x: scroll
+      white-space: nowrap
+      -ms-overflow-style: none
+      scrollbar-width: none
+      @include flexbox
+      flex-wrap: nowrap
+      gap: 32px
+      padding-right: 32px
+      &::-webkit-scrollbar
+        width: 0px
+        background: transparent
+        height: 0px
+    &__item
+      height: 100%
+      padding: 0 20px
+      @include flexbox
+      align-items: center
+      position: relative
+      cursor: pointer
+      &::before
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        height: 1px
+        background: var(--color-black)
+        opacity: 0.1
+        transition: .3s
+      &.active::before
+        opacity: 1
     &__control
       @include flexbox
       align-items: center

@@ -76,30 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  const priceSlider = new Swiper('.price-head__slider', {
-    slidesPerView: 'auto',
-    spaceBetween: 24,
-    navigation: {
-      nextEl: '.price-head__next',
-      prevEl: '.price-head__prev',
-    },
-    breakpoints: {
-      1760: {
-        spaceBetween: 30,
-      },
-    },
-    on: {
-      init: function () {
-        setTimeout(() => {
-          const lastSlide = this.slides[this.slides.length - 1];
-          const lastSlideWidth = lastSlide.offsetWidth;
-          const slider = document.querySelector('.price-head__slider');
-          slider.style.width = lastSlideWidth + 'px';
-        }, 1000);
-      },
-    },
-  });
-
   const service = document.querySelector('.service');
   if (service) {
     const serviceItem = service.querySelectorAll('.service-item');
@@ -277,6 +253,86 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = isOpen ? 'hidden' : 'visible';
     }
   });
+
+  const pricePage = document.querySelector('.price');
+  if (pricePage) {
+    let scrollInterval;
+
+    const leftBtn = document.querySelector('.price-head__prev');
+    const rightBtn = document.querySelector('.price-head__next');
+    const content = document.querySelector('.price-head__slider');
+    const wrapper = document.querySelector('.price-head__wrapper');
+    const control = document.querySelector('.price-head__control');
+
+    function startScrolling(direction) {
+      const scrollAmount = direction === 'left' ? -10 : 10;
+      scrollInterval = setInterval(() => {
+        content.scrollLeft += scrollAmount;
+      }, 20);
+    }
+
+    function stopScrolling() {
+      clearInterval(scrollInterval);
+    }
+
+    function onMouseUpOrLeave() {
+      stopScrolling();
+      isDown = false;
+    }
+
+    leftBtn.addEventListener('mousedown', () => startScrolling('left'));
+    rightBtn.addEventListener('mousedown', () => startScrolling('right'));
+
+    [leftBtn, rightBtn].forEach((btn) => {
+      btn.addEventListener('mouseup', onMouseUpOrLeave);
+      btn.addEventListener('mouseleave', onMouseUpOrLeave);
+    });
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    content.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - content.offsetLeft;
+      scrollLeft = content.scrollLeft;
+    });
+
+    content.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - content.offsetLeft;
+      const walk = (x - startX) * 1;
+      content.scrollLeft = scrollLeft - walk;
+    });
+
+    function toggleScrollButtons() {
+      control.style.display = content.scrollWidth <= wrapper.offsetWidth ? 'none' : 'flex';
+    }
+
+    toggleScrollButtons();
+    window.addEventListener('resize', toggleScrollButtons);
+
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.price-section');
+      const sliderItems = document.querySelectorAll('.price-head__item');
+
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top - 100;
+        const sectionBottom = section.getBoundingClientRect().bottom;
+
+        if (sectionTop <= 0 && sectionBottom >= 0) {
+          const currentActiveId = section.getAttribute('data-id');
+          sliderItems.forEach((item) => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-id') === currentActiveId) {
+              item.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+  }
 });
 
 window.addEventListener('resize', function () {
