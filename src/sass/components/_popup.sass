@@ -1,0 +1,32 @@
+.popup
+  position: fixed
+  z-index: 9999
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  pointer-events: none
+  &-bg
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: #000
+    opacity: 0
+  &-wrapper
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    overscroll-behavior-y: contain
+    overflow-y: auto
+    z-index: 100
+    padding: 80px 80px 20px
+    background: #fbfaf9
+    max-width: calc(100% - 90px)
+    margin-left: auto
+  &.open
+    pointer-events: auto
+    .popup-bg
+      opacity: .2
