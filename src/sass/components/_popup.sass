@@ -14,6 +14,7 @@
     bottom: 0
     background: #000
     opacity: 0
+    transition: .3s ease
   &-wrapper
     position: absolute
     top: 0
@@ -26,7 +27,89 @@
     background: #fbfaf9
     max-width: calc(100% - 90px)
     margin-left: auto
+    transform: translateX(100%)
+    transition: .3s ease
   &.open
     pointer-events: auto
     .popup-bg
       opacity: .2
+    .popup-wrapper
+      transform: translateX(0%)
+  &-close
+    position: absolute
+    width: 56px
+    height: 56px
+    top: 40px
+    right: 40px
+    border-radius: 100%
+    background: #fff
+    border: 1px dashed rgba(15, 15, 17, 0.30)
+    cursor: pointer
+    @include flexbox
+    align-items: center
+    flex-direction: column
+    justify-content: center
+    transition: .25s
+    &::before, &::after
+      content: ''
+      display: block
+      width: 18px
+      height: 2px
+      background: var(--color-black)
+      transition: .25s
+      margin: -1px 0
+    &::before
+      transform: rotate(45deg)
+    &::after
+      transform: rotate(-45deg)
+    &:hover
+      background: var(--color-brown)
+      border-color: #fff
+      transform: rotate(180deg)
+      &::before, &::after
+        background: #fff
+  &-call
+    max-width: 460px
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+    justify-content: space-between
+    height: 100%
+    &__subtitle
+      margin-top: 16px
+      line-height: 1.2
+      letter-spacing: -0.02em
+      color: var(--color-gray)
+      b
+        font-weight: 500
+    form
+      width: 100%
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      gap: 24px
+      .label
+        width: 100%
+      .btn, .btn p
+        width: 100%
+      .btn p
+        justify-content: center
+      .btn
+        margin: 24px 0 0
+      small
+        font-size: 14px
+        text-align: center
+        line-height: 1.6
+        color: var(--color-dark)
+        display: block
+        width: 100%
+        a
+          color: var(--color-black)
+          font-weight: 600
+  &-footer
+    text-align: center
+    font-size: 12px
+    font-weight: 500
+    line-height: 1.5
+    color: var(--color-dark)
+    width: 100%

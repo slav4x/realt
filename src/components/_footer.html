@@ -55,10 +55,29 @@
   </div>
 </footer>
 
-<div class="popup open">
+<div class="popup" data-popup="call">
   <div class="popup-bg"></div>
   <div class="popup-wrapper">
-    123123
+    <div class="popup-close"></div>
+    <div class="popup-call">
+      <div class="popup-call__head">
+        <h3 class="title-md">Заказать обратный звонок</h3>
+        <p class="popup-call__subtitle">В рабочее время с Вами свяжется администратор клиники, мы работаем <b>с 10:00 до 21:00</b> (Пн-Сб)</p>
+      </div>
+      <form action="#">
+        <label class="label">
+          <p>Представьтесь</p>
+          <input type="text" placeholder="Ваше имя и фамилия" />
+        </label>
+        <label class="label">
+          <p>Номер телефона</p>
+          <input type="text" class="masked" placeholder="+7 (000) 000-00-00" />
+        </label>
+        <button class="btn btn-outline btn-lg"><p>Записаться</p></button>
+        <small>Нажимая на эту кнопку вы принимаете условия<br><a href="#">Соглашения о передаче личных данных</a></small>
+      </form>
+      <div class="popup-footer">© 2015-2023 ООО “Центр душевного здоровья”</div>
+    </div>
   </div>
 </div>
 {% endif %}

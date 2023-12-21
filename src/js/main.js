@@ -413,6 +413,49 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  // Функция для вычисления ширины скроллбара
+  function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
+  // Функция для открытия popup
+  function openPopup(popupId) {
+    const scrollbarWidth = getScrollbarWidth();
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = scrollbarWidth + 'px';
+
+    const popup = document.querySelector(`[data-popup="${popupId}"]`);
+    if (popup) {
+      popup.classList.add('open');
+    }
+  }
+
+  // Функция для закрытия popup
+  function closePopup() {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+
+    const popups = document.querySelectorAll('[data-popup]');
+    popups.forEach(function (popup) {
+      popup.classList.remove('open');
+    });
+  }
+
+  // Обработчик клика на элементы с data-button
+  document.querySelectorAll('[data-button]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const popupId = button.getAttribute('data-button');
+      openPopup(popupId);
+    });
+  });
+
+  // Обработчик клика на элементы для закрытия popup
+  document.querySelectorAll('.popup-close, .popup-bg').forEach(function (closeTrigger) {
+    closeTrigger.addEventListener('click', function () {
+      closePopup();
+    });
+  });
 });
 
 window.addEventListener('resize', function () {
