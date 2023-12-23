@@ -26,6 +26,7 @@
         height: 100%
         object-fit: cover
         object-position: center
+        transition: .25s
     &__cat
       font-size: 16px
       font-weight: 500
@@ -43,6 +44,7 @@
       -webkit-line-clamp: 3
       display: -webkit-box
       -webkit-box-orient: vertical
+      transition: .25s
     &__text
       -webkit-line-clamp: 3
       display: -webkit-box
@@ -64,6 +66,12 @@
       color: var(--color-dark)
       width: 100%
       margin-top: auto
+    &:hover
+      .blog-item__image
+        img
+          transform: scale(1.1, 1.1)
+      .blog-item__title
+        color: var(--color-green)
   &-control
     margin-left: auto
   &-themes
@@ -87,6 +95,10 @@
         font-weight: 500
         letter-spacing: -0.02em
         border: 1px solid var(--color-border)
+        transition: .25s
+        &:hover
+          border-color: rgba(15, 15, 17, 0.30)
+          color: var(--color-green)
   &-page
     padding: var(--gap-lg) 0
   &-grid
@@ -181,6 +193,10 @@
           font-size: 16px
           line-height: 22px
           font-weight: 500
+          transition: .25s
+          &:hover
+            border-color: rgba(15, 15, 17, 0.30)
+            color: var(--color-green)
     &__next
       display: block
       padding: 20px 0
@@ -197,6 +213,7 @@
         margin-top: 12px
         line-height: 1.6
         font-weight: 500
+        transition: .25s
       &::before
         content: ''
         position: absolute
@@ -213,6 +230,12 @@
         cursor: pointer
         transform: rotate(180deg)
         box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 4px var(--color-border)
+        transition: .25s
+      &:hover
+        p
+          color: var(--color-green)
+        &::before
+          background: var(--color-green) url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.63721 12.6084L7.38721 6.73606L9.63721 0.608398L1.38721 6.73606L9.63721 12.6084Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A") no-repeat center
     &__content
       padding: 40px
       padding-right: 0
