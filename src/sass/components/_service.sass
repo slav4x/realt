@@ -348,6 +348,19 @@ a.service-item:hover
           right: -40px
           height: 1px
           background: var(--color-border)
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: -1000px
+          right: -40px
+          bottom: 0
+          background: #f1f3f2
+          z-index: -1
+          transition: .25s
+          opacity: 0
+        &:hover::before
+          opacity: 1
         .service-price__col:nth-child(2)
           font-weight: 500
           color: #0f0f11
