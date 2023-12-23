@@ -473,6 +473,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const serviceBlock = document.querySelector('.service'); // Элемент, до которого будет производиться прокрутка
 
   if (serviceBlock) {
+    document.querySelector('html').style.scrollBehavior = 'auto';
     searchInput.addEventListener('input', function () {
       const searchQuery = this.value.toLowerCase();
       const serviceItems = document.querySelectorAll('.service-item');
