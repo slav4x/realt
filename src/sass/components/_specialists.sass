@@ -177,6 +177,10 @@
       border: 1px solid var(--color-border)
       line-height: 24px
       cursor: pointer
+      transition: .25s
+      &:hover
+        border-color: rgba(15, 15, 17, 0.30)
+        color: var(--color-green)
       &.active
         border-color: var(--color-black)
         font-weight: 500
@@ -290,6 +294,11 @@
       font-size: 130px
       letter-spacing: -0.02em
       font-weight: 300
+      border-bottom: 1px solid transparent
+      transition: .25s
+      &:hover
+        color: var(--color-brown)
+        border-color: var(--color-brown)
     .btn-wrap
       justify-content: center
       margin-top: 50px
