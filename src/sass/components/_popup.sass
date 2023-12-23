@@ -171,3 +171,103 @@
           display: none
     .popup-footer
       text-align: left
+    &__form
+      width: 100%
+      @include flexbox
+      align-items: flex-start
+      gap: 24px
+      margin-bottom: 24px
+      .btn, .btn p
+        width: 100%
+      .btn p
+        justify-content: center
+      small
+        font-size: 14px
+        text-align: center
+        line-height: 1.6
+        color: var(--color-dark)
+        display: block
+        width: 100%
+        a
+          color: var(--color-black)
+          font-weight: 600
+    &__label
+      display: block
+      width: 100%
+      padding-top: 14px
+      position: relative
+      span
+        position: absolute
+        bottom: 11px
+        right: 0
+        font-size: 14px
+        color: #000
+        opacity: 0.3
+      p
+        width: 100%
+        font-size: 14px
+        font-weight: 500
+        line-height: 1.6
+        color: var(--color-dark)
+        text-transform: uppercase
+      input
+        width: 100%
+        height: 44px
+        border-bottom: 1px solid var(--color-border)
+        padding: 0
+        transition: .25s
+        @include placeholder
+          color: #b0afaf
+        &:focus, &:active
+          border-color: var(--color-black)
+      textarea
+        width: 100%
+        height: 300px
+        border-bottom: 1px solid var(--color-border)
+        padding: 8px 0 0
+        transition: .25s
+        resize: none
+        @include placeholder
+          color: #b0afaf
+        &:focus, &:active
+          border-color: var(--color-black)
+      &-col
+        width: calc(100% / 2 - 12px)
+      .ts-control
+        padding: 0 !important
+        border: 0
+        border-radius: 0
+        background: transparent
+        input
+          font-size: 18px !important
+          border-bottom: 1px solid rgba(15, 15, 17, 0.10) !important
+          margin: 0 !important
+          &:focus, &:active
+            border-color: #002E25 !important
+      .ts-wrapper.multi.has-items .ts-control
+        padding-top: 8px !important
+      .ts-wrapper.multi .ts-control>div
+        background: #F1F3F2
+        padding: 8px 12px
+        margin: 0 5px 5px 0
+        font-size: 15px
+        border-radius: 99px
+        border: 1px solid var(--color-border)
+        color: var(--color-black)
+      .ts-dropdown [data-selectable].option
+        padding: 12px
+        font-size: 18px
+        line-height: 1.4
+        color: var(--color-black)
+        &.active
+          background: #F7F5F3
+          color: var(--color-black)
+      .ts-dropdown
+        border-radius: 4px
+        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.05)
+        border: 0
+      .ts-wrapper.plugin-remove_button .item .remove
+        border: 0
+        border-radius: 100%
+        margin-right: 8px
+        background: #fff

@@ -456,6 +456,18 @@ document.addEventListener('DOMContentLoaded', function () {
       closePopup();
     });
   });
+
+  new TomSelect('#specialists-select', {
+    plugins: ['remove_button'],
+  });
+
+  const textarea = document.getElementById('reviewTextarea');
+  const counter = document.getElementById('counter');
+
+  textarea.addEventListener('keyup', function () {
+    const currentLength = textarea.value.length;
+    counter.innerText = `${currentLength}/1000`;
+  });
 });
 
 window.addEventListener('resize', function () {

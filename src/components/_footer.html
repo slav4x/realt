@@ -103,4 +103,45 @@
     </div>
   </div>
 </div>
+
+<div class="popup" data-popup="reviews-send">
+  <div class="popup-bg"></div>
+  <div class="popup-wrapper">
+    <div class="popup-close"></div>
+    <div class="popup-reviews">
+      <form action="#" class="popup-reviews__form">
+        <label class="popup-reviews__label popup-reviews__label-col">
+          <p>Ваше имя и фамилия</p>
+          <input type="text" name="name" placeholder="Иван Петров">
+        </label>
+        <label class="popup-reviews__label popup-reviews__label-col">
+          <p>Город</p>
+          <input type="text" name="city" placeholder="Москва">
+        </label>
+        <label class="popup-reviews__label">
+          <p>Электронная почта</p>
+          <input type="email" name="email" placeholder="example@mail.ru">
+        </label>
+        <label class="popup-reviews__label">
+          <p>Выберите специалиста (ов)</p>
+          <select id="specialists-select" name="specialists[]" multiple placeholder="Выбрать из списка" autocomplete="off">
+            <option value="">Выбрать из списка</option>
+            <option>Арсеньева Татьяна Борисовна 1</option>
+            <option>Арсеньева Татьяна Борисовна 2</option>
+            <option>Арсеньева Татьяна Борисовна 3</option>
+            <option>Арсеньева Татьяна Борисовна 4</option>
+          </select>
+        </label>
+        <label class="popup-reviews__label">
+          <p>Ваш отзыв</p>
+          <textarea id="reviewTextarea" name="text" placeholder="Поделитесь своими впечатлениями (не менее 300 символов)"></textarea>
+          <span id="counter">0/1000</span>
+        </label>
+        <button class="btn btn-outline btn-lg"><p>Оставить отзыв</p></button>
+        <small>Нажимая на эту кнопку вы принимаете условия<br><a href="#">Соглашения о передаче личных данных</a></small>
+      </form>
+      <div class="popup-footer">© 2015-2023 ООО “Центр душевного здоровья”</div>
+    </div>
+  </div>
+</div>
 {% endif %}
