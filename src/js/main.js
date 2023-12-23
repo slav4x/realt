@@ -293,6 +293,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let scrollLeft;
 
     content.addEventListener('mousedown', (e) => {
+      if (e.target.tagName === 'A') {
+        return;
+      }
+
       isDown = true;
       startX = e.pageX - content.offsetLeft;
       scrollLeft = content.scrollLeft;
@@ -373,6 +377,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let scrollLeft;
 
     content.addEventListener('mousedown', (e) => {
+      if (e.target.tagName === 'A') {
+        return;
+      }
+
       isDown = true;
       startX = e.pageX - content.offsetLeft;
       scrollLeft = content.scrollLeft;
@@ -472,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.querySelector('.service-search input');
   const serviceBlock = document.querySelector('.service'); // Элемент, до которого будет производиться прокрутка
 
-  if (serviceBlock) {
+  if (searchInput) {
     document.querySelector('html').style.scrollBehavior = 'auto';
     searchInput.addEventListener('input', function () {
       const searchQuery = this.value.toLowerCase();
