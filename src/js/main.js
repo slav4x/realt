@@ -468,6 +468,34 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentLength = textarea.value.length;
     counter.innerText = `${currentLength}/1000`;
   });
+
+  const searchInput = document.querySelector('.service-search input');
+  const serviceBlock = document.querySelector('.service'); // Элемент, до которого будет производиться прокрутка
+
+  if (serviceBlock) {
+    searchInput.addEventListener('input', function () {
+      const searchQuery = this.value.toLowerCase();
+      const serviceItems = document.querySelectorAll('.service-item');
+      let hasVisibleItems = false;
+
+      serviceItems.forEach((item) => {
+        const titleText = item.querySelector('.title-md').textContent.toLowerCase();
+        const paragraphText = item.querySelector('p') ? item.querySelector('p').textContent.toLowerCase() : '';
+
+        if (titleText.includes(searchQuery) || paragraphText.includes(searchQuery)) {
+          item.style.display = '';
+          hasVisibleItems = true;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Прокрутка до первого элемента service-item, если есть видимые элементы
+      if (hasVisibleItems) {
+        serviceBlock.scrollIntoView({ block: 'start' });
+      }
+    });
+  }
 });
 
 window.addEventListener('resize', function () {
