@@ -29,6 +29,7 @@
     margin-left: auto
     transform: translateX(100%)
     transition: .3s ease
+    @include flexbox
   &.open
     pointer-events: auto
     .popup-bg
@@ -70,11 +71,11 @@
         background: #fff
   &-call
     max-width: 460px
+    width: 100%
     @include flexbox
     flex-direction: column
     align-items: flex-start
     justify-content: space-between
-    height: 100%
     &__subtitle
       margin-top: 16px
       line-height: 1.2
@@ -113,3 +114,60 @@
     line-height: 1.5
     color: var(--color-dark)
     width: 100%
+
+  &-reviews
+    max-width: 600px
+    width: 100%
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+    justify-content: space-between
+    &__text
+      line-height: 1.6
+      color: var(--color-dark)
+      margin-top: 24px
+      margin-bottom: 40px
+    &__specialists
+      margin-top: auto
+      margin-bottom: 50px
+      p
+        text-transform: uppercase
+        font-size: 14px
+        font-weight: 500
+        line-height: 1.6
+        margin-bottom: 16px
+        letter-spacing: 0.05em
+        color: var(--color-dark)
+      ul
+        display: block
+        line-height: 1.6
+        font-weight: 500
+        li
+          display: inline
+          &::after
+            content: '•'
+            padding: 0 8px
+          &:last-child::after
+            display: none
+          a
+            border-bottom: 1px solid transparent
+            transition: .25s
+            &:hover
+              color: var(--color-green)
+              border-color: var(--color-green)
+    &__info
+      display: block
+      margin-bottom: 24px
+      line-height: 1.6
+      font-size: 16px
+      font-weight: 500
+      color: var(--color-dark)
+      li
+        display: inline
+        &::after
+          content: '•'
+          padding: 0 8px
+        &:last-child::after
+          display: none
+    .popup-footer
+      text-align: left
