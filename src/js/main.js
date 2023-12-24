@@ -429,11 +429,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Функция для открытия popup
   function openPopup(popupId) {
+    const popup = document.querySelector(`[data-popup="${popupId}"]`);
+
+    if (!popup) {
+      console.error(`Error: popup "${popupId}" not defined`);
+      return;
+    }
+
     const scrollbarWidth = getScrollbarWidth();
     document.body.style.overflow = 'hidden';
     document.body.style.paddingRight = scrollbarWidth + 'px';
 
-    const popup = document.querySelector(`[data-popup="${popupId}"]`);
     if (popup) {
       popup.classList.add('open');
     }
