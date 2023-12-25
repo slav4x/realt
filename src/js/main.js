@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   const licenseSlider = new Swiper('.license-slider', {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 12,
     navigation: {
       nextEl: '.license-next',
@@ -72,6 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
     breakpoints: {
       1760: {
         spaceBetween: 24,
+      },
+      1280: {
+        slidesPerView: 2,
       },
     },
   });
