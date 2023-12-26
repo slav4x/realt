@@ -6,7 +6,7 @@ const viewportFix = (width) => {
   meta.setAttribute('content', `user-scalable=no, width=${screen.width <= width ? width : 'device-width'}`);
 };
 
-viewportFix(360);
+viewportFix(420);
 
 document.addEventListener('DOMContentLoaded', function () {
   const maskOptions = {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const blogSlider = new Swiper('.blog-slider', {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 12,
     navigation: {
       nextEl: '.blog-next',
@@ -56,8 +56,11 @@ document.addEventListener('DOMContentLoaded', function () {
       1760: {
         spaceBetween: 24,
       },
-      1024: {
+      1023: {
         slidesPerView: 3,
+      },
+      767: {
+        slidesPerView: 2,
       },
     },
   });
@@ -81,6 +84,18 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     },
   });
+
+  if (window.innerWidth < 768) {
+    const specialistsGrid = new Swiper('.specialists-grid__slider', {
+      slidesPerView: 1,
+      spaceBetween: 12,
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+        },
+      },
+    });
+  }
 
   const service = document.querySelector('.service');
   if (service) {
@@ -176,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const blogSpecialists = new Swiper('.blog-specialists__slider', {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 12,
     navigation: {
       nextEl: '.blog-specialists__next',
@@ -189,11 +204,14 @@ document.addEventListener('DOMContentLoaded', function () {
       1280: {
         slidesPerView: 3,
       },
+      576: {
+        slidesPerView: 2,
+      },
     },
   });
 
   const blogMore = new Swiper('.blog-more__slider', {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 12,
     navigation: {
       nextEl: '.blog-more__next',
@@ -205,6 +223,9 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       1280: {
         slidesPerView: 3,
+      },
+      576: {
+        slidesPerView: 2,
       },
     },
   });

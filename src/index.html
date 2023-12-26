@@ -157,13 +157,15 @@
     <h2 class="title">В штате работают кандидаты и доктора наук, обладающие <i>фундаментальными</i> знаниями и <i>научно-практической деятельностью.</i></h2>
   </div>
   <div class="container-fluid">
-    <div class="specialists-grid">
-      {% include 'components/specialists-item.html' %}
-      {% include 'components/specialists-item.html' %}
-      {% include 'components/specialists-item.html' %}
-      {% include 'components/specialists-item.html' %}
-      {% include 'components/specialists-item.html' %}
-      {% include 'components/specialists-item.html' %}
+    <div class="specialists-grid specialists-grid__slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+      </div>
     </div>
     <a href="#" class="specialists-more">
       <h5 class="title">22</h5>
