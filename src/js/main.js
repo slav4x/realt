@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const blogSlider = new Swiper('.blog-slider', {
-    slidesPerView: 3,
+    slidesPerView: 2,
     spaceBetween: 12,
     navigation: {
       nextEl: '.blog-next',
@@ -55,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
     breakpoints: {
       1760: {
         spaceBetween: 24,
+      },
+      1024: {
+        slidesPerView: 3,
       },
     },
   });
@@ -173,11 +176,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const blogSpecialists = new Swiper('.blog-specialists__slider', {
-    slidesPerView: 3,
-    spaceBetween: 24,
+    slidesPerView: 2,
+    spaceBetween: 12,
     navigation: {
       nextEl: '.blog-specialists__next',
       prevEl: '.blog-specialists__prev',
+    },
+    breakpoints: {
+      1760: {
+        spaceBetween: 24,
+      },
+      1280: {
+        slidesPerView: 3,
+      },
+    },
+  });
+
+  const blogMore = new Swiper('.blog-more__slider', {
+    slidesPerView: 2,
+    spaceBetween: 12,
+    navigation: {
+      nextEl: '.blog-more__next',
+      prevEl: '.blog-more__prev',
+    },
+    breakpoints: {
+      1760: {
+        spaceBetween: 24,
+      },
+      1280: {
+        slidesPerView: 3,
+      },
     },
   });
 

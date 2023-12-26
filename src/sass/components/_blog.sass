@@ -132,8 +132,20 @@
 
   &-more
     padding-bottom: var(--gap-md)
-    .blog-grid
+    .container
+      @include flexbox
+      align-items: center
+    .subtitle
+      width: 100%
+      order: -2
+    .title
+      width: calc(100% - 300px)
+      order: -1
+    &__slider
+      overflow: hidden
       margin-top: 40px
+    &__control
+      margin-left: auto
   &-specialists
     padding-bottom: var(--gap-md)
     .container

@@ -98,12 +98,20 @@
 
 <section class="blog-more">
   <div class="container">
+    <div class="control blog-more__control">
+      <div class="arrow blog-more__prev"></div>
+      <div class="arrow blog-mores__next"></div>
+    </div>
     <h3 class="subtitle">Наш блог</h3>
     <h2 class="title">Читайте также</h2>
-    <div class="blog-grid">
-      {% include 'components/blog-item.html' %}
-      {% include 'components/blog-item.html' %}
-      {% include 'components/blog-item.html' %}
+    <div class="blog-more__slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">{% include 'components/blog-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/blog-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/blog-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/blog-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/blog-item.html' %}</div>
+      </div>
     </div>
   </div>
 </section>

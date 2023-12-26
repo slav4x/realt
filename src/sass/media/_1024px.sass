@@ -1,3 +1,273 @@
 @media(max-width: 1024px)
+  :root
+    --width-sidebar: 100%
+    --width-main: 100%
+
   .container
     max-width: 768px
+
+  .header
+    &-social
+      display: none
+    &-col
+      flex: initial
+      &:first-child
+        flex: 1
+    &-nav
+      order: 2
+    &-burger
+      width: 44px
+      margin-left: 20px
+    .btn-outline
+      margin-left: 20px
+    &-contact
+      margin-left: auto
+      align-items: flex-end
+
+  .hero
+    height: auto
+    padding-bottom: 100px
+    &-photos
+      display: none
+
+  .principle
+    h2.title br
+      display: none
+
+  .directions
+    &-wrapper
+      .container
+        padding: 0
+        max-width: 100%
+    &-sidebar
+      display: none
+    &-main
+      padding: 0 40px
+      border: 0
+
+  .advantages
+    &-list
+      li
+        &::before
+          width: 100px
+        span
+          width: calc(100% - 100px)
+
+  .free
+    .title
+      max-width: 600px
+
+  .specialists
+    &-grid
+      grid-template-columns: repeat(2, 1fr)
+
+  .faq
+    &-item
+      &::before
+        width: 100px
+    &-main
+      width: calc(100% - 100px)
+
+  .license
+    &-slider
+      width: 590px
+    &-scrollbar
+      right: -98px
+
+  .reviews
+    &-wrapper
+      margin-top: 24px
+      height: calc(100vh + 108px)
+    &-item
+      &__text
+        max-width: 100%
+    &-author
+      display: none
+    &-sidebar
+      padding-top: 0
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: -1000px
+        right: -1000px
+        bottom: 0
+        background: var(--color-bg)
+        z-index: -1
+      &::before
+        top: initial
+        bottom: -88px
+        right: 0
+
+  .footer
+    &-logo
+      img
+        height: 46px
+    &-desc
+      margin-top: 40px
+    &-social
+      margin-top: 40px
+      flex-direction: column
+      align-items: flex-start
+    &-copy
+      width: 100%
+      margin-bottom: 8px
+    &-sidebar
+      width: 50%
+      padding-right: 30px
+      padding-top: 40px
+      padding-bottom: 40px
+    &-main
+      width: 50%
+      padding-top: 40px
+      padding-left: 30px
+      padding-bottom: 40px
+    &-subnav
+      margin-left: 0
+      margin-top: 20px
+    &-contact
+      flex-direction: column
+      align-items: flex-start
+      margin-top: 29px
+      &::before
+        display: none
+      &__item
+        p
+          font-size: 14px
+          span
+            font-size: 12px
+
+  .blog
+    &-grid
+      grid-template-columns: repeat(2, 1fr)
+    &-single
+      &__sidebar
+        display: none
+      &__content
+        padding-left: 0
+    &-specialists, &-more
+      .title
+        width: 100%
+      &__control
+        display: none
+      &__slider
+        overflow: inherit
+        width: 100%
+
+  .contact
+    &-info
+      &__left
+        padding-right: 40px
+      &__right
+        padding-left: 40px
+      &__base
+        .title-xl
+          font-size: 28px
+
+  .dynasty
+    &-section
+      padding: var(--gap-lg) 0
+    &-date
+      margin-bottom: 40px
+
+  .legal
+    &-sidebar
+      display: none
+    &-main
+      width: 100%
+      padding-left: 0
+
+  .price
+    &-col
+      &:nth-child(1)
+        display: none
+      &:nth-child(2)
+        padding-left: 0
+    &-full
+      &__img
+        width: 700px
+        top: -230px
+        right: -320px
+
+  .service
+    &-main
+      width: 100%
+    &-item
+      &::before
+        right: -1000px
+    &-form
+      width: 100%
+      position: relative
+      border: 0
+      top: 0
+      height: auto
+      padding: 40px 0
+      // justify-content: center
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: -1000px
+        right: -1000px
+        bottom: 0
+        background: #f5f2ef
+        z-index: -1
+      form
+        max-width: 380px
+    &-single
+      overflow: hidden
+      .service-main
+        padding-right: 0
+      .service-price__row:first-child::before,
+      .service-price__row:not(:first-child)::after,
+      .service-price__row:not(:first-child)::before
+        right: -1000px
+    &-element:last-child
+      padding-bottom: var(--gap-md)
+
+  .specialists
+    &-card
+      &__main
+        width: 100%
+        padding-right: 0
+      &__photo
+        width: 100%
+        height: 720px
+        margin-top: var(--gap-md)
+    &-edu
+      .container
+        flex-direction: column
+        align-items: flex-start
+        height: 100vh
+      &__sidebar
+        width: 100%
+        padding-right: 0
+        padding-bottom: 20px
+        padding-top: 40px
+      &__main
+        width: 100%
+        flex: 1
+        height: auto
+        &::before, &::after
+          height: 40px
+    &-list
+      &__group
+        li
+          &::before
+            width: 100px
+      &__text
+        width: calc(100% - 100px)
+        padding-right: 0
+
+  .menu
+    &-left
+      width: 100%
+      .menu-footer
+        display: none
+    &-right
+      width: 100%
+      padding-top: 40px
+      &__wrapper
+        height: auto
+    &-contact
+      margin-top: 40px
