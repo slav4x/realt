@@ -360,4 +360,13 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     },
   });
+
+  const statSlider = new Swiper('.template-stats__slider', {
+    slidesPerView: 1,
+    spaceBetween: 12,
+    navigation: {
+      nextEl: '.template-stats__next',
+      prevEl: '.template-stats__prev',
+    },
+  });
 });
