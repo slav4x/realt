@@ -170,3 +170,13 @@
     &-right
       width: calc(100% - 450px)
       padding-left: 0
+
+  .template
+    &-list
+      &__list
+        grid-template-columns: repeat(1, 1fr)
+        ul
+          flex-direction: row
+          gap: 16px 48px
+          li
+            width: calc(50% - 24px)
