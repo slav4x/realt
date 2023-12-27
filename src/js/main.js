@@ -565,6 +565,71 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  const specialistsSingle = document.querySelector('.specialists-single');
+  if (specialistsSingle) {
+    let scrollInterval;
+
+    const content = document.querySelector('.specialists-head__slider');
+
+    function startScrolling(direction) {
+      const scrollAmount = direction === 'left' ? -10 : 10;
+      scrollInterval = setInterval(() => {
+        content.scrollLeft += scrollAmount;
+      }, 20);
+    }
+
+    function stopScrolling() {
+      clearInterval(scrollInterval);
+    }
+
+    function onMouseUpOrLeave() {
+      stopScrolling();
+      isDown = false;
+    }
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    content.addEventListener('mousedown', (e) => {
+      if (e.target.tagName === 'A') {
+        return;
+      }
+
+      isDown = true;
+      startX = e.pageX - content.offsetLeft;
+      scrollLeft = content.scrollLeft;
+    });
+
+    content.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - content.offsetLeft;
+      const walk = (x - startX) * 1;
+      content.scrollLeft = scrollLeft - walk;
+    });
+
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.specialists-section');
+      const sliderItems = document.querySelectorAll('.specialists-head__item');
+
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top - 100;
+        const sectionBottom = section.getBoundingClientRect().bottom;
+
+        if (sectionTop <= 0 && sectionBottom >= 0) {
+          const currentActiveId = section.getAttribute('data-id');
+          sliderItems.forEach((item) => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-id') === currentActiveId) {
+              item.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+  }
 });
 
 window.addEventListener('resize', function () {
