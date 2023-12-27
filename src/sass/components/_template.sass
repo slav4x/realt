@@ -65,3 +65,31 @@
           width: 8px
           height: 8px
           border-radius: 100%
+  &-help
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      height: 50%
+      background: #f5f2ef
+    &__block
+      max-width: 1200px
+      margin: 0 auto
+      background: #f5e6d8 url(../img/svg/template-help.svg) no-repeat bottom right
+      padding: 80px 90px
+      h3
+        margin-top: 70px
+        font-size: 24px
+        font-weight: 600
+        line-height: 1.6
+        span
+          padding: 11px 0
+          border-bottom: 1px solid var(--color-black)
+      p
+        max-width: 630px
+        margin-top: 36px
+        font-size: 22px
+        line-height: 1.6
