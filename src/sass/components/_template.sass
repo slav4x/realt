@@ -1,0 +1,32 @@
+.template
+  &-reviews
+    padding-top: var(--gap-lg)
+  &-text
+    padding: var(--gap-lg) 0
+    .container
+      @include flexbox
+      align-items: center
+      justify-content: space-between
+    &__img
+      max-width: calc(100% - 1020px - 40px)
+    &__wrapper
+      max-width: 1020px
+    &__text
+      max-width: 740px
+      margin-top: 36px
+      font-size: 22px
+      line-height: 1.6
+      font-weight: 500
+      color: var(--color-dark)
+      b
+        font-weight: 600
+        color: var(--color-black)
+    &__quote
+      max-width: 740px
+      margin-top: 36px
+      padding: 40px
+      font-size: 26px
+      font-weight: 500
+      line-height: 1.6
+      border-radius: 12px
+      border: 1px dashed var(--color-green)
