@@ -30,3 +30,38 @@
       line-height: 1.6
       border-radius: 12px
       border: 1px dashed var(--color-green)
+  &-list
+    padding: var(--gap-lg) 0
+    background: #f5f2ef
+    .title-xl
+      max-width: 850px
+    &__list
+      display: grid
+      grid-template-columns: repeat(3, 1fr)
+      gap: 16px 48px
+      margin-top: var(--gap-md)
+      ul
+        @include flexbox
+        flex-direction: column
+        align-items: flex-start
+        gap: 16px
+      li
+        padding: 14px 27px
+        padding-left: 46px
+        font-weight: 500
+        line-height: 1.3
+        letter-spacing: -0.02em
+        border: 1px dashed #888888
+        border-radius: 999px
+        position: relative
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 20px
+          bottom: 0
+          margin: auto 0
+          background: #416935
+          width: 8px
+          height: 8px
+          border-radius: 100%
