@@ -139,3 +139,56 @@
           line-height: 1.2
         p
           line-height: 1.6
+  &-cta
+    height: 100vh
+    background: url(../img/free-bg.jpg) no-repeat center / cover
+    color: #fff
+    @include flexbox
+    align-items: center
+    text-align: center
+    .container
+      @include flexbox
+      flex-direction: column
+      align-items: center
+      & > p
+        margin-top: 16px
+        max-width: 1180px
+        line-height: 1.6
+        letter-spacing: -0.02em
+        color: rgba(255,255,255,.7)
+        b
+          font-weight: 500
+          color: #fff
+    .subtitle
+      color: #fff
+      opacity: 0.7
+      font-size: 14px
+      margin-bottom: 16px
+    .title
+      max-width: 1180px
+    .btn-wrap
+      margin-top: 36px
+    .btn p
+      padding: 0 48px
+    ul
+      max-width: 1180px
+      margin-top: 36px
+      @include flexbox
+      justify-content: center
+      gap: 16px
+      font-size: 16px
+      line-height: 1.6
+      font-weight: 500
+      text-transform: uppercase
+      li
+        position: relative
+        padding-left: 24px
+        &::before
+          content: ''
+          position: absolute
+          top: 8px
+          left: 0
+          width: 8px
+          height: 8px
+          border-radius: 100%
+          background: #fff
