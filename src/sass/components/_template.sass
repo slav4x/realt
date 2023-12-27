@@ -116,3 +116,26 @@
     &__control
       width: 210px
       justify-content: flex-end
+  &-section
+    padding-top: var(--gap-lg)
+    &__grid
+      display: grid
+      grid-template-columns: repeat(3, 1fr)
+      margin-top: var(--gap-md)
+      gap: 10px
+    &__item
+      height: 635px
+      padding: 60px 40px
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      justify-content: space-between
+      background: #f5f2ef
+      &-text
+        h5
+          margin: 0 0 24px
+          font-size: 24px
+          font-weight: 700
+          line-height: 1.2
+        p
+          line-height: 1.6
