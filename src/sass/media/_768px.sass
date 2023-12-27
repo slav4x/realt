@@ -201,6 +201,7 @@
         margin-bottom: 24px
 
   .contact
+    padding-top: 100px
     &-address
       font-size: 32px
     &-list
@@ -208,6 +209,15 @@
       flex-direction: column
       align-items: flex-start
       margin-top: 36px
+      li
+        p
+          font-size: 12px
+          span
+            font-size: 11px
+        b
+          margin-top: 8px
+    &-social
+      margin-top: 40px
     &-map
       height: auto
       background: transparent
@@ -236,11 +246,13 @@
 
   .price
     &-head
-      display: none
+      height: 60px
+      &__slider
+        padding: 0 20px
     &-content
       padding: 0
     &-section
-      padding: 40px 0
+      padding: 80px 0 0
       margin: 0 !important
     &-table
       margin-top: 20px
@@ -322,6 +334,8 @@
       padding-right: 50px
       &::after
         right: 0
+      span
+        display: none
     &-main
       padding-bottom: 0
     &-form
@@ -366,6 +380,10 @@
           line-height: 1.1
     &-element__list ul
       margin-top: 20px
+    &-search
+      padding: 0 20px
+      button
+        left: 20px
 
   .specialists
     &-card

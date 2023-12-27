@@ -191,6 +191,14 @@
         width: 700px
         top: -230px
         right: -320px
+    &-head
+      &__control
+        display: none !important
+      .container
+        max-width: 100%
+        padding: 0
+      &__slider
+        padding: 0 40px
 
   .service
     &-main
@@ -199,7 +207,8 @@
       &::before
         right: -1000px
     &-form
-      width: 100%
+      max-width: 420px
+      margin: 0 auto
       position: relative
       border: 0
       top: 0
@@ -227,6 +236,8 @@
         right: -1000px
     &-element:last-child
       padding-bottom: var(--gap-md)
+    &-content
+      overflow: hidden
 
   .specialists
     &-card
