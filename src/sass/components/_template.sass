@@ -194,3 +194,39 @@
           height: 8px
           border-radius: 100%
           background: #fff
+  &-form
+    min-height: 100vh
+    padding: var(--gap-lg) 0
+    @include flexbox
+    align-items: center
+    color: #fff
+    background: url(../img/template-form.jpg) no-repeat center / cover
+    form
+      margin: 0 auto
+      max-width: 500px
+      .title-md
+        margin-bottom: 36px
+      .label
+        margin-bottom: 20px
+        p
+          color: rgba(255,255,255,.7)
+        input
+          color: #fff
+          border-color: rgba(255,255,255,.1)
+          @include placeholder
+            color: rgba(255,255,255,.6)
+      .btn
+        margin: 36px 0
+        width: 100%
+        p
+          width: 100%
+          justify-content: center
+      small
+        display: block
+        text-align: center
+        font-size: 14px
+        line-height: 1.6
+        color: rgba(255,255,255,.7)
+        a
+          font-weight: 500
+          color: #fff
