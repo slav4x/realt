@@ -369,4 +369,31 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.template-stats__prev',
     },
   });
+
+  function createScrollTrigger(triggerElement, timeline) {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top bottom',
+      onLeaveBack: () => {
+        timeline.progress(0);
+        timeline.pause();
+      },
+    });
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top 60%',
+      onEnter: () => timeline.play(),
+    });
+  }
+
+  document.querySelectorAll('[animate-text]').forEach(function (element) {
+    const typeSplit = new SplitType(element, {
+      types: 'words',
+      tagName: 'el',
+    });
+
+    const tl = gsap.timeline({ paused: true });
+    tl.from(element.querySelectorAll('.word'), { opacity: 0, y: '1em', duration: 0.6, ease: 'power2.out', stagger: { amount: 0.2 } });
+    createScrollTrigger(element, tl);
+  });
 });
