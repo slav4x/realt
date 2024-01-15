@@ -275,15 +275,15 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.blog-prev',
     },
     breakpoints: {
-      1760: {
-        spaceBetween: 24,
-        slidesPerView: 3,
+      767: {
+        slidesPerView: 2,
       },
       1023: {
         slidesPerView: 3,
       },
-      767: {
-        slidesPerView: 2,
+      1760: {
+        spaceBetween: 24,
+        slidesPerView: 3,
       },
     },
   });
@@ -299,11 +299,11 @@ document.addEventListener('DOMContentLoaded', function () {
       el: '.license-scrollbar',
     },
     breakpoints: {
-      1760: {
-        spaceBetween: 24,
+      1280: {
         slidesPerView: 2,
       },
-      1280: {
+      1760: {
+        spaceBetween: 24,
         slidesPerView: 2,
       },
     },
@@ -329,14 +329,15 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.blog-specialists__prev',
     },
     breakpoints: {
-      1760: {
-        spaceBetween: 24,
+      576: {
+        slidesPerView: 2,
       },
       1280: {
         slidesPerView: 3,
       },
-      576: {
-        slidesPerView: 2,
+      1760: {
+        spaceBetween: 24,
+        slidesPerView: 3,
       },
     },
   });
@@ -349,14 +350,15 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: '.blog-more__prev',
     },
     breakpoints: {
-      1760: {
-        spaceBetween: 24,
+      576: {
+        slidesPerView: 2,
       },
       1280: {
         slidesPerView: 3,
       },
-      576: {
-        slidesPerView: 2,
+      1760: {
+        spaceBetween: 24,
+        slidesPerView: 3,
       },
     },
   });
