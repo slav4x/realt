@@ -107,6 +107,7 @@
       font-size: 12px
     h1
       font-size: 70px
+      max-width: 790px
     h2
       font-size: 14px
     &-photos
@@ -205,6 +206,7 @@
         margin-bottom: 12px
       .title-md
         margin-bottom: 12px
+        max-width: 480px
       &__text
         margin-bottom: 12px
 
@@ -482,7 +484,10 @@
           height: 48px
           font-size: 14px
     &-single
+      &__sidebar
+        width: 441px
       &__content
+        width: calc(100% - 441px)
         padding-top: 60px
         padding-left: 60px
         padding-bottom: 60px
@@ -780,3 +785,13 @@
           margin: 24px 0
         small
           font-size: 12px
+
+  .popup-thanks
+    padding-left: 30px
+    padding-right: 30px
+    &__icon
+      width: 33px
+      height: 24px
+      margin-bottom: 30px
+    &__text > p
+      max-width: 380px

@@ -121,8 +121,11 @@ function setupPageScrolling(pageSelector, sliderSelector, sectionClass, itemClas
 
 const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
 
-const openPopup = (popupId) => {
+const openPopup = (popupId, form) => {
   const popup = document.querySelector(`[data-popup="${popupId}"]`);
+  const nameForm = popup.querySelector('input[name="form"]');
+  if (nameForm) nameForm.value = !form ? 'Заявка с формы' : form;
+
   if (!popup) {
     console.error(`Error: popup "${popupId}" not defined`);
     return;
@@ -171,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ** POPUP ** //
   document.querySelectorAll('[data-button]').forEach((button) => {
-    button.addEventListener('click', () => openPopup(button.getAttribute('data-button')));
+    button.addEventListener('click', () => openPopup(button.getAttribute('data-button'), button.getAttribute('data-form')));
   });
 
   document.querySelectorAll('.popup-close, .popup-bg').forEach((closeTrigger) => {
@@ -397,5 +400,114 @@ document.addEventListener('DOMContentLoaded', function () {
     const tl = gsap.timeline({ paused: true });
     tl.from(element.querySelectorAll('.word'), { opacity: 0, y: '1em', duration: 0.6, ease: 'power2.out', stagger: { amount: 0.2 } });
     createScrollTrigger(element, tl);
+  });
+
+  // Генерация случайного токена
+  function generateToken() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let token = '';
+    for (let i = 0; i < 30; i++) {
+      token += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return token;
+  }
+
+  // Установка токена в скрытое поле формы
+  function setToken(form) {
+    const token = generateToken();
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 't';
+    hiddenInput.value = token;
+    form.appendChild(hiddenInput);
+  }
+
+  // Инициализация токена для каждой формы на странице
+  const forms = document.querySelectorAll('form');
+  forms.forEach(function (form) {
+    setToken(form);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const button = form.querySelector('.btn p');
+
+      button.style.opacity = 0.5;
+      button.style.cursor = 'not-allowed';
+      button.disabled = true;
+
+      const inputs = form.querySelectorAll('.label');
+      const thanks = document.querySelectorAll('.popup-thanks');
+
+      setTimeout(() => {
+        thanks.forEach(el => {
+          el.classList.add('show');
+          button.style.opacity = 1;
+          button.disabled = false;
+        });
+
+        inputs.forEach(label => {
+          const input = label.querySelector('input');
+          input.value = '';
+          label.classList.remove('fill');
+        });
+      }, 500);
+    });
+  });
+
+  const thanksPopup = document.querySelectorAll('.popup-thanks');
+  const thanksBtn = document.querySelectorAll('.popup-thanks .btn');
+
+  thanksBtn.forEach((el) => {
+    el.addEventListener('click', () => {
+      thanksPopup.forEach((popup) => {
+        popup.classList.remove('show');
+        closePopup();
+      });
+    });
+  });
+
+  document.querySelectorAll('input').forEach(function (el) {
+    el.addEventListener('blur', function () {
+      if (this.value === '+7 ' || this.value === '') {
+        this.closest('label').classList.remove('fill');
+      } else {
+        this.closest('label').classList.add('fill');
+      }
+    });
+  });
+
+  function createIdleAndHover(el) {
+    const num = el.textContent;
+    const numArr = [...num];
+
+    el.innerHTML = '<span class="idle"></span><span class="hover"></span>';
+
+    el.querySelector('.idle').innerHTML = numArr.map(e => `<span class="char">${e}</span>`).join('');
+    el.querySelector('.hover').innerHTML = numArr.map(e => `<span class="char">${e}</span>`).join('');
+  }
+
+  function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+      const el = entry.target.querySelector('[data-counter]');
+
+      if (entry.isIntersecting && entry.intersectionRatio >= 1 && !el.classList.contains('is-inview')) {
+        el.classList.add('is-inview');
+        observer.unobserve(entry.target);
+
+        const allElementsInView = document.querySelectorAll('.stats-item:not(.is-inview)').length === 0;
+        if (allElementsInView) {
+          window.removeEventListener('scroll', scrollHandler);
+        }
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(handleIntersection, { threshold: 1 });
+  document.querySelectorAll('.stats-item:not(.is-inview)').forEach(item => {
+    if (observer) {
+      createIdleAndHover(item.querySelector('[data-counter]'));
+      observer.observe(item);
+    }
   });
 });

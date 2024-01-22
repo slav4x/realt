@@ -168,12 +168,14 @@
   &-single
     border-bottom: 1px solid var(--color-border)
     margin-bottom: var(--gap-lg)
+    & + .wrapper
+      margin-top: calc(var(--gap-lg) * -1)
     .container
       @include flexbox
       align-items: flex-start
       position: inherit
     &__sidebar
-      width: var(--width-sidebar)
+      width: calc(var(--width-sidebar) + 1px)
       position: sticky
       top: calc(var(--gap-lg) / 2 * -1)
       padding-right: var(--gap-md)
@@ -254,7 +256,7 @@
     &__content
       padding: 40px
       padding-right: 0
-      width: var(--width-main)
+      width: calc(var(--width-main) - 1px)
       @include flexbox
       align-items: flex-start
       flex-direction: column

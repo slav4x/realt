@@ -16,34 +16,35 @@
     letter-spacing: -0.02em
   &-main
     width: var(--width-main)
+    .text
+      margin: 0
   &-photo
-    .title
-      margin-top: 16px
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+    gap: 24px
     img
       width: 100%
-      height: 920px
-      object-fit: cover
-      object-position: center
+      max-width: 100%
     &-v2
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      gap: 24px
       .title-xl
         max-width: 840px
-      .text
-        margin-top: 24px
       img
         width: 100%
-        height: 620px
-        object-fit: cover
-        object-position: center
-        margin-top: 24px
+        max-width: 100%
   &-text
     .title-xl
       max-width: 840px
   &-list
+    margin-top: var(--gap-md)
+    &:first-child
+      margin-top: 0
     .title-xl
-      margin-top: var(--gap-md)
       max-width: 840px
-      &:first-child
-        margin-top: 0
     .text
       margin-top: 24px
       max-width: 480px

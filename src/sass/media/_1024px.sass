@@ -84,6 +84,8 @@
     &-item
       &__text
         max-width: 100%
+      .title-md
+        max-width: 100%
     &-author
       display: none
     &-sidebar
@@ -148,6 +150,7 @@
         display: none
       &__content
         padding-left: 0
+        width: 100%
     &-specialists, &-more
       .title
         width: 100%
@@ -318,3 +321,14 @@
       &__item
         height: auto
         min-height: 300px
+
+  .menu
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      height: 120px
+      background: linear-gradient(180deg, #F4F1EE 60%, rgba(255, 255, 255, 0.00) 100%, rgba(245, 242, 239, 0.00) 100%)
+      z-index: 5

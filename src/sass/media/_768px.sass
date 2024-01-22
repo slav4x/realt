@@ -34,6 +34,7 @@
     h1
       font-size: 34px
       margin-bottom: 24px
+      max-width: 390px
     h2
       max-width: 290px
       margin-bottom: 24px
@@ -476,12 +477,14 @@
     &-wrapper
       max-width: 100%
       width: 100%
-      top: 80px
+      top: var(--app-height)
       padding: 30px
-      transform: translateY(100%)
+      transform: translateY(var(--app-height))
     &-close
       width: 30px
       height: 30px
+      top: 20px
+      right: 20px
       &::before, &::after
         width: 12px
     &-reviews
@@ -491,6 +494,7 @@
     &-footer
       text-align: center !important
     &.open .popup-wrapper
+      top: 80px
       transform: translateY(0%)
     &-call
       max-width: 100%
@@ -510,3 +514,9 @@
           width: 200px
         .btn
           margin: 24px auto
+
+  .is-inview
+    @include flexbox
+    justify-content: center
+    .hover
+      right: 0
