@@ -15,6 +15,7 @@
     align-items: flex-start
     gap: 20px
     height: 100%
+    width: 100%
     &__image
       width: 100%
       aspect-ratio: 1 / 1
@@ -28,14 +29,30 @@
         object-position: center
         transition: .25s
     &__cat
-      font-size: 16px
-      font-weight: 500
-      letter-spacing: -0.02em
-      line-height: 22px
-      color: var(--color-dark)
-      padding: 9px 23px
-      border-radius: 99px
-      border: 1px dashed rgba(15, 15, 17, 0.20)
+      display: flex
+      align-items: center
+      flex-wrap: nowrap
+      white-space: nowrap
+      overflow: hidden
+      gap: 12px
+      width: 100%
+      position: relative
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        width: 40px
+        background: linear-gradient(-90deg, #fbfaf9, #fbfaf900)
+      li
+        font-size: 14px
+        font-weight: 500
+        color: rgba(15, 15, 17, 0.70)
+        letter-spacing: -0.02em
+        padding: 8px 16px
+        border-radius: 99px
+        background: rgba(15, 15, 17, 0.03)
     &__title
       font-size: 26px
       line-height: 1.1
@@ -105,9 +122,11 @@
   &-page
     padding: var(--gap-lg) 0
   &-grid
-    display: grid
-    grid-template-columns: repeat(3, 1fr)
+    @include flexbox
     gap: 40px 24px
+    .blog-item
+      width: calc((100% - 48px) / 3)
+      height: auto
   &-pagination
     margin-top: 40px
     @include flexbox

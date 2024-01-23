@@ -144,7 +144,8 @@
 
   .blog
     &-grid
-      grid-template-columns: repeat(2, 1fr)
+      .blog-item
+        width: calc((100% - 12px) / 2)
     &-single
       &__sidebar
         display: none
