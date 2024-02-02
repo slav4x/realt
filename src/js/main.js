@@ -440,13 +440,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const thanks = document.querySelectorAll('.popup-thanks');
 
       setTimeout(() => {
-        thanks.forEach(el => {
+        thanks.forEach((el) => {
           el.classList.add('show');
           button.style.opacity = 1;
           button.disabled = false;
         });
 
-        inputs.forEach(label => {
+        inputs.forEach((label) => {
           const input = label.querySelector('input');
           input.value = '';
           label.classList.remove('fill');
@@ -483,12 +483,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     el.innerHTML = '<span class="idle"></span><span class="hover"></span>';
 
-    el.querySelector('.idle').innerHTML = numArr.map(e => `<span class="char">${e}</span>`).join('');
-    el.querySelector('.hover').innerHTML = numArr.map(e => `<span class="char">${e}</span>`).join('');
+    el.querySelector('.idle').innerHTML = numArr.map((e) => `<span class="char">${e}</span>`).join('');
+    el.querySelector('.hover').innerHTML = numArr.map((e) => `<span class="char">${e}</span>`).join('');
   }
 
   function handleIntersection(entries, observer) {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       const el = entry.target.querySelector('[data-counter]');
 
       if (entry.isIntersecting && entry.intersectionRatio >= 1 && !el.classList.contains('is-inview')) {
@@ -504,10 +504,37 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const observer = new IntersectionObserver(handleIntersection, { threshold: 1 });
-  document.querySelectorAll('.stats-item:not(.is-inview)').forEach(item => {
+  document.querySelectorAll('.stats-item:not(.is-inview)').forEach((item) => {
     if (observer) {
       createIdleAndHover(item.querySelector('[data-counter]'));
       observer.observe(item);
     }
   });
+
+  const groupMore = document.querySelectorAll('.specialists-list__more');
+  if (groupMore) {
+    groupMore.forEach((group) => {
+      const btn = group.querySelector('.btn');
+
+      btn.addEventListener('click', () => {
+        const list = group.previousElementSibling;
+        if (list) list.classList.add('full');
+
+        group.style.display = 'none';
+      });
+    });
+  }
+
+  const listSymptoms = document.querySelectorAll('.specialists-list__symptom');
+
+  if (listSymptoms) {
+    listSymptoms.forEach((item) => {
+      const content = item.querySelector('p');
+
+      item.addEventListener('click', () => {
+        item.classList.toggle('open');
+        content.style.maxHeight = item.classList.contains('open') ? `${content.scrollHeight}px` : null;
+      });
+    });
+  }
 });

@@ -242,6 +242,10 @@
           z-index: -1
           border-top: 1px solid var(--color-border)
           transition: .25s
+        &:nth-child(n + 4)
+          display: none
+      &.full li
+        display: flex !important
       &-links
         .specialists-list__text
           padding-right: 90px
@@ -283,6 +287,10 @@
         line-height: 1.6
         color: var(--color-dark)
         margin-top: 10px
+    &__more
+      @include flexbox
+      justify-content: center
+      margin-top: 30px
 
   &-ask
     height: 100vh
