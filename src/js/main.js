@@ -537,4 +537,37 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  document.querySelectorAll('.specialists-type span').forEach((filterOption) => {
+    filterOption.addEventListener('click', function () {
+      const activeFilters = {};
+      document.querySelectorAll('.specialists-type .active').forEach((active) => {
+        const filterName = active.getAttribute('data-filter');
+        const filterValue = active.innerText.toLowerCase();
+        activeFilters[filterName] = filterValue;
+      });
+
+      const filterName = this.getAttribute('data-filter');
+      const filterValue = this.innerText.toLowerCase();
+      activeFilters[filterName] = filterValue;
+
+      document.querySelectorAll('.specialists-item').forEach((card) => {
+        let isVisible = true;
+        for (const filter in activeFilters) {
+          const filterVal = activeFilters[filter];
+          if (filterVal !== 'все') {
+            const cardValues = card.getAttribute(`data-${filter}`).toLowerCase().split(' | ');
+            if (!cardValues.includes(filterVal)) {
+              isVisible = false;
+              break;
+            }
+          }
+        }
+        card.style.display = isVisible ? '' : 'none';
+      });
+
+      this.parentElement.querySelectorAll('span').forEach((span) => span.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
 });
