@@ -570,4 +570,68 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.add('active');
     });
   });
+
+  const popupFilter = document.querySelector('.popup-filter');
+  const filterGroup = document.querySelectorAll('.popup-filter__group');
+  const filterSearch = document.querySelector('.popup-filter__search input[type="text"]');
+  const filterApply = document.querySelector('.popup-filter__apply');
+
+  if (filterGroup) {
+    filterGroup.forEach((group) => {
+      const head = group.querySelector('.popup-filter__head');
+      const content = group.querySelector('.popup-filter__wrapper');
+      const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+      const countElement = group.querySelector('.count');
+
+      const updateCount = () => {
+        const checkedCount = Array.from(checkboxes).filter((checkbox) => checkbox.checked).length;
+        countElement.textContent = checkedCount;
+        countElement.classList.toggle('hide', checkedCount === 0);
+      };
+
+      checkboxes.forEach((checkbox) => checkbox.addEventListener('change', updateCount));
+
+      head.addEventListener('click', () => {
+        group.classList.toggle('open');
+        content.style.maxHeight = group.classList.contains('open') ? `${content.scrollHeight}px` : null;
+      });
+    });
+  }
+
+  if (popupFilter) {
+    filterApply.addEventListener('click', closePopup);
+
+    const updateGroupVisibility = (group, isMatchFound) => {
+      if (isMatchFound) {
+        group.classList.add('open');
+        const content = group.querySelector('.popup-filter__wrapper');
+        content.style.maxHeight = `${content.scrollHeight}px`;
+      } else {
+        group.classList.remove('open');
+        const content = group.querySelector('.popup-filter__wrapper');
+        content.style.maxHeight = null;
+      }
+    };
+
+    filterSearch.addEventListener('input', () => {
+      const searchText = filterSearch.value.toLowerCase();
+
+      filterGroup.forEach((group) => {
+        const checkboxes = group.querySelectorAll('.popup-filter__checkbox p');
+        let isMatchFound = false;
+
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.textContent.toLowerCase().includes(searchText)) {
+            checkbox.parentElement.style.opacity = 1;
+            isMatchFound = true;
+          } else {
+            checkbox.parentElement.style.opacity = 0.3;
+          }
+        });
+
+        group.style.display = isMatchFound ? '' : 'none';
+        updateGroupVisibility(group, isMatchFound);
+      });
+    });
+  }
 });
