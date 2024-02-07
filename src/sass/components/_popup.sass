@@ -352,7 +352,7 @@
   &[data-popup="filter"]
     .popup-wrapper
       padding: 60px 70px
-      overflow: hidden
+      overflow: initial
   &-filter
     width: 780px
     height: 100%
@@ -423,6 +423,11 @@
         line-height: 1.6
         letter-spacing: -0.02em
         color: var(--color-dark)
+        span
+          display: block
+          text-transform: lowercase
+          &::first-letter
+            text-transform: uppercase
       .title-xs, p
         overflow: hidden
         display: -webkit-box

@@ -538,36 +538,79 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  document.querySelectorAll('.specialists-type span').forEach((filterOption) => {
-    filterOption.addEventListener('click', function () {
-      const activeFilters = {};
-      document.querySelectorAll('.specialists-type .active').forEach((active) => {
-        const filterName = active.getAttribute('data-filter');
-        const filterValue = active.innerText.toLowerCase();
-        activeFilters[filterName] = filterValue;
-      });
+  const filters = {
+    spec: '',
+    help: '',
+    format: '',
+    symptoms: [],
+    diagnoses: [],
+  };
 
-      const filterName = this.getAttribute('data-filter');
-      const filterValue = this.innerText.toLowerCase();
-      activeFilters[filterName] = filterValue;
+  // Функция для безопасного получения значений атрибутов
+  function getAttributeValues(element, attributeName) {
+    const value = element.getAttribute(attributeName);
+    return value ? value.split(' | ') : [];
+  }
 
-      document.querySelectorAll('.specialists-item').forEach((card) => {
-        let isVisible = true;
-        for (const filter in activeFilters) {
-          const filterVal = activeFilters[filter];
-          if (filterVal !== 'все') {
-            const cardValues = card.getAttribute(`data-${filter}`).toLowerCase().split(' | ');
-            if (!cardValues.includes(filterVal)) {
-              isVisible = false;
-              break;
-            }
-          }
-        }
-        card.style.display = isVisible ? '' : 'none';
-      });
+  // Функция для обновления фильтров
+  function updateFilters(category, value) {
+    if (['spec', 'help', 'format'].includes(category)) {
+      filters[category] = value === 'Все' ? '' : value;
+    } else {
+      const index = filters[category].indexOf(value);
+      if (index > -1) {
+        filters[category].splice(index, 1);
+      } else {
+        filters[category].push(value);
+      }
+    }
+  }
 
-      this.parentElement.querySelectorAll('span').forEach((span) => span.classList.remove('active'));
-      this.classList.add('active');
+  // Функция для фильтрации карточек
+  function filterItems() {
+    const items = document.querySelectorAll('.specialists-item');
+
+    items.forEach((item) => {
+      const spec = item.getAttribute('data-spec') || '';
+      const help = item.getAttribute('data-help') || '';
+      const format = item.getAttribute('data-format') || '';
+      const symptoms = getAttributeValues(item, 'data-symptoms');
+      const diagnoses = getAttributeValues(item, 'data-diagnoses');
+
+      const isSpecMatch = !filters.spec || spec.includes(filters.spec);
+      const isHelpMatch = !filters.help || help.includes(filters.help);
+      const isFormatMatch = !filters.format || format.includes(filters.format);
+      const isSymptomsMatch = !filters.symptoms.length || filters.symptoms.some((symptom) => symptoms.includes(symptom));
+      const isDiagnosesMatch = !filters.diagnoses.length || filters.diagnoses.some((diagnosis) => diagnoses.includes(diagnosis));
+
+      if (isSpecMatch && isHelpMatch && isFormatMatch && isSymptomsMatch && isDiagnosesMatch) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Обработчики для спанов
+  document.querySelectorAll('.specialists-type span[data-filter]').forEach((span) => {
+    span.addEventListener('click', function () {
+      const category = this.getAttribute('data-filter');
+      if (!this.classList.contains('active')) {
+        document.querySelectorAll(`span[data-filter="${category}"].active`).forEach((activeSpan) => {
+          activeSpan.classList.remove('active');
+        });
+        this.classList.add('active');
+        updateFilters(category, this.textContent);
+        filterItems();
+      }
+    });
+  });
+
+  // Обработчики для чекбоксов (symptoms и diagnoses)
+  document.querySelectorAll('[data-filter="symptoms"], [data-filter="diagnoses"]').forEach((checkbox) => {
+    checkbox.addEventListener('change', function () {
+      const category = this.name.endsWith('[]') ? this.name.slice(0, -2) : this.name; // Определение категории
+      updateFilters(category, this.value, this.checked);
     });
   });
 
@@ -599,7 +642,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (popupFilter) {
-    filterApply.addEventListener('click', closePopup);
+    filterApply.addEventListener('click', () => {
+      closePopup();
+      filterItems();
+    });
 
     const updateGroupVisibility = (group, isMatchFound) => {
       if (isMatchFound) {
