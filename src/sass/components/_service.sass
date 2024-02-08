@@ -17,7 +17,7 @@
     height: calc(100vh - 96px)
     @include flexbox
     align-items: center
-    .title-xl
+    .title-xl, .title-md
       margin-bottom: 36px
     .label
       margin-bottom: 20px
@@ -311,6 +311,8 @@ a.service-item:hover
         padding-left: 20px
         li
           padding: 16px 0
+      .title + ul
+        margin-top: 40px
     &__list
       ul
         margin-top: 40px
