@@ -1,0 +1,23 @@
+.quote
+  padding-top: var(--gap-lg)
+  .container
+    @include flexbox
+    align-items: center
+  &-img
+    width: 500px
+    height: 500px
+    object-fit: cover
+    object-position: center
+  &-text
+    width: calc(100% - 500px)
+    padding-left: var(--gap-md)
+    font-size: 22px
+    line-height: 1.6
+    font-weight: 500
+    span
+      color: var(--color-brown)
+      font-size: 18px
+      margin-top: 40px
+      display: block
+  & + .template-text
+    padding: var(--gap-md) 0 0

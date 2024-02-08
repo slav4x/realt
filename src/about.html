@@ -1,0 +1,170 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'О клинике' %}
+{% set white = true %}
+
+{% block content %}
+
+<section class="top">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">О клинике доктора Шмиловича</a></li>
+    </ul>
+    <h2 class="top-title">О клинике доктора Шмиловича</h2>
+    <h3 class="top-subtitle">Профессиональная помощь психологов, врачей-психиатров и психоаналитиков</h3>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="container">
+    <img src="img/specialists-photo.jpg" alt="" class="quote-img">
+    <div class="quote-text">
+      <p>Для каждого пациента терапевт должен создавать свой язык терапии» — написал в одной из своих книг психиатр и психотерапевт, доктор медицины Ирвин Дэвид Ялом. Именно это высказывание как нельзя лучше характеризует наше отношение к работе с пациентами. Мы не трудимся строго по шаблону, мы берем человека за руку и ведем к пути исцеления, излечения, восстановления и обретения своей ценности, своего «Я»</p>
+      <span>Шмилович Андрей Аркадьевич<br> Главный врач медицинского центра</span>
+    </div>
+  </div>
+</section>
+
+<section class="template-text">
+  <div class="container">
+    <div class="template-text__wrapper full">
+      <div class="template-text__text">
+        <p>Центр доктора Шмиловича «Re-Alt», основанный врачом высшей категории с 28-летним профессиональным опытом Андреем Аркадьевичем Шмиловичем, это не клиника в прямом смысле слова, это место встречи — встречи со своим здоровым счастливым будущем!</p>
+        <p>Каждый специалист клиники — психолог, психотерапевт, врач-психиатр — это член слаженной команды, которую собрали из профессионалов, способных говорить на одном языке, думать созвучными категориями, иметь один взгляд и направлять свои действия в одну сторону, увеличивая в десятки раз эффективность лечебно-коррекционных мероприятий. К тому же, при подборе персонала главный врач клиники Андрей Аркадьевич Шмилович, по совместительству заведующий кафедрой психиатрии и медицинской психологии РНИМУ им. Н.И. Пирогова, лично тестирует каждого кандидата.</p>
+        <p>Еще одна особенность центра — это то, что врачи здесь не заменяют, а дополняют друг друга. Так, например, каждый пациент может одномоментно получить консультацию психолога и психиатра. Такая методика позволяет уже на первом приеме выявить проблему и наметить путь ее решения. Кроме того, это экономит время и финансы пациента.</p>
+        <p>К слову, за 6 лет (Центр был открыт в 2015 году) существования лечебного учреждения обследование и лечение прошли уже более 6000 человек. Люди идут в «Re-Alt», потому что общение специалиста с клиентом не ограничивается только часами приема. Каждый пациент владеет личными контактами доктора для связи в любое время и день недели. К тому же, для удобства клиентов, руководство клиники разработало несколько форматов проведения приема: очный, онлайн-консультация и выезд на дом. Наши пациенты знают, что мы бережно храним информацию об обращениях, ведь это врачебная тайна. Поэтому многие из них возвращаются к нам с друзьями или родными, чтобы каждый смог пройти свой путь к здоровью и счастью!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="principle">
+  <div class="container">
+    <h3 class="subtitle">Основной принцип</h3>
+    <h2 class="title">Основной принцип</h2>
+    <p class="text">Основной принцип</p>
+  </div>
+  <a href="#" data-fancybox class="principle-video">
+    <img src="img/principle-video.jpg" alt="" class="principle-video__poster">
+    <div class="container">
+      <div class="principle-video__text">
+        <h3 class="title">Андрей<br> Аркадьевич<br> Шмилович</h3>
+        <p>основатель клиники, практикующий врач, доктор медицинских наук</p>
+      </div>
+    </div>
+  </a>
+</section>
+
+<section class="specialists">
+  <div class="container">
+    <h3 class="subtitle">Наши специалисты</h3>
+    <h2 class="title">В штате работают кандидаты и доктора наук, обладающие <i>фундаментальными</i> знаниями и <i>научно-практической деятельностью.</i></h2>
+  </div>
+  <div class="container-fluid">
+    <div class="specialists-grid specialists-grid__slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+      </div>
+    </div>
+    <a href="#" class="specialists-more">
+      <h5 class="title">22</h5>
+      <p>Наши специалисты</p>
+    </a>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <h3 class="subtitle">Галерея фотографий</h3>
+    <h2 class="title">Галерея фотографий</h2>
+    <p class="text">Галерея фотографий</p>
+  </div>
+  <div class="container-fluid">
+    <div class="gallery-grid gallery-grid__slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+        <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advantages">
+  <div class="container">
+    <h3 class="subtitle">Наши преимущества</h3>
+    <h2 class="title">Наши преимущества</h2>
+    <p class="text">Наши преимущества</p>
+    <ul class="advantages-list">
+      <li>
+        <span>
+          <h4 class="title-xl">Профессионализм</h4>
+          <p>Специалисты высочайшего уровня — доктора наук, кафедральные и научные сотрудники</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <h4 class="title-xl">Индивидуальность</h4>
+          <p>Групповая, индивидуальная и семейная консультация</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <h4 class="title-xl">Уникальность</h4>
+          <p>Уникальная методика совместной работы специалистов разного профиля и направлений</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <h4 class="title-xl">Универсальность</h4>
+          <p>Полный спектр психологических и психотерапевтических методик</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <h4 class="title-xl">Мобильность</h4>
+          <p>Возможность выезда специалиста на дом для консультации</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <h4 class="title-xl">Широкий охват</h4>
+          <p>Работа со всеми контингентами, взрослыми и детьми</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <h4 class="title-xl">Анонимность</h4>
+          <p>Гарантия 100% анонимности лечения каждого пациента</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <h4 class="title-xl">Авторские методики</h4>
+          <p>Авторские методики лечения, опыт зарубежных специалистов</p>
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="free">
+  <div class="container">
+    <h2 class="title">Бесплатная беседа «Альтер-фон» это предварительная беседа с нашими специалистами по телефону.</h2>
+    <p>В течение 10-минутной беседы вы сможете обозначить или выявить свои проблемы, и понять, кто из врачей вам нужен и нужен ли вообще. <b>Запишитесь на бесплатный разговор к специалисту</b></p>
+    <div class="btn-wrap"><a href="javascript:;" data-button="call" class="btn btn-green btn-lg"><p>Записаться</p></a></div>
+  </div>
+</section>
+
+{% endblock %}

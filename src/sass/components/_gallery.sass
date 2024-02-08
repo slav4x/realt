@@ -1,0 +1,17 @@
+.gallery
+  padding-top: var(--gap-xl)
+  &-grid
+    margin-top: var(--gap-md)
+    a
+      display: block
+      img
+        width: 100%
+        aspect-ratio: 1 / 1
+        object-fit: cover
+        object-position: center
+    &__slider
+      display: block
+      .swiper-wrapper
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 24px

@@ -680,4 +680,16 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  if (window.innerWidth < 768) {
+    const galleryGrid = new Swiper('.gallery-grid__slider', {
+      slidesPerView: 1,
+      spaceBetween: 12,
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+        },
+      },
+    });
+  }
 });
