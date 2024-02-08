@@ -19,11 +19,8 @@
   &-item
     @include flexbox
     flex-direction: column
-    align-items: flex-start
-    gap: 20px
+    width: 100%
     overflow: hidden
-    position: relative
-    transition: .25s
     &__photo
       width: 100%
       height: 600px
@@ -36,6 +33,17 @@
         height: 100%
         object-fit: cover
         object-position: top center
+    &__layout
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      gap: 20px
+      position: relative
+      transition: .25s
+      top: 0
+      padding-top: 20px
+      background: var(--color-bg)
+      flex: 1
     &__name
       font-size: 28px
       font-weight: 700
@@ -54,7 +62,12 @@
         font-weight: 500
         line-height: 1.6
         letter-spacing: -0.02em
-    &__spec
+        span
+          display: inline-block
+          text-transform: lowercase
+          &::first-letter
+            text-transform: uppercase
+    &__quote
       font-size: 16px
       line-height: 22px
       padding: 10px 0
@@ -72,13 +85,12 @@
         display: -webkit-box
         -webkit-box-orient: vertical
     &__more
-      position: absolute
-      bottom: -48px
-      left: 0
-      right: 0
-      transition: .25s
       @include flexbox
       align-items: flex-start
+      position: absolute
+      bottom: 0
+      left: 0
+      bottom: -47px
       a
         display: block
         line-height: 1
@@ -105,11 +117,8 @@
           display: block
           background: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36328 0.891113L4.61328 6.76345L2.36328 12.8911L10.6133 6.76345L2.36328 0.891113Z' fill='%23002E25'/%3E%3C/svg%3E%0A") no-repeat center
     &:hover
-      padding-bottom: 48px
-      .specialists-item__more
-        bottom: 0
-      .specialists-item__photo
-        height: calc(600px - 48px)
+      .specialists-item__layout
+        top: -47px
   &-more
     @include flexbox
     flex-direction: column

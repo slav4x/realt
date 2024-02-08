@@ -164,7 +164,8 @@
         .swiper-wrapper
           gap: 42px 12px
     &-item
-      gap: 16px
+      &__layout
+        gap: 16px
       &__photo
         height: 420px
       &__name
@@ -172,17 +173,15 @@
       &__label
         h5
           font-size: 12px
-      &__spec
+      &__quote
         font-size: 12px
         font-weight: 500
         line-height: 18px
         height: 56px
       &__more
-        bottom: -23px
-      &:hover
-        .specialists-item
-          &__photo
-            height: 372px
+        bottom: -39px
+      &:hover .specialists-item__layout
+        top: -39px
     &-more
       width: 202px
       height: 202px
