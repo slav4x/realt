@@ -208,15 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menu.classList.toggle('open');
     header.classList.toggle('fixed');
 
-    menu.addEventListener('wheel', function (e) {
-      e.stopPropagation();
-    });
-
-    window.scrollTo(0, 0);
-
-    if (document.body.clientWidth < 1024) {
-      document.body.style.overflow = isOpen ? 'hidden' : 'visible';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'visible';
   });
 
   // ** PRICE ACCORDION ** //
@@ -692,13 +684,4 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     });
   }
-});
-
-// fetch('https://rt.dev-slava.ru/api/getUsers.php')
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-//   .catch((error) => console.error('Ошибка:', error));
-
-document.querySelectorAll('.p-service-list_row').forEach((row, index) => {
-  console.log(row);
 });
