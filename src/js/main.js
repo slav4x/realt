@@ -444,6 +444,22 @@ document.addEventListener('DOMContentLoaded', function () {
           label.classList.remove('fill');
         });
       }, 500);
+
+      if (form.classList.contains('js-thanks')) {
+        setTimeout(() => {
+          openPopup('thanks');
+        }, 500);
+      }
+
+      const formUrl = form.getAttribute('action');
+      const formData = new FormData(this);
+
+      fetch(formUrl, {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .catch((error) => console.error('Error:', error));
     });
   });
 
