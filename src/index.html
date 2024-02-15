@@ -8,10 +8,62 @@
     <h3>КЛИНИКА В ЦЕНТРЕ МОСКВЫ</h3>
     <h1 animate-text>Клиника <i>психотерапии</i> и <i>психиатрии</i> доктора Шмиловича «Ре-Альт»</h1>
     <h2 animate-text>Профессиональная помощь психологов, врачей-психиатров и психоаналитиков.</h2>
-    <div class="btn-wrap"><a href="#" class="btn btn-green btn-lg"><p>Подобрать услугу и специалиста</p></a></div>
+    <div class="btn-wrap"><a href="javascript:;" data-button="online" class="btn btn-green btn-lg"><p>Запись онлайн</p></a></div>
     <div class="hero-photos"><img src="img/hero-photos-2.png" alt=""></div>
   </div>
 </section>
+
+<div class="popup" data-popup="online">
+  <div class="popup-bg"></div>
+  <div class="popup-wrapper">
+    <div class="popup-close"></div>
+    {# <div class="popup-switch">
+      <h3 class="title-md">Запишитесь в “Клиника доктора Шмиловича<br> “Ре-Альт”</h3>
+      <ul class="popup-switch__links">
+        <li><p>Хотите записаться к определенному специалисту?</p></li>
+        <li><p>Не знаете кого выбрать?<br> Начните с выбора услуги</p></li>
+      </ul>
+      <div class="popup-switch__phone">
+        <p>Если вам удобнее записаться по телефону</p>
+        <a href="tel:+7 495 114 53 14" class="title-md">+7 495 114 53 14</a>
+      </div>
+      <div class="popup-footer">© 2015-2023 ООО “Центр душевного здоровья”</div>
+    </div> #}
+    {# <div class="popup-online">
+      <h3 class="title-md">Выберите специалиста</h3>
+      <div class="popup-online__content">
+        <div class="popup-specialists__grid">
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+          {% include 'components/specialists-popup.html' %}
+        </div>
+      </div>
+      <div class="popup-online__next"><a href="javascript:;" class="btn btn-outline btn-md"><p>Дальше</p></a></div>
+    </div> #}
+    <div class="popup-online">
+      <h3 class="title-md">Выберите услугу</h3>
+      <div class="popup-online__content">
+        <div class="popup-services__grid">
+          <label class="popup-services__item">
+            <div class="popup-services__item-title"></div>
+            <div class="popup-services__item-price"></div>
+            <div class="popup-services__item-time"></div>
+          </label>
+        </div>
+      </div>
+      <div class="popup-online__next"><a href="javascript:;" class="btn btn-outline btn-md"><p>Дальше</p></a></div>
+    </div>
+  </div>
+</div>
 
 <section class="stats">
   <div class="container">

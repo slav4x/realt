@@ -693,3 +693,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// fetch('https://rt.dev-slava.ru/api/getUsers.php')
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error('Ошибка:', error));
+
+document.querySelectorAll('.p-service-list_row').forEach((row, index) => {
+  console.log(row);
+});
