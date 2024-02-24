@@ -209,9 +209,6 @@
   .service
     &-main
       width: 100%
-    &-item
-      &::before
-        right: -1000px
     &-form
       max-width: 420px
       margin: 0 auto
@@ -346,3 +343,24 @@
     span
       font-size: 14px
       margin-top: 20px
+
+  .service-item
+    &::before
+      right: -1000px
+    &::after
+      right: 0
+      width: auto
+    &__main
+      padding-right: 40px
+      &::before
+        right: -1000px
+      &::after
+        right: 5px
+    &__links
+      a
+        padding-right: 40px
+        background-position: top 24px left
+        &::before
+          right: -1000px
+        &::after
+          right: 3px

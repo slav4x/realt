@@ -36,140 +36,6 @@
       a
         font-weight: 500
         color: var(--color-black)
-  &-item
-    position: relative
-    padding: 40px 80px 40px 0
-    display: block
-    background: var(--color-bg)
-    z-index: 3
-    &::before
-      content: ''
-      position: absolute
-      bottom: 0
-      right: 0
-      top: 0
-      left: -1000px
-      border-bottom: 1px dashed var(--color-border)
-      transition: .25s
-      z-index: 1
-    &::after
-      counter-increment: services
-      content: '( ' counter(services, decimal-leading-zero) ' )'
-      font-family: 'Wulkan Display'
-      font-weight: 500
-      line-height: 1.1
-      letter-spacing: 0.05em
-      font-style: italic
-      position: absolute
-      top: 40px
-      right: 40px
-      color: var(--color-gray)
-      transition: .25s
-    p
-      margin-top: 12px
-      line-height: 1.6
-      letter-spacing: -0.02em
-      color: var(--color-gray)
-      position: relative
-      z-index: 5
-    .title-md
-      position: relative
-      z-index: 5
-    span
-      position: absolute
-      z-index: 10
-      top: 46px
-      right: 46px
-      width: 60px
-      height: 60px
-      border: 1px dashed #fff
-      background-color: var(--color-green)
-      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36279 0L4.61279 5.87234L2.36279 12L10.6128 5.87234L2.36279 0Z' fill='white'/%3E%3C/svg%3E%0A")
-      background-repeat: no-repeat
-      background-position: center
-      box-shadow: 0 0 0 6px var(--color-green)
-      display: block
-      border-radius: 100%
-      opacity: 0
-      transition: .25s
-    &__section
-      cursor: pointer
-      .title-md
-        @include flexbox
-        align-items: center
-        gap: 16px
-        &::after
-          content: ''
-          display: block
-          width: 13px
-          height: 12px
-          background: url("data:image/svg+xml,%3Csvg width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.391113 2.36279L6.26345 4.61279L12.3911 2.36279L6.26345 10.6128L0.391113 2.36279Z' fill='%23002E25'/%3E%3C/svg%3E%0A") no-repeat center
-          transition: .25s
-      &.open
-        .title-md::after
-          transform: rotate(180deg)
-    &__links
-      // margin-bottom: -40px
-      // margin-top: 40px
-      max-height: 0
-      overflow: hidden
-      transition: .25s
-      position: relative
-      z-index: 2
-      a
-        padding: 20px 0
-        display: block
-        padding-left: 26px
-        position: relative
-        &::before
-          content: ''
-          position: absolute
-          top: 26px
-          left: 0
-          width: 11px
-          height: 12px
-          background: url("data:image/svg+xml,%3Csvg width='11' height='12' viewBox='0 0 11 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8.5L0.5 8.5L0.5 9H1V8.5ZM11 8.5L6 5.61325V11.3868L11 8.5ZM0.5 0L0.5 8.5L1.5 8.5L1.5 0L0.5 0ZM1 9H6.5V8H1V9Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat
-        &::after
-          content: ''
-          position: absolute
-          top: 0
-          left: -1000px
-          right: -80px
-          bottom: 0
-          z-index: -1
-          background: #f1f3f2
-          opacity: 0
-          transition: .25s
-        &:hover
-          &::after
-            opacity: 1
-          span
-            opacity: 1
-      span
-        position: absolute
-        z-index: 10
-        top: 0px
-        bottom: 0
-        margin: auto 0
-        right: -34px
-        width: 42px
-        height: 42px
-        border: 1px dashed #fff
-        background-color: var(--color-green)
-        background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36279 0L4.61279 5.87234L2.36279 12L10.6128 5.87234L2.36279 0Z' fill='white'/%3E%3C/svg%3E%0A")
-        background-repeat: no-repeat
-        background-position: center
-        box-shadow: 0 0 0 6px var(--color-green)
-        display: block
-        border-radius: 100%
-        opacity: 0
-        transition: .25s
-      p
-        margin-top: 6px
-      &.open
-        overflow: initial
-        margin-bottom: -40px
-        margin-top: 20px
   &-head
     height: 96px
     background: #fff
@@ -478,3 +344,146 @@ a.service-item:hover
           opacity: .1
         &.active::before
           opacity: 1
+
+  &-item
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      bottom: 0
+      right: 0
+      top: 0
+      left: -1000px
+      border-bottom: 1px dashed var(--color-border)
+      transition: .25s
+      z-index: -1
+    &::after
+      counter-increment: services
+      content: '( ' counter(services, decimal-leading-zero) ' )'
+      font-family: 'Wulkan Display'
+      font-weight: 500
+      line-height: 1.1
+      letter-spacing: 0.05em
+      font-style: italic
+      position: absolute
+      top: 40px
+      right: 0
+      width: 80px
+      color: var(--color-gray)
+      z-index: -2
+    &__main
+      display: block
+      padding: 40px 80px 40px 0px
+      position: relative
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: -1000px
+        bottom: 0
+        right: 0
+        background: #F1F3F2
+        z-index: -1
+        opacity: 0
+        transition: .25s
+      &::after
+        content: ''
+        position: absolute
+        z-index: 10
+        top: 0
+        bottom: 0
+        margin: auto 0
+        right: 46px
+        width: 60px
+        height: 60px
+        border: 1px dashed #fff
+        background: var(--color-green) url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36279 0L4.61279 5.87234L2.36279 12L10.6128 5.87234L2.36279 0Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
+        box-shadow: 0 0 0 6px var(--color-green)
+        border-radius: 100%
+        opacity: 0
+        transition: .25s
+      p
+        margin-top: 12px
+        line-height: 1.6
+      .title-md
+        transition: .25s
+      &.toggle
+        &::after
+          visibility: hidden
+        .title-md
+          @include flexbox
+          align-items: center
+          gap: 16px
+          &::after
+            content: ''
+            display: block
+            width: 13px
+            height: 12px
+            background: url("data:image/svg+xml,%3Csvg width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.391113 2.36279L6.26345 4.61279L12.3911 2.36279L6.26345 10.6128L0.391113 2.36279Z' fill='%23002E25'/%3E%3C/svg%3E%0A") no-repeat center
+            transition: .25s
+        &.show
+          &::after
+            visibility: visible
+          .title-md::after
+            transform: rotate(-180deg)
+      &:hover
+        .title-md
+          color: var(--color-green)
+        &::before
+          opacity: 1
+        &::after
+          opacity: 1
+    &__links
+      max-height: 0
+      transition: .25s
+      opacity: 0
+      pointer-events: none
+      &.show
+        max-height: 1000px
+        opacity: 1
+        pointer-events: auto
+      a
+        display: block
+        padding: 20px 80px 20px 26px
+        position: relative
+        background: url("data:image/svg+xml,%3Csvg width='11' height='12' viewBox='0 0 11 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8.5L0.5 8.5L0.5 9H1V8.5ZM11 8.5L6 5.61325V11.3868L11 8.5ZM0.5 0L0.5 8.5L1.5 8.5L1.5 0L0.5 0ZM1 9H6.5V8H1V9Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat top 26px left
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: -1000px
+          bottom: 0
+          right: 0
+          background: #F1F3F2
+          z-index: -1
+          opacity: 0
+          transition: .25s
+        &::after
+          content: ''
+          position: absolute
+          z-index: 10
+          top: 0
+          bottom: 0
+          margin: auto 0
+          right: 36px
+          width: 38px
+          height: 38px
+          border: 1px dashed #fff
+          background-color: var(--color-green)
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36279 0L4.61279 5.87234L2.36279 12L10.6128 5.87234L2.36279 0Z' fill='white'/%3E%3C/svg%3E%0A")
+          background-repeat: no-repeat
+          background-position: center
+          box-shadow: 0 0 0 5px var(--color-green)
+          border-radius: 100%
+          opacity: 0
+          transition: .25s
+        .title-sm
+          margin: 0
+          transition: .25s
+        p
+          margin-top: 6px
+        &:hover
+          .title-sm
+            color: var(--color-green)
+          &::before, &::after
+            opacity: 1

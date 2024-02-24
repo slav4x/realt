@@ -336,12 +336,6 @@
   .service
     &-head
       height: 60px
-    &-item
-      padding-right: 50px
-      &::after
-        right: 0
-      span
-        display: none
     &-main
       padding-bottom: 0
     &-form
@@ -589,3 +583,16 @@
       &__text
         .title + ul
           margin-top: 15px
+
+  .service-item
+    &__main
+      &::after
+        display: none
+      &.toggle .title-md
+        gap: 8px
+    &__links
+      a
+        padding-right: 0px
+        background-position: top 23px left
+        &::after
+          display: none

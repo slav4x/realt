@@ -74,9 +74,9 @@
       p
         font-size: 12px
         margin-top: 2px
-    &-nav
+    &-nav, .nav
+      gap: 30px
       li
-        width: 90px
         height: 36px
     &-burger
       width: 44px !important
@@ -424,29 +424,6 @@
         margin: 24px 0
       small
         font-size: 12px
-    &-item
-      padding-top: 24px
-      padding-bottom: 24px
-      p
-        margin-top: 8px
-      &::after
-        top: 24px
-      span
-        width: 40px
-        height: 40px
-        box-shadow: 0 0 0 4px var(--color-green)
-        top: 36px
-        right: 36px
-      &__links
-        li
-          a
-            padding-top: 12px
-            padding-bottom: 12px
-            &::before
-              top: 18px
-        &.open
-          margin-top: 10px
-          margin-bottom: -10px
     &-element
       padding: var(--gap-md) 0
       &__text
@@ -849,3 +826,46 @@
     font-size: 18px
     span
       font-size: 16px
+
+  .service-item
+    &::after
+      top: 28px
+      width: 72px
+    &__main
+      padding-top: 28px
+      padding-bottom: 28px
+      p
+        margin-top: 8px
+      &::after
+        width: 38px
+        height: 38px
+        box-shadow: 0 0 0 5px var(--color-green)
+        right: 38px
+    &__links
+      a
+        &::after
+          width: 30px
+          height: 30px
+          right: 36px
+          box-shadow: 0 0 0 3px var(--color-green)
+
+  .dropdown
+    top: 77px
+    &-nav
+      padding: 20px 20px 20px 0
+      gap: 10px
+      li.hover::after
+        width: 5px
+        height: 8px
+    &-sub
+      gap: 10px
+      padding: 20px 0 20px 20px
+    &-left
+      width: 400px
+    &-right
+      width: calc(100% - 400px)
+
+@media(max-width: 1439px)
+  .header
+    &-nav, .nav
+      gap: 20px

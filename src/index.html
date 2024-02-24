@@ -8,16 +8,23 @@
     <h3>КЛИНИКА В ЦЕНТРЕ МОСКВЫ</h3>
     <h1 animate-text>Клиника <i>психотерапии</i> и <i>психиатрии</i> доктора Шмиловича «Ре-Альт»</h1>
     <h2 animate-text>Профессиональная помощь психологов, врачей-психиатров и психоаналитиков.</h2>
-    <div class="btn-wrap"><a href="javascript:;" data-button="online" class="btn btn-green btn-lg"><p>Запись онлайн</p></a></div>
+    <div class="btn-wrap"><a href="javascript:;" data-fancybox data-src="#widget" class="btn btn-green btn-lg"><p>Запись онлайн</p></a></div>
     <div class="hero-photos"><img src="img/hero-photos-2.png" alt=""></div>
   </div>
 </section>
 
-<div class="popup" data-popup="online">
+<div class="widget" id="widget">
+  <iframe src="https://klientiks.ru/app2/Klinika_REALT" frameborder="0" loading="lazy"></iframe>
+</div>
+
+{# <script type="text/javascript" src="https://klientiks.ru/js/online/clientixWidget.js"></script>
+<script type="text/javascript">clientixWidget.load({baseUrl:"https://klientiks.ru",alias:"/app2/Klinika_REALT",text: "Записаться онлайн",color:"#7ca2bf"})</script> #}
+
+{# <div class="popup" data-popup="online">
   <div class="popup-bg"></div>
   <div class="popup-wrapper">
     <div class="popup-close"></div>
-    {# <div class="popup-switch">
+    <div class="popup-switch">
       <h3 class="title-md">Запишитесь в “Клиника доктора Шмиловича<br> “Ре-Альт”</h3>
       <ul class="popup-switch__links">
         <li><p>Хотите записаться к определенному специалисту?</p></li>
@@ -28,8 +35,8 @@
         <a href="tel:+7 495 114 53 14" class="title-md">+7 495 114 53 14</a>
       </div>
       <div class="popup-footer">© 2015-2023 ООО “Центр душевного здоровья”</div>
-    </div> #}
-    {# <div class="popup-online">
+    </div>
+    <div class="popup-online">
       <h3 class="title-md">Выберите специалиста</h3>
       <div class="popup-online__content">
         <div class="popup-specialists__grid">
@@ -48,7 +55,7 @@
         </div>
       </div>
       <div class="popup-online__next"><a href="javascript:;" class="btn btn-outline btn-md"><p>Дальше</p></a></div>
-    </div> #}
+    </div>
     <div class="popup-online">
       <h3 class="title-md">Выберите услугу</h3>
       <div class="popup-online__content">
@@ -63,7 +70,7 @@
       <div class="popup-online__next"><a href="javascript:;" class="btn btn-outline btn-md"><p>Дальше</p></a></div>
     </div>
   </div>
-</div>
+</div> #}
 
 <section class="stats">
   <div class="container">

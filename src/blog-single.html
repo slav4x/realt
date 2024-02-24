@@ -66,13 +66,20 @@
         <a href="#top" class="blog-single__top">Наверх</a>
         <ul class="blog-single__links">
           <li class="tg"><a href="#">Телеграм</a></li>
-          <li class="link"><a href="#">Ссылка</a></li>
+          <li class="link"><a href="javascript:;">Ссылка</a></li>
           <li class="wa"><a href="#">Whatsapp</a></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelector('.blog-single__links .link').addEventListener('click', (event) => {
+    navigator.clipboard.writeText(window.location.href);
+    event.currentTarget.classList.add('copied');
+  });
+</script>
 
 <div class="wrapper">
 
