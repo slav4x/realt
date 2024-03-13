@@ -92,9 +92,19 @@
       a
         @include flexbox
         align-items: center
+        justify-content: flex-start
         gap: 10px
         p
           width: calc(100% - 160px)
+          --thickness: 2px
+          span
+            display: inline
+            background-repeat: no-repeat
+            transition: all 400ms ease-in-out
+            background-position: bottom left
+            background-size: 0% var(--thickness)
+            background-image: linear-gradient(var(--color-black), var(--color-black))
+            padding-bottom: 4px
         &::after
           margin-left: 6px
           content: ''
@@ -112,6 +122,8 @@
           transition: .25s
       &.active, &:hover
         opacity: 1
+        span
+          background-size: 100% var(--thickness)
         a::after
           opacity: 1
   &-figure
