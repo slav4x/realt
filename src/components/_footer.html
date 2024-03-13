@@ -146,11 +146,21 @@
   <div class="popup-wrapper">
     <div class="popup-close"></div>
     <div class="popup-reviews">
+      <div class="popup-call__head">
+        <h3 class="title-md">Оставьте ваш отзыв<br> о нашей клинике</h3>
+        <p class="popup-call__subtitle">При желании Ваш отзыв может быть опубликован анонимно</p>
+      </div>
       <form action="#" class="popup-reviews__form">
-        <label class="popup-reviews__label popup-reviews__label-col">
-          <p>Ваше имя и фамилия</p>
-          <input type="text" name="name" placeholder="Иван Петров">
-        </label>
+        <div class="popup-reviews__label-col popup-reviews__name">
+          <label class="popup-reviews__label">
+            <p>Ваше имя и фамилия</p>
+            <input type="text" name="name" placeholder="Иван Петров">
+          </label>
+          <label class="popup-reviews__checkbox">
+            <input type="checkbox" name="anonymous" />
+            <p>Оставить отзыв анонимно</p>
+          </label>
+        </div>
         <label class="popup-reviews__label popup-reviews__label-col">
           <p>Город</p>
           <input type="text" name="city" placeholder="Москва">

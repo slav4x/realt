@@ -754,4 +754,17 @@ document.addEventListener('DOMContentLoaded', function () {
       subNav.classList.remove('open');
     });
   });
+
+  const popupReviews = document.querySelector('.popup-reviews');
+  const anonymousReviews = document.querySelector('.popup-reviews__checkbox input[type="checkbox"]');
+  const nameReviews = document.querySelector('.popup-reviews__name');
+  anonymousReviews.addEventListener('change', () => {
+    if (anonymousReviews.checked) {
+      nameReviews.classList.add('anonymous');
+      nameReviews.querySelector('input').disabled = true;
+    } else {
+      nameReviews.classList.remove('anonymous');
+      nameReviews.querySelector('input').disabled = false;
+    }
+  });
 });

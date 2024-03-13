@@ -123,6 +123,45 @@
     flex-direction: column
     align-items: flex-start
     justify-content: space-between
+    .popup-call__head
+      margin-bottom: 20px
+    &__name.anonymous
+      .popup-reviews__label
+        opacity: 0.5
+    &__checkbox
+      display: block
+      cursor: pointer
+      transition: .25s
+      margin-top: 10px
+      input
+        @include visually-hidden
+        &:checked + p::before
+          background: var(--color-black)
+          border-color: var(--color-black)
+      p
+        line-height: 12px
+        position: relative
+        padding-left: 20px
+        color: var(--color-dark)
+        font-size: 12px
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 12px
+          height: 12px
+          border: 1px solid #D9D9D9
+          border-radius: 0px
+          transition: .15s
+        &::after
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 12px
+          height: 12px
+          background: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.923096 5.14288L5.27474 8.30771L11.0769 0.923096' stroke='white' stroke-width='1.84615'/%3E%3C/svg%3E%0A") no-repeat center / 8px
     &__text
       line-height: 1.6
       color: var(--color-dark)
@@ -197,6 +236,7 @@
       width: 100%
       padding-top: 14px
       position: relative
+      transition: .25s
       span
         position: absolute
         bottom: 11px
@@ -221,6 +261,8 @@
           color: #b0afaf
         &:focus, &:active
           border-color: var(--color-black)
+        &:disabled
+          cursor: not-allowed
       textarea
         width: 100%
         height: 300px
