@@ -121,6 +121,29 @@
     font-size: 16px
     line-height: 1
     font-weight: 500
+    position: relative
+    cursor: pointer
+    p
+      padding-right: 20px
+      background: url("data:image/svg+xml,%3Csvg width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.6089 9.63721L6.73655 7.38721L0.608887 9.63721L6.73655 1.38721L12.6089 9.63721Z' fill='%230A0A0B' fill-opacity='0.75'/%3E%3C/svg%3E%0A") no-repeat right center
+    ul
+      position: absolute
+      background: var(--color-bg)
+      bottom: 22px
+      left: -10px
+      white-space: nowrap
+      padding: 10px 10px 0
+      pointer-events: none
+      opacity: 0
+      transform: translateY(10px)
+      transition: .25s
+      line-height: 22px
+      li
+        padding-bottom: 4px
+    &:hover ul
+      opacity: 1
+      transform: translateY(0px)
+      pointer-events: auto
   &-social
     @include flexbox
     align-items: flex-start
