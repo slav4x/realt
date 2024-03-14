@@ -588,8 +588,13 @@
     &__main
       &::after
         display: none
+      .title-md
+        --thickness: 1px
+        padding-bottom: 2px
       &.toggle .title-md
-        gap: 8px
+        &::after
+          right: -20px
+          top: 5px
     &__links
       a
         padding-right: 0px

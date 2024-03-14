@@ -407,16 +407,26 @@ a.service-item:hover
         line-height: 1.6
       .title-md
         transition: .25s
+        --thickness: 2px
+        display: inline
+        background-repeat: no-repeat
+        transition: all 400ms ease-in-out
+        background-position: bottom left
+        background-size: 0% var(--thickness)
+        background-image: linear-gradient(var(--color-green), var(--color-green))
       &.toggle
         &::after
           visibility: hidden
         .title-md
-          @include flexbox
-          align-items: center
-          gap: 16px
+          // @include flexbox
+          // align-items: center
+          // gap: 16px
+          position: relative
           &::after
             content: ''
-            display: block
+            position: absolute
+            right: -28px
+            top: 15px
             width: 13px
             height: 12px
             background: url("data:image/svg+xml,%3Csvg width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.391113 2.36279L6.26345 4.61279L12.3911 2.36279L6.26345 10.6128L0.391113 2.36279Z' fill='%23002E25'/%3E%3C/svg%3E%0A") no-repeat center
@@ -429,6 +439,7 @@ a.service-item:hover
       &:hover
         .title-md
           color: var(--color-green)
+          background-size: 100% var(--thickness)
         &::before
           opacity: 1
         &::after
