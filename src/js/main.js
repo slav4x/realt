@@ -767,4 +767,46 @@ document.addEventListener('DOMContentLoaded', function () {
       nameReviews.querySelector('input').disabled = false;
     }
   });
+
+  document.querySelectorAll('.footer-address__switch li').forEach((item) => {
+    item.addEventListener('click', function () {
+      document.querySelectorAll('.footer-address__switch li').forEach((i) => i.classList.remove('active'));
+      this.classList.add('active');
+      const id = this.getAttribute('data-id');
+      document.querySelectorAll('.footer-address .title-md, .footer-address .title-sm').forEach((address) => {
+        address.classList.remove('active');
+        if (address.getAttribute('data-id') === id) {
+          address.classList.add('active');
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll('.menu-address ul li').forEach((item) => {
+    item.addEventListener('click', function () {
+      document.querySelectorAll('.menu-address ul li').forEach((i) => i.classList.remove('active'));
+      this.classList.add('active');
+      const id = this.getAttribute('data-id');
+      document.querySelectorAll('.menu-address p').forEach((address) => {
+        address.classList.remove('active');
+        if (address.getAttribute('data-id') === id) {
+          address.classList.add('active');
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll('.contact-switch li').forEach((item) => {
+    item.addEventListener('click', function () {
+      document.querySelectorAll('.contact-switch li').forEach((i) => i.classList.remove('active'));
+      this.classList.add('active');
+      const id = this.getAttribute('data-id');
+      document.querySelectorAll('.contact-address').forEach((address) => {
+        address.classList.remove('active');
+        if (address.getAttribute('data-id') === id) {
+          address.classList.add('active');
+        }
+      });
+    });
+  });
 });
