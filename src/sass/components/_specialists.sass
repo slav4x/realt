@@ -49,6 +49,14 @@
       font-weight: 700
       line-height: 1.2
       letter-spacing: -0.02em
+      --thickness: 2px
+      span
+        display: inline
+        background-repeat: no-repeat
+        transition: all 400ms ease-in-out
+        background-position: bottom left
+        background-size: 0% var(--thickness)
+        background-image: linear-gradient(var(--color-black), var(--color-black))
     &__label
       h5
         text-transform: uppercase
@@ -119,6 +127,8 @@
     &:hover
       .specialists-item__layout
         top: -47px
+      .specialists-item__name span
+        background-size: 100% var(--thickness)
   &-more
     @include flexbox
     flex-direction: column
