@@ -632,10 +632,83 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function updateSelectedVisibility() {
+    const specialistsSelected = document.querySelector('.specialists-selected');
+
+    if (filters.symptoms.length > 0 || filters.diagnoses.length > 0) {
+      specialistsSelected.classList.add('show');
+    } else {
+      specialistsSelected.classList.remove('show');
+    }
+  }
+
+  updateSelectedVisibility();
+  // Функция для снятия чекбокса по значению
+  function uncheckCheckbox(value, type) {
+    const selector = `label.popup-filter__checkbox input[name="${type}[]"]`;
+    const checkboxes = document.querySelectorAll(selector);
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.value === value) {
+        checkbox.checked = false;
+      }
+    });
+  }
+
+  // Обработчик для полной очистки
+  document.querySelector('.specialists-selected a').addEventListener('click', (event) => {
+    event.preventDefault(); // Предотвращаем действие по умолчанию
+    filters.symptoms = [];
+    filters.diagnoses = [];
+
+    // Снимаем выбор со всех чекбоксов
+    const allCheckboxes = document.querySelectorAll('label.popup-filter__checkbox input[type="checkbox"]');
+    allCheckboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    updateSelectedVisibility();
+    setSelected(); // Обновляем список выбранных элементов
+    filterItems(); // Применяем фильтрацию
+  });
+
+  // Модифицированная функция setSelected для удаления отдельных элементов
+  function setSelected() {
+    const ul = document.querySelector('.specialists-selected ul');
+    ul.innerHTML = ''; // Очищаем список
+
+    filters.symptoms.forEach((symptom, index) => {
+      const li = document.createElement('li');
+      li.textContent = symptom;
+      li.addEventListener('click', () => {
+        uncheckCheckbox(symptom, 'symptoms'); // Снимаем чекбокс для симптома
+        filters.symptoms.splice(index, 1);
+        setSelected(); // Обновляем список
+        updateSelectedVisibility();
+        filterItems();
+      });
+      ul.appendChild(li);
+    });
+
+    filters.diagnoses.forEach((diagnosis, index) => {
+      const li = document.createElement('li');
+      li.textContent = diagnosis;
+      li.addEventListener('click', () => {
+        uncheckCheckbox(diagnosis, 'diagnoses'); // Снимаем чекбокс для диагноза
+        filters.diagnoses.splice(index, 1);
+        setSelected(); // Обновляем список
+        updateSelectedVisibility();
+        filterItems();
+      });
+      ul.appendChild(li);
+    });
+  }
+
   if (popupFilter) {
     filterApply.addEventListener('click', () => {
       closePopup();
       filterItems();
+      setSelected();
+      updateSelectedVisibility();
     });
 
     const updateGroupVisibility = (group, isMatchFound) => {

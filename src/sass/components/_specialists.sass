@@ -549,3 +549,33 @@
 
   &-section
     overflow: hidden
+
+  &-selected
+    display: none
+    &.show
+      display: flex
+    a
+      color: var(--color-brown)
+      display: inline-block
+      text-transform: none
+      margin-left: 10px
+      letter-spacing: -0.02em
+    ul
+      @include flexbox
+      align-items: flex-start
+      gap: 8px
+      li
+        cursor: pointer
+        padding: 7px 41px 7px 15px
+        border: 1px solid rgba(15, 15, 17, 0.10)
+        border-radius: 999px
+        font-size: 14px
+        letter-spacing: -0.02em
+        line-height: 18px
+        color: rgba(15, 15, 17, 0.70)
+        font-weight: 500
+        background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.26625 12.4124L3.5874 11.7336L7.32106 7.9999L3.5874 4.26625L4.26625 3.5874L7.9999 7.32106L11.7336 3.5874L12.4124 4.26625L8.67875 7.9999L12.4124 11.7336L11.7336 12.4124L7.9999 8.67875L4.26625 12.4124Z' fill='%23101626'/%3E%3C/svg%3E%0A")no-repeat right 11px center
+        transition: .2s
+        &:hover
+          border: 1px solid rgba(15, 15, 17, 0.20)
+          background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.26625 12.4124L3.5874 11.7336L7.32106 7.9999L3.5874 4.26625L4.26625 3.5874L7.9999 7.32106L11.7336 3.5874L12.4124 4.26625L8.67875 7.9999L12.4124 11.7336L11.7336 12.4124L7.9999 8.67875L4.26625 12.4124Z' fill='%23CD7F74'/%3E%3C/svg%3E%0A")
