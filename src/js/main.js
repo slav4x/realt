@@ -635,14 +635,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateSelectedVisibility() {
     const specialistsSelected = document.querySelector('.specialists-selected');
 
-    if (filters.symptoms.length > 0 || filters.diagnoses.length > 0) {
-      specialistsSelected.classList.add('show');
-    } else {
-      specialistsSelected.classList.remove('show');
+    if (specialistsSelected) {
+      if (filters.symptoms.length > 0 || filters.diagnoses.length > 0) {
+        specialistsSelected.classList.add('show');
+      } else {
+        specialistsSelected.classList.remove('show');
+      }
     }
   }
 
-  updateSelectedVisibility();
   // Функция для снятия чекбокса по значению
   function uncheckCheckbox(value, type) {
     const selector = `label.popup-filter__checkbox input[name="${type}[]"]`;
@@ -655,7 +656,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Обработчик для полной очистки
-  document.querySelector('.specialists-selected a').addEventListener('click', (event) => {
+  const clearFilter = document.querySelector('.specialists-selected a');
+  clearFilter?.addEventListener('click', (event) => {
     event.preventDefault(); // Предотвращаем действие по умолчанию
     filters.symptoms = [];
     filters.diagnoses = [];
