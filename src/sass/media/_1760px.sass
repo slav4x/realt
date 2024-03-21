@@ -859,22 +859,6 @@
           right: 36px
           box-shadow: 0 0 0 3px var(--color-green)
 
-  .dropdown
-    top: 77px
-    &-nav
-      padding: 20px 20px 20px 0
-      gap: 10px
-      li.hover::after
-        width: 5px
-        height: 8px
-    &-sub
-      gap: 10px
-      padding: 20px 0 20px 20px
-    &-left
-      width: 400px
-    &-right
-      width: calc(100% - 400px)
-
   .menu-license
     p
       background-size: 8px
@@ -893,6 +877,74 @@
 
   .service-item__main.toggle .title-md::after
     top: 9px
+
+  .dropdown
+    top: calc(100% + 21px)
+    max-height: 442px
+    &-nav
+      font-size: 14px
+      line-height: 20px
+      width: 360px
+      li
+        height: auto
+        margin-bottom: 2px
+        a
+          padding: 10px
+        &.menu-item-object-specialists
+          a
+            padding-left: 40px
+            img
+              width: 20px
+              height: 20px
+              top: 10px
+    &-wrap
+      width: 372px
+    &-arrow a
+      padding-right: 44px
+      &::after
+        top: 10px
+        right: 10px
+        width: 20px
+        height: 20px
+        background-size: 4px
+
+@media(max-width: 1550px)
+  .dropdown
+    max-height: 446px
+    padding: 8px
+    &-nav
+      font-size: 13px
+      line-height: 18px
+      width: 328px
+      li
+        a
+          padding: 8px
+        &.menu-item-object-specialists
+          a
+            padding-left: 36px
+            img
+              width: 20px
+              height: 20px
+              top: 7px
+      &.scroll
+        padding-right: 8px
+    &-wrap
+      width: 332px
+      padding: 8px 8px 8px 16px
+      left: calc(100% - 8px)
+      transform: translateX(calc(-100% + 8px))
+    &-subnav
+      &.scroll
+        padding-right: 8px
+      &::before
+        top: 8px
+        left: 8px
+        bottom: 8px
+    &-arrow a
+      padding-right: 36px
+      &::after
+        top: 7px
+        right: 8px
 
 @media(max-width: 1439px)
   .header

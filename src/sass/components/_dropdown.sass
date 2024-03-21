@@ -1,1 +1,166 @@
+.dropdown
+  max-height: 580px
+  position: absolute
+  top: calc(100% + 28px)
+  left: -100px
+  background: #fff
+  // border-top: 1px solid rgba(0,0,0,0.1)
+  padding: 12px
+  border-bottom-left-radius: 12px
+  border-bottom-right-radius: 12px
+  @include flexbox
+  flex-direction: column
+  opacity: 0
+  pointer-events: none
+  transform: translateY(-10px)
+  transition: .25s
+  &.show
+    opacity: 1
+    pointer-events: auto
+    transform: translateY(0)
+  &-nav
+    font-size: 18px
+    line-height: 24px
+    font-weight: 500
+    width: 454px
+    height: 100%
+    overflow-y: auto
+    background: #fff
+    &.scroll
+      padding-right: 12px
+    &::-webkit-scrollbar
+      width: 2px
+      background: #D9D9D9
+    &::-webkit-scrollbar-thumb
+      background: #00574F
+      background-clip: padding-box
+      border-radius: 0
+    li
+      margin-bottom: 4px
+      &:last-child
+        margin-bottom: 0
+      a
+        position: relative
+        display: block
+        padding: 14px 52px 14px 10px
+        border-radius: 4px
+        transition: .2s
+        color: var(--color-black) !important
+        &:hover
+          background: rgba(0, 87, 79, 0.10)
+      &.menu-item-object-specialists
+        a
+          padding-left: 52px
+        img
+          width: 30px
+          height: 30px
+          position: absolute
+          top: 11px
+          left: 10px
+          object-fit: cover
+          object-position: center
+          border-radius: 4px
+      &.show
+        & > a
+          background: rgba(0, 87, 79, 0.10)
+          &::after
+            background-color: #00574F
+            border-color: #00574F
+            background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L2.18182 4.89362L0 10L8 4.89362L0 0Z' fill='white'/%3E%3C/svg%3E%0A")
+            transform: rotate(180deg)
+        & > .dropdown-wrap
+          transform: translateX(0%)
+          pointer-events: auto
+  &-wrap
+    padding: 12px
+    padding-left: 24px
+    border-bottom-right-radius: 12px
+    width: 466px
+    position: absolute
+    top: 0
+    bottom: 0
+    left: calc(100% - 12px)
+    background: #fff
+    z-index: -1
+    transform: translateX(calc(-100% + 12px))
+    transition: .3s
+    pointer-events: none
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: #fff
+      border-bottom-right-radius: 12px
+  &-subnav
+    height: 100%
+    overflow-y: auto
+    &.scroll
+      padding-right: 12px
+    &::-webkit-scrollbar
+      width: 2px
+      background: #D9D9D9
+    &::-webkit-scrollbar-thumb
+      background: #00574F
+      background-clip: padding-box
+      border-radius: 0
+    &::before
+      content: ''
+      position: absolute
+      top: 12px
+      left: 12px
+      bottom: 12px
+      width: 1px
+      background: rgba(0,0,0,0.1)
+    li:not(.dropdown-arrow) a::after
+      display: none
+    li.show
+      & > a
+        background: rgba(0, 87, 79, 0.10)
+        &::after
+          background-color: #00574F
+          border-color: #00574F
+          background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L2.18182 4.89362L0 10L8 4.89362L0 0Z' fill='white'/%3E%3C/svg%3E%0A")
+          transform: rotate(180deg)
+      & > .dropdown-wrap
+        transform: translateX(0%)
+        pointer-events: auto
 
+  &-bg
+    position: fixed
+    z-index: 900
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: rgba(0,0,0,0.4)
+    opacity: 0
+    pointer-events: none
+    transition: .25s
+    &.show
+      opacity: 1
+      pointer-events: auto
+
+  &-arrow a
+    &::after
+      content: ''
+      position: absolute
+      top: 10px
+      right: 10px
+      width: 32px
+      height: 32px
+      border-radius: 100%
+      background-color: #fff
+      background-repeat: no-repeat
+      background-position: center
+      background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L2.18182 4.89362L0 10L8 4.89362L0 0Z' fill='%23002E25'/%3E%3C/svg%3E%0A")
+      border: 1px solid rgba(0,0,0,0.06)
+      transition: .2s
+    &:hover
+      &::after
+        background-color: #00574F
+        border-color: #00574F
+        background-image: url("data:image/svg+xml,%3Csvg width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L2.18182 4.89362L0 10L8 4.89362L0 0Z' fill='white'/%3E%3C/svg%3E%0A")
+        transform: rotate(180deg)
