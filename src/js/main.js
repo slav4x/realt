@@ -461,7 +461,9 @@ document.addEventListener('DOMContentLoaded', function () {
         method: 'POST',
         body: formData,
       })
-        .then((response) => response.json())
+        .then((response) => {
+          return response.ok ? (window.location.href = '/thanks') : response.json();
+        })
         .catch((error) => console.error('Error:', error));
     });
   });

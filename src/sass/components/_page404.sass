@@ -1,5 +1,4 @@
 .page404
-  height: 100vh
   @include flexbox
   align-items: flex-end
   padding: var(--gap-lg) 0
@@ -10,3 +9,11 @@
     & > p
       margin: 24px 0
       color: rgba(255, 255, 255, 0.70)
+
+@supports (height: 100svh)
+  .page404
+    height: 100svh
+
+@supports not (height: 100svh)
+  .page404
+    height: 100vh

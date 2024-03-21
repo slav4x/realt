@@ -1,0 +1,50 @@
+.thanks
+  background: url(../img/thanks-bg.jpg) no-repeat center / cover
+  color: #fff
+  text-align: center
+  @include flexbox
+  flex-direction: column
+  align-items: center
+  padding: 150px 30px 30px
+  &-text
+    margin: auto 0
+    p
+      max-width: 355px
+      line-height: 1.4
+      margin: 15px auto 0
+      b
+        font-weight: 600
+  &-bottom
+    @include flexbox
+    flex-direction: column
+    align-items: center
+    span
+      text-align: center
+      font-size: 12px
+      font-weight: 500
+      line-height: 1.56
+      margin-top: 30px
+      opacity: 0.7
+      display: block
+    .btn-outline
+      border: 1px dashed #fff
+      color: #fff
+      p
+        padding: 0 48px
+        &::before
+          border: 1px solid #fff
+      &:hover
+        background: var(--color-green)
+        color: #fff
+        border-color: var(--color-green)
+        p
+          &::before
+            border: 1px dashed #fff
+
+@supports (height: 100svh)
+  .thanks
+    height: 100svh
+
+@supports not (height: 100svh)
+  .thanks
+    height: 100vh
