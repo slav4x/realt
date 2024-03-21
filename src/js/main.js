@@ -12,6 +12,8 @@ viewportFix(420);
 
 const maskOptions = {
   mask: '+7 (000) 000-00-00',
+  lazy: false,
+  placeholderChar: '_',
   onFocus: function () {
     if (this.value === '') this.value = '+7 ';
   },
@@ -439,34 +441,18 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
+      const phoneInput = form.querySelector('.masked');
+      if (phoneInput && phoneInput.value.includes('_')) {
+        e.preventDefault();
+        alert('Пожалуйста, введите полный номер телефона.');
+        return;
+      }
+
       const button = form.querySelector('.btn p');
 
       button.style.opacity = 0.5;
       button.style.cursor = 'not-allowed';
       button.disabled = true;
-
-      const inputs = form.querySelectorAll('.label');
-      const thanks = document.querySelectorAll('.popup-thanks');
-
-      setTimeout(() => {
-        thanks.forEach((el) => {
-          el.classList.add('show');
-          button.style.opacity = 1;
-          button.disabled = false;
-        });
-
-        inputs.forEach((label) => {
-          const input = label.querySelector('input');
-          input.value = '';
-          label.classList.remove('fill');
-        });
-      }, 500);
-
-      if (form.classList.contains('js-thanks')) {
-        setTimeout(() => {
-          openPopup('thanks');
-        }, 500);
-      }
 
       const formUrl = form.getAttribute('action');
       const formData = new FormData(this);
