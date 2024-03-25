@@ -183,9 +183,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ** REVIEWS FORM ** //
-  new TomSelect('#specialists-select', {
-    plugins: ['remove_button'],
-  });
+  if (document.querySelector('#specialists-select')) {
+    new TomSelect('#specialists-select', {
+      plugins: ['remove_button'],
+    });
+  }
 
   const textarea = document.getElementById('reviewTextarea');
   const counter = document.getElementById('counter');
@@ -467,6 +469,71 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch((error) => console.error('Error:', error));
     });
   });
+
+  // Функция для получения utm-меток из URL
+  function getUtmParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = {};
+    for (const [key, value] of urlParams.entries()) {
+      utmParams[key] = value;
+    }
+    return utmParams;
+  }
+
+  // Функция для установки utm-меток в формы
+  function setUtmParamsInForms(utmParams) {
+    const forms = document.querySelectorAll('form');
+    forms.forEach((form) => {
+      Object.keys(utmParams).forEach((key) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = utmParams[key];
+        form.appendChild(input);
+      });
+    });
+  }
+
+  // Функция для сохранения utm-меток в localStorage с временной меткой
+  function saveUtmParamsWithExpiration(utmParams) {
+    const expirationTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+    const dataToSave = {
+      utmParams,
+      expirationTime,
+    };
+    localStorage.setItem('utmData', JSON.stringify(dataToSave));
+  }
+
+  // Функция для загрузки utm-меток из localStorage
+  function loadUtmParamsFromLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('utmData'));
+    if (data && data.expirationTime > new Date().getTime()) {
+      return data.utmParams;
+    } else {
+      return {};
+    }
+  }
+
+  // Функция для очистки utm-меток из localStorage по истечении срока действия
+  function clearUtmParamsIfExpired() {
+    const data = JSON.parse(localStorage.getItem('utmData'));
+    if (data && data.expirationTime <= new Date().getTime()) {
+      localStorage.removeItem('utmData');
+    }
+  }
+
+  // Вызываем функции
+  const utmParamsFromUrl = getUtmParams();
+  const savedUtmParams = loadUtmParamsFromLocalStorage();
+
+  if (Object.keys(utmParamsFromUrl).length > 0) {
+    setUtmParamsInForms(utmParamsFromUrl);
+    saveUtmParamsWithExpiration(utmParamsFromUrl);
+  } else if (Object.keys(savedUtmParams).length > 0) {
+    setUtmParamsInForms(savedUtmParams);
+  }
+
+  clearUtmParamsIfExpired();
 
   const thanksPopup = document.querySelectorAll('.popup-thanks');
   const thanksBtn = document.querySelectorAll('.popup-thanks .btn');
