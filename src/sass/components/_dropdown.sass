@@ -71,6 +71,7 @@
         & > .dropdown-wrap
           transform: translateX(0%)
           pointer-events: auto
+          opacity: 1
   &-wrap
     padding: 12px
     padding-left: 24px
@@ -83,17 +84,18 @@
     background: #fff
     z-index: -1
     transform: translateX(calc(-100% + 12px))
-    transition: .3s
+    transition: .25s
     pointer-events: none
-    &::before
-      content: ''
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-      background: #fff
-      border-bottom-right-radius: 12px
+    opacity: 0
+    // &::before
+    //   content: ''
+    //   position: absolute
+    //   top: 0
+    //   left: 0
+    //   right: 0
+    //   bottom: 0
+    //   background: #fff
+    //   border-bottom-right-radius: 12px
   &-subnav
     height: 100%
     overflow-y: auto
@@ -127,7 +129,7 @@
       & > .dropdown-wrap
         transform: translateX(0%)
         pointer-events: auto
-
+        opacity: 1
   &-bg
     position: fixed
     z-index: 900
