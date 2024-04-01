@@ -378,3 +378,47 @@
         padding: 5px 30px 5px 11px
         font-size: 12px
         line-height: 14px
+
+  .popup
+    &-specialists
+      &__item
+        &-name
+          font-size: 18px
+    &-services
+      &__item
+        padding: 10px
+        gap: 10px
+        h4
+          width: 100%
+          padding-left: 34px
+          &::before
+            top: 8px
+            left: 10px
+        span
+          text-align: left
+          margin: 0
+          &:nth-child(3)
+            margin-left: 34px
+    &-time
+      &__item
+        padding: 10px
+        gap: 10px
+        position: relative
+      &__content
+        width: calc(100% - 42px - 10px)
+        justify-content: flex-start
+        flex: initial
+      &__btn
+        position: absolute
+        top: 0
+        right: 10px
+        bottom: 0
+        height: 42px
+        margin: auto 0
+
+  .popup[data-popup=online] .popup-wrapper
+    width: 100%
+  .popup-online
+    width: 100%
+  .popup-online__tab
+    width: 100% !important

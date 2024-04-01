@@ -28,6 +28,7 @@ const html = () => {
     .pipe(isMinify ? replace('main.css', 'main.min.css') : noop())
     .pipe(isMinify ? replace('libs.js', 'libs.min.js') : noop())
     .pipe(isMinify ? replace('main.js', 'main.min.js') : noop())
+    .pipe(isMinify ? replace('widget.js', 'widget.min.js') : noop())
     .pipe(dest('app'))
     .pipe(bs.stream());
 };
@@ -86,6 +87,22 @@ const libs_js = () => {
     .pipe(dest('app/js/'));
 };
 
+const widget = () => {
+  return src('src/js/widget.js')
+    .pipe(
+      plumber({
+        errorHandler: notify.onError((error) => ({
+          title: 'JavaScript',
+          message: error.message,
+        })),
+      })
+    )
+    .pipe(isMinify ? uglify() : noop())
+    .pipe(isMinify ? concat('widget.min.js') : concat('widget.js'))
+    .pipe(dest('app/js/'))
+    .pipe(bs.stream());
+};
+
 const img = () => {
   return src('src/img/**/*').pipe(dest('app/img'));
 };
@@ -103,7 +120,7 @@ const watching = () => {
 
   watch('src/**/*.html', parallel(html));
   watch('src/**/*.sass', parallel(libs_style, style));
-  watch('src/**/*.js', parallel(js));
+  watch('src/**/*.js', parallel(js, widget));
   watch('src/img/**/*', parallel(img));
   watch('src/resources/**/*', parallel(resources));
 };
@@ -112,5 +129,5 @@ const pageList = () => {
   return src('app/*.html').pipe(listing('page-list.html')).pipe(dest('app/'));
 };
 
-exports.default = series(clean, parallel(libs_js, js, libs_style, style, html, img, resources, watching));
-exports.build = series(clean, parallel(libs_js, js, libs_style, style, html, img, resources), pageList);
+exports.default = series(clean, parallel(libs_js, js, widget, libs_style, style, html, img, resources, watching));
+exports.build = series(clean, parallel(libs_js, js, widget, libs_style, style, html, img, resources), pageList);

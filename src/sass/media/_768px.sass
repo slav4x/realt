@@ -605,3 +605,95 @@
         background-position: top 23px left
         &::after
           display: none
+
+  .popup
+    &[data-popup=online] .popup-wrapper
+      padding: 20px 20px 0
+    &-online
+      width: 100%
+      &__bottom
+        &::before
+          left: -20px
+          right: -20px
+      &__tab[data-tab="1"],
+      &__tab[data-tab="5"]
+        width: 100%
+      &__checked
+        padding-left: 34px
+      &__head
+        margin-bottom: 16px
+    &-time
+      &__tabs
+        gap: 16px
+        flex-wrap: nowrap
+        overflow-x: auto
+        scrollbar-width: none
+        width: calc(100% + 40px)
+        white-space: nowrap
+        margin-left: -20px
+        margin-right: -20px
+        padding: 0 20px
+        margin-bottom: 16px
+        li
+          padding: 14px 0
+    &-services
+      width: calc(100% + 40px)
+      margin-left: -20px
+      margin-right: -20px
+      &__item
+        padding: 15px 20px
+        h4
+          font-size: 16px
+          &::before
+            left: 20px
+            top: 15px
+    &-time
+      width: calc(100% + 40px)
+      margin-left: -20px
+      margin-right: -20px
+      &__item
+        padding: 10px 20px
+        gap: 5px
+      &__date
+        width: 100%
+        line-height: 1.4
+      &__day
+        width: 100%
+        line-height: 1.4
+      &__btn
+        bottom: 0
+        top: 14px
+        margin: 0
+      &__content
+        width: 100%
+        justify-content: flex-start
+        small
+          font-size: 13px
+      &__list
+        justify-content: flex-start
+        width: 100%
+        margin-top: 5px
+
+  .popup-online__tab[data-tab="1"],
+  .popup-online__tab[data-tab="5"]
+    .title-md:first-child
+      max-width: 270px
+      padding-top: 10px
+      padding-left: 10px
+      margin-right: auto
+  .popup-online__switch
+    padding: 0 10px
+    gap: 20px
+    li
+      p
+        font-size: 16px
+  .popup-time__list label
+    font-size: 12px
+    line-height: 16px
+    padding: 9px 11px
+
+  .popup-online__form
+    padding-bottom: 0
+    padding: 0 10px
+    small
+      margin-bottom: auto

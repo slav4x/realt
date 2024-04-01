@@ -914,6 +914,120 @@
           bottom: 4px
           left: 4px
 
+  .popup
+    &-online
+      max-width: 100%
+      &__tab
+        width: 1230px
+        &[data-tab="1"],
+        &[data-tab="5"]
+          width: 420px
+      &__bottom
+        padding: 15px 0
+        &::before
+          left: -60px
+          right: -60px
+      &__checked
+        padding-left: 42px
+        &::before
+          width: 24px
+          height: 24px
+          background-size: 24px
+        p
+          font-size: 10px
+          line-height: 14px
+        b
+          font-size: 14px
+          line-height: 18px
+      &__next
+        height: 42px
+        p
+          padding: 0 36px
+      &__back
+        padding: 3px 13px
+        gap: 8px
+        &::before
+          width: 8px
+          height: 8px
+          background-size: cover
+      &__switch
+        li
+          padding: 16px
+          border-radius: 12px
+          p
+            font-size: 18px
+            width: calc(100% - 32px - 16px)
+          &::before
+            width: 32px
+            height: 32px
+            right: 16px
+            background-size: 8px !important
+    &-specialists
+      gap: 18px 9px
+      &__item
+        &-name
+          font-size: 20px
+        &-photo
+          &::before
+            top: 12px
+            right: 12px
+            width: 24px
+            height: 24px
+            background-size: 24px
+        &-quote
+          font-size: 10px
+          padding: 8px 0
+          line-height: 16px
+    &-services
+      &__item
+        padding: 20px 15px
+        h4
+          font-size: 18px
+          padding-left: 39px
+          width: calc(100% - 280px)
+          &::before
+            width: 24px
+            height: 24px
+            left: 15px
+            top: 18px
+        span
+          font-size: 14px
+          width: 120px
+          margin-top: 3px
+    &-time
+      &__tabs
+        gap: 24px
+        li
+          padding: 24px 0
+          font-size: 12px
+          line-height: 16px
+      &__item
+        padding: 10px 15px
+      &__date
+        font-size: 18px
+        width: 180px
+        line-height: 22px
+      &__day
+        font-size: 14px
+        width: 120px
+        line-height: 22px
+      &__content
+        small
+          font-size: 14px
+          line-height: 22px
+      &__list
+        gap: 8px
+        label
+          font-size: 14px
+          padding: 8px 11px
+          line-height: 18px
+          border-radius: 4px
+      &__btn
+        .btn
+          height: 42px
+          p
+            width: 180px
+
 @media(max-width: 1550px)
   .dropdown
     max-height: 446px
@@ -956,3 +1070,50 @@
   .header
     &-nav, .nav
       gap: 20px
+
+  .popup
+    &[data-popup="online"]
+      .popup-wrapper
+        padding: 40px 40px 0
+    &-online
+      &__tab
+        width: 100%
+      &__bottom
+        &::before
+          left: -40px
+          right: -40px
+    &-specialists
+      grid-template-columns: repeat(3, 1fr)
+    &-time
+      &__item
+        padding: 10px 15px
+        gap: 15px
+      &__date
+        width: 130px
+      &__day
+        width: 100px
+      &__content
+        small
+          font-size: 14px
+          line-height: 22px
+      &__list
+        gap: 8px
+        li
+          font-size: 14px
+          padding: 8px 11px
+          line-height: 18px
+          border-radius: 4px
+      &__btn
+        .btn
+          height: 42px
+          gap: 0
+          p
+            width: 34px
+            font-size: 0
+            &::after
+              position: absolute
+              top: 0
+              left: 0
+              right: 0
+              bottom: 0
+              margin: auto

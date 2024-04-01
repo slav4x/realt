@@ -30,6 +30,13 @@
     transform: translateX(100%)
     transition: .3s ease
     @include flexbox
+    &::-webkit-scrollbar
+      width: 2px
+      background: #D9D9D9
+    &::-webkit-scrollbar-thumb
+      background: #00574F
+      background-clip: padding-box
+      border-radius: 0
   &.open
     pointer-events: auto
     .popup-bg
@@ -541,24 +548,98 @@
           height: 32px
           background: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.923096 5.14288L5.27474 8.30771L11.0769 0.923096' stroke='white' stroke-width='1.84615'/%3E%3C/svg%3E%0A") no-repeat center
 
-  &-switch
-    flex: 1
-    width: 560px
+  // &-switch
+  //   flex: 1
+  //   width: 560px
+  //   @include flexbox
+  //   flex-direction: column
+  //   align-items: flex-start
+  //   &__phone
+  //     @include flexbox
+  //     flex-direction: column
+  //     align-items: center
+  //     gap: 24px
+  //     text-align: center
+  //     margin-bottom: 30px
+  //     width: 100%
+  //     p
+  //       line-height: 1.6
+  //       color: var(--color-dark)
+  //   &__links
+  //     margin: auto 0
+  //     width: 100%
+  //     @include flexbox
+  //     flex-direction: column
+  //     align-items: flex-start
+  //     gap: 24px
+  //     li
+  //       padding: 24px
+  //       @include flexbox
+  //       align-items: center
+  //       border-radius: 24px
+  //       border: 1px dashed #C7C7C7
+  //       cursor: pointer
+  //       width: 100%
+  //       p
+  //         width: calc(100% - 48px - 16px)
+  //         font-size: 24px
+  //         line-height: 1.2
+  //         font-weight: 600
+  //         color: var(--color-dark)
+
+  &[data-popup="online"] .popup-wrapper
+    padding-bottom: 0
+  &-online
+    max-width: 100%
     @include flexbox
     flex-direction: column
     align-items: flex-start
-    &__phone
-      @include flexbox
+    height: 100%
+    &__tab
+      width: 1640px
+      flex: 1
+      // height: 100%
+      display: none
+      flex-wrap: wrap
       flex-direction: column
       align-items: center
-      gap: 24px
-      text-align: center
-      margin-bottom: 30px
+      &[data-tab="1"], &[data-tab="5"]
+        width: 560px
+        padding-bottom: 20px
+        .title-md
+          width: 100%
+      &.active
+        display: flex
+    &__form
       width: 100%
-      p
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      gap: 24px
+      flex: 1
+      padding-bottom: 50px
+      .label
+        width: 100%
+        &:first-child
+          margin-top: auto
+      .btn, .btn p
+        width: 100%
+      .btn p
+        justify-content: center
+      .btn
+        margin: 24px 0 0
+        margin-top: auto
+      small
+        font-size: 14px
+        text-align: center
         line-height: 1.6
         color: var(--color-dark)
-    &__links
+        display: block
+        width: 100%
+        a
+          color: var(--color-black)
+          font-weight: 600
+    &__switch
       margin: auto 0
       width: 100%
       @include flexbox
@@ -573,32 +654,67 @@
         border: 1px dashed #C7C7C7
         cursor: pointer
         width: 100%
+        position: relative
         p
           width: calc(100% - 48px - 16px)
           font-size: 24px
           line-height: 1.2
           font-weight: 600
           color: var(--color-dark)
-
-  &-online
-    max-width: 100%
-    width: 1640px
-    @include flexbox
-    flex-direction: column
-    align-items: flex-start
-    height: 100%
-    &__content
-      width: 100%
-      flex: 1
-      overflow-y: scroll
-      margin-top: 24px
-      padding-bottom: 24px
-    &__next
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          right: 24px
+          bottom: 0
+          margin: auto 0
+          width: 48px
+          height: 48px
+          border-radius: 100%
+          border: 1px dashed rgba(10, 10, 11, 0.75)
+          box-shadow: inset 0 0 0 2px #fbfaf9, inset 0 0 0 3px rgba(15, 15, 17, 0.10)
+          background: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 0L5.25 5.87234L3 12L11.25 5.87234L3 0Z' fill='%230A0A0B' fill-opacity='0.75'/%3E%3C/svg%3E%0A") no-repeat center
+          transition: .25s
+        &:hover
+          &::before
+            background: var(--color-green) url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 0L5.25 5.87234L3 12L11.25 5.87234L3 0Z' fill='white' fill-opacity='1'/%3E%3C/svg%3E%0A") no-repeat center
+    &__contact
       @include flexbox
-      justify-content: flex-end
-      padding-top: 20px
-      position: relative
+      flex-direction: column
+      align-items: center
+      gap: 24px
+      text-align: center
+      margin-bottom: 30px
       width: 100%
+      p
+        line-height: 1.6
+        color: var(--color-dark)
+    &__head
+      width: 100%
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      gap: 16px
+      margin-bottom: 24px
+    &__content
+      flex: 1
+      padding-bottom: 24px
+      // background: red
+      width: 100%
+    &__bottom
+      @include flexbox
+      align-items: center
+      padding: 20px 0
+      position: sticky
+      z-index: 10
+      bottom: 0
+      left: 0
+      right: 0
+      // overflow: hidden
+      background: #fbfaf9
+      width: 100%
+      &.hide
+        transform: translateY(100%)
       &::before
         content: ''
         position: absolute
@@ -607,11 +723,70 @@
         right: -80px
         height: 1px
         background: rgba(15, 15, 17, 0.10)
+    &__next
+      margin-left: auto
+      p
+        padding: 0 50px
+      &.disabled
+        cursor: not-allowed
+        opacity: 0.5
+    &__back
+      font-size: 14px
+      line-height: 22px
+      @include flexbox
+      align-items: center
+      gap: 10px
+      padding: 7px 19px
+      border-radius: 999px
+      border: 1px dashed var(--color-green)
+      color: rgba(10, 10, 11, 0.75)
+      font-weight: 500
+      transition: .2s
+      &::before
+        content: ''
+        display: block
+        width: 12px
+        height: 12px
+        background: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0L7.75 5.87234L10 12L1.75 5.87234L10 0Z' fill='%2300574F'/%3E%3C/svg%3E%0A") no-repeat center
+        transition: .2s
+      &:hover
+        background: var(--color-green)
+        color: #fff
+        &::before
+          background: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0L7.75 5.87234L10 12L1.75 5.87234L10 0Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
+    &__checked
+      position: relative
+      padding-left: 56px
+      flex: 1
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        margin: auto 0
+        width: 32px
+        height: 32px
+        border-radius: 4px
+        background: var(--color-green) url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 14.5L14 20.5L23.5 11' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center
+      p
+        font-size: 14px
+        line-height: 20px
+      b
+        font-size: 18px
+        font-weight: 600
+        line-height: 26px
+        br
+          display: none
+      &.hide
+        opacity: 0
   &-specialists
-    &__grid
-      display: grid
-      grid-template-columns: repeat(4, 1fr)
-      gap: 24px 12px
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    gap: 24px 12px
+    width: 100%
+    height: 100%
+    position: relative
     &__item
       @include flexbox
       flex-direction: column
@@ -624,25 +799,28 @@
           background-color: var(--color-green)
       &-photo
         width: 100%
-        height: 190px
+        aspect-ratio: 1 / 1
         background: #e3e4df
-        margin-bottom: 8px
-        padding: 0 40px
+        // padding: 0 40px
         position: relative
         img
+          position: absolute
+          top: 0
+          left: 0
           height: 100%
           width: 100%
           object-fit: cover
-          object-position: top center
+          object-position: center
           pointer-events: none
         &::before
           content: ''
           position: absolute
+          z-index: 5
           top: 20px
           right: 20px
           width: 32px
           height: 32px
-          border-radius: 100%
+          border-radius: 4px
           background-color: #fff
           transition: .15s
           background-repeat: no-repeat
@@ -653,40 +831,174 @@
         font-weight: 700
         line-height: 1.2
         letter-spacing: -0.02em
-        margin-bottom: 8px
-      &-label
-        h5
-          text-transform: uppercase
-          font-size: 14px
-          font-weight: 500
-          line-height: 1.6
-          letter-spacing: 0.05em
-          margin: 0 0 2px
-          color: var(--color-dark)
-        p
-          font-weight: 500
-          line-height: 1.6
-          letter-spacing: -0.02em
-          span
-            display: inline-block
-            text-transform: lowercase
-            &::first-letter
-              text-transform: uppercase
       &-quote
-        margin-top: 8px
         font-size: 14px
         line-height: 22px
         padding: 10px 0
-        border-top: 1px dashed var(--color-border)
-        border-bottom: 1px dashed var(--color-border)
+        border-top: 1px solid rgba(15, 15, 17, 0.10)
         color: var(--color-dark)
-        @include flexbox
-        align-items: center
         width: 100%
-        height: 64px
+  &-services
+    width: 100%
+    height: 100%
+    position: relative
+    &__item
+      width: 100%
+      padding: 25px 20px
+      @include flexbox
+      align-items: flex-start
+      border-bottom: 1px solid rgba(15, 15, 17, 0.10)
+      gap: 20px
+      position: relative
+      cursor: pointer
+      transition: .2s
+      &.checked
+        background: #f5f5f5
+      h4
+        width: calc(100% - (190px * 2))
+        font-size: 24px
+        font-weight: 600
+        line-height: 1.2
+        letter-spacing: -0.02em
+        padding-left: 52px
+        &::before
+          content: ''
+          position: absolute
+          top: 24px
+          left: 20px
+          width: 32px
+          height: 32px
+          border-radius: 4px
+          background: #EAEAEA
+          transition: .2s
+      span
+        display: block
+        width: 170px
+        text-align: right
+        font-weight: 500
+        letter-spacing: -0.02em
+        color: #0f0f11
+        margin-top: 4px
+        &:last-child
+          opacity: 0.75
+      input
+        @include visually-hidden
+        &:checked + h4::before
+          background: var(--color-green) url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 14.5L14 20.5L23.5 11' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center / cover
+  &-time
+    width: 100%
+    height: 100%
+    position: relative
+    &__tabs
+      @include flexbox
+      align-items: flex-start
+      gap: 36px
+      margin-bottom: 24px
+      border-bottom: 1px solid rgba(42, 70, 112, 0.10)
+      width: 100%
+      li
+        cursor: pointer
+        padding: 32px 0
+        line-height: 22px
+        position: relative
+        transition: .2s
+        &::after
+          content: ''
+          position: absolute
+          bottom: -1px
+          left: 0
+          right: 0
+          height: 1px
+          background: rgba(15, 15, 17, 0.10)
+          transition: .2s
+        &.active
+          font-weight: 600
+          &::after
+            background: var(--color-black)
+        &:hover
+          &::after
+            background: rgba(15, 15, 17, 0.30)
+    &__group
+      display: none
+      &.active
+        display: block
+    &__item
+      @include flexbox
+      align-items: center
+      gap: 20px
+      padding: 12px 20px
+      border-bottom: 1px solid rgba(15, 15, 17, 0.10)
+      input
+        @include visually-hidden
+    &__date
+      font-size: 24px
+      font-weight: 600
+      line-height: 28px
+      letter-spacing: -0.02em
+      width: 260px
+    &__day
+      line-height: 28px
+      letter-spacing: -0.02em
+      color: rgba(10, 10, 11, 0.75)
+      width: 180px
+      &::first-letter
+        text-transform: uppercase
+
+    &__content
+      flex: 1
+      @include flexbox
+      align-items: center
+      justify-content: flex-end
+      small
+        font-size: 16px
+        letter-spacing: -0.02em
+        color: rgba(10, 10, 11, 0.75)
+    &__list
+      @include flexbox
+      align-items: center
+      justify-content: flex-end
+      gap: 12px
+      label
+        display: block
+        gap: 12px
+        padding: 10px 15px
+        font-weight: 500
+        line-height: 24px
+        cursor: pointer
+        border-radius: 5px
+        border: 1px dashed rgba(10, 10, 11, 0.75)
+        color: rgba(10, 10, 11, 0.75)
+        &.active
+          color: #fff
+          border: 1px solid var(--color-green)
+          background: var(--color-green)
+    &__btn
+      .btn
         p
-          max-height: 44px
-          overflow: hidden
-          -webkit-line-clamp: 2
-          display: -webkit-box
-          -webkit-box-orient: vertical
+          width: 220px
+          padding: 0
+          justify-content: center
+        &.disabled
+          cursor: not-allowed
+          opacity: 0.5
+
+.loader
+  position: absolute
+  display: block
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  border: 3px solid var(--color-green)
+  border-bottom-color: transparent
+  animation: rotation 1s linear infinite
+  &.hide
+    display: none
+
+@keyframes rotation
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
