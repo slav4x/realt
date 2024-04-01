@@ -160,10 +160,18 @@
 
   .specialists
     &-grid
-      gap: 42px 12px
+      margin-top: var(--gap-md)
+      &:not(.specialists-grid__slider)
+        gap: 42px 12px
       &__slider
-        .swiper-wrapper
-          gap: 42px 12px
+        .arrow
+          position: absolute
+          top: 186px
+          z-index: 100
+      &__prev
+        left: 20px
+      &__next
+        right: 20px
     &-item
       &__layout
         gap: 16px

@@ -61,10 +61,14 @@
 
   .specialists
     &-grid
-      grid-template-columns: repeat(2, 1fr)
-      &__slider
-        .swiper-wrapper
-          grid-template-columns: repeat(2, 1fr)
+      &:not(.specialists-grid__slider)
+        grid-template-columns: repeat(2, 1fr)
+      .arrow
+        top: 161px
+      &__prev
+        left: -10px
+      &__next
+        right: -10px
 
   .faq
     &-item

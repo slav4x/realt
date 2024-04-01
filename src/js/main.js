@@ -353,17 +353,27 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  if (window.innerWidth < 768) {
-    const specialistsGrid = new Swiper('.specialists-grid__slider', {
-      slidesPerView: 1,
-      spaceBetween: 12,
-      breakpoints: {
-        576: {
-          slidesPerView: 2,
-        },
+  const specialistsGrid = new Swiper('.specialists-grid__slider', {
+    slidesPerView: 1,
+    spaceBetween: 12,
+    arrow: true,
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
       },
-    });
-  }
+      1024: {
+        slidesPerView: 3,
+      },
+      1760: {
+        spaceBetween: 24,
+        slidesPerView: 3,
+      },
+    },
+    navigation: {
+      nextEl: '.specialists-grid__next',
+      prevEl: '.specialists-grid__prev',
+    },
+  });
 
   const blogSpecialists = new Swiper('.blog-specialists__slider', {
     slidesPerView: 1,
