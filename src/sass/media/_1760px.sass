@@ -467,6 +467,8 @@
     &-single
       &__sidebar
         width: 441px
+        top: calc((var(--gap-lg) / 2 * -1) + 70px)
+        height: calc((100vh + var(--gap-lg) / 2) - 70px)
       &__content
         width: calc(100% - 441px)
         padding-top: 60px
@@ -558,8 +560,6 @@
       width: calc(440px + 1px)
       padding-top: 60px
       padding-right: 60px
-      top: 0
-      height: 100vh
     &-main
       width: calc(100% - 440px - 1px)
       padding-top: 60px

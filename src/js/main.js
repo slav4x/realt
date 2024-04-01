@@ -947,4 +947,19 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  document.addEventListener('scroll', function () {
+    if (window.scrollY > 10) {
+      if (header.classList.contains('header-white')) {
+        header.classList.remove('header-white');
+      }
+    } else {
+      if (!header.classList.contains('header-white') && header.dataset.originalClass === 'header-white') {
+        header.classList.add('header-white');
+      }
+    }
+  });
+  if (header.classList.contains('header-white')) {
+    header.dataset.originalClass = 'header-white';
+  }
 });
