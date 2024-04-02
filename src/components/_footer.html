@@ -232,4 +232,93 @@
     </div>
   </div>
 </div>
+
+<div class="popup" data-popup="online">
+  <div class="popup-bg"></div>
+  <div class="popup-wrapper">
+    <div class="popup-close"></div>
+    <form action="https://cdz-alter.ru/wp-content/themes/realt-theme/php/widget.php" method="post" class="popup-online">
+
+      <div class="popup-online__tab active" data-tab="1">
+        <h3 class="title-md">Запишитесь в “Клиника доктора Шмиловича<br> “Ре-Альт”</h3>
+        <ul class="popup-online__switch">
+          <li data-step="2" class="getSpecialists"><p>Хотите записаться к определенному специалисту?</p></li>
+          <li data-step="6" class="getServices"><p>Не знаете кого выбрать?<br> Начните с выбора услуги</p></li>
+        </ul>
+        <div class="popup-online__contact">
+          <p>Если вам удобнее записаться по телефону</p>
+          <a href="tel:+7 495 114 53 14" class="title-md">+7 495 114 53 14</a>
+        </div>
+        <div class="popup-footer">© 2015-2023 ООО “Центр душевного здоровья”</div>
+      </div>
+
+      <div class="popup-online__tab" data-tab="2">
+        <div class="popup-online__head">
+          <a href="javascript:;" class="popup-online__back" data-step="1">Назад</a>
+          <h3 class="title">Выберите специалиста</h3>
+        </div>
+        <div class="popup-online__content"><div class="popup-specialists"></div></div>
+        <div class="popup-online__bottom" data-specialist>
+          <div class="popup-online__checked hide"><p>Вы выбрали</p><b></b></div>
+          <a href="javascript:;" class="btn btn-md btn-outline popup-online__next disabled getSpecialistServices" data-step="3"><p>Дальше</p></a>
+        </div>
+      </div>
+
+      <div class="popup-online__tab" data-tab="3">
+        <div class="popup-online__head">
+          <a href="javascript:;" class="popup-online__back" data-step="2">Назад</a>
+          <h3 class="title">Выберите услугу</h3>
+        </div>
+        <div class="popup-online__content"><div class="popup-services"></div></div>
+        <div class="popup-online__bottom" data-service>
+          <div class="popup-online__checked hide"><p>Вы выбрали</p><b></b></div>
+          <a href="javascript:;" class="btn btn-md btn-outline popup-online__next disabled getServiceDate" data-step="4"><p>Дальше</p></a>
+        </div>
+      </div>
+
+      <div class="popup-online__tab" data-tab="6">
+        <div class="popup-online__head">
+          <a href="javascript:;" class="popup-online__back" data-step="1">Назад</a>
+          <h3 class="title">Выберите услугу</h3>
+        </div>
+        <div class="popup-online__content"><div class="popup-services all"></div></div>
+        <div class="popup-online__bottom" data-service-all>
+          <div class="popup-online__checked hide"><p>Вы выбрали</p><b></b></div>
+          <a href="javascript:;" class="btn btn-md btn-outline popup-online__next disabled getServiceDate" data-step="4"><p>Дальше</p></a>
+        </div>
+      </div>
+
+      <div class="popup-online__tab" data-tab="4">
+        <div class="popup-online__head">
+          <a href="javascript:;" class="popup-online__back" data-step="3">Назад</a>
+          <h3 class="title">Выберите дату и время</h3>
+        </div>
+        <ul class="popup-time__tabs"></ul>
+        <div class="popup-online__content"><div class="popup-time"></div></div>
+      </div>
+
+      <div class="popup-online__tab" data-tab="5">
+        <div class="popup-online__head">
+          <h3 class="title-md">Оставьте<br> контактные данные</h3>
+        </div>
+        <div class="popup-online__form">
+          <label class="label">
+            <p>Представьтесь</p>
+            <input type="text" name="name" placeholder="Ваше имя и фамилия" />
+          </label>
+          <label class="label">
+            <p>Номер телефона</p>
+            <input type="text" name="phone" class="masked" placeholder="+7 (000) 000-00-00" required />
+          </label>
+          <input type="hidden" name="specialistName" value="" />
+          <input type="hidden" name="serviceName" value="" />
+          <button class="btn btn-outline btn-lg"><p>Записаться</p></button>
+          <small>Нажимая на эту кнопку вы принимаете условия<br><a href="#">Соглашения о передаче личных данных</a></small>
+        </div>
+        <div class="popup-footer">© 2015-2023 ООО “Центр душевного здоровья”</div>
+      </div>
+
+    </form>
+  </div>
+</div>
 {% endif %}

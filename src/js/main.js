@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      const button = form.querySelector('.btn p');
+      const button = form.querySelector('button.btn p');
 
       button.style.opacity = 0.5;
       button.style.cursor = 'not-allowed';
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
         body: formData,
       })
         .then((response) => {
-          return response.ok ? (window.location.href = '/thanks') : response.json();
+          return (window.location.href = '/thanks');
         })
         .catch((error) => console.error('Error:', error));
     });

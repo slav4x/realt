@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let target = event.target;
     while (target != this) {
       if (target.classList.contains('popup-specialists__item')) {
-        const specialistName = target.querySelector('.popup-specialists__item-name').innerHTML.replace('<br>', ' ');
+        const specialistName = target.querySelector('.popup-specialists__item-name').innerHTML.replace(' <br>', '');
         const checkedElement = document.querySelector('[data-specialist] .popup-online__checked b');
         const nextElement = document.querySelector('[data-specialist] .popup-online__next');
 
@@ -154,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
           checkedElement.innerHTML = specialistName;
           checkedElement.closest('.popup-online__checked').classList.remove('hide');
         }
+
+        document.querySelector('input[name="specialistName"]').value = specialistName;
 
         if (nextElement) {
           nextElement.classList.remove('disabled');
@@ -319,6 +321,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         serviceItem.classList.add('checked');
 
+        document.querySelector('input[name="serviceName"]').value = serviceName;
+
         if (checkedElement) {
           checkedElement.innerText = serviceName;
           checkedElement.closest('.popup-online__checked').classList.remove('hide');
@@ -349,6 +353,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         serviceItem.classList.add('checked');
+
+        document.querySelector('input[name="serviceName"]').value = serviceName;
 
         if (checkedElement) {
           checkedElement.innerText = serviceName;
@@ -483,30 +489,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // TODO: Баг с кнопками
-  document.querySelector('.popup-time').addEventListener('click', function (e) {
-    let targetElement = e.target;
-    while (targetElement != this && !targetElement.classList.contains('popup-time__item')) {
-      targetElement = targetElement.parentNode;
-    }
-
-    if (targetElement.classList.contains('popup-time__item')) {
-      if (e.target.tagName === 'LABEL') {
-        document.querySelectorAll('.popup-time__list li').forEach(function (li) {
-          li.classList.remove('active');
-        });
-
-        e.target.classList.add('active');
-
-        document.querySelectorAll('.popup-time__btn .btn').forEach(function (btn) {
-          btn.classList.add('disabled');
-        });
-
-        targetElement.querySelector('.popup-time__btn .btn').classList.remove('disabled');
-      }
-    }
-  });
-
   document.querySelector('.popup-time__tabs').addEventListener('click', function (e) {
     if (e.target.tagName === 'LI') {
       document.querySelectorAll('.popup-time__tabs li').forEach(function (tab) {
@@ -527,35 +509,188 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.querySelector('.popup-online').addEventListener('submit', function (e) {
-    e.preventDefault();
+  document.body.addEventListener('change', function (e) {
+    // Проверяем, выбрано ли время внутри popup-time__list
+    if (e.target.matches('.popup-time__list input[type="radio"]')) {
+      const selectedItem = e.target.closest('.popup-time__item');
 
-    const formData = new FormData(this);
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
+      document.querySelectorAll('.popup-time__list label.active').forEach((label) => {
+        label.classList.remove('active');
+      });
+      e.target.parentNode.classList.add('active');
+
+      document.querySelectorAll('.popup-time__item .popup-time__list ~ .popup-time__btn .btn').forEach((btn) => {
+        btn.classList.remove('disabled');
+      });
+
+      document.querySelectorAll('.popup-time__item').forEach((item) => {
+        if (item.querySelector('.popup-time__list') && item !== selectedItem) {
+          item.querySelector('.popup-time__btn .btn').classList.add('disabled');
+        }
+      });
+
+      selectedItem.querySelector('.popup-time__btn .btn').classList.remove('disabled');
     }
   });
 
-  document.querySelector('.popup-time').addEventListener('click', function (e) {
-    if (e.target.closest('.popup-time__list label')) {
-      const nestedLabel = e.target.closest('.popup-time__list label');
-
-      e.stopPropagation();
-
-      const nestedInput = nestedLabel.querySelector('input[type="radio"]');
-      if (nestedInput) {
-        nestedInput.checked = true;
+  document.body.addEventListener('click', function (e) {
+    if (
+      e.target.matches('.popup-time__item .popup-time__btn .btn:not(.disabled), .popup-time__item .popup-time__btn .btn:not(.disabled) *')
+    ) {
+      const currentItem = e.target.closest('.popup-time__item');
+      const dateRadio = currentItem.querySelector('input[type="radio"][name="date"]');
+      if (dateRadio) {
+        dateRadio.checked = true;
       }
-
-      const parentItemInput = nestedLabel.closest('.popup-time__item').querySelector('input[type="radio"][name="date"]');
-      if (parentItemInput) {
-        parentItemInput.checked = true;
-      }
-
-      document.querySelectorAll('.popup-time__btn .btn').forEach(function (btn) {
-        btn.classList.add('disabled');
-      });
-      nestedLabel.closest('.popup-time__item').querySelector('.popup-time__btn .btn').classList.remove('disabled');
     }
+  });
+
+  document.querySelectorAll('.popup-time__item').forEach((item) => {
+    if (item.querySelector('.popup-time__list')) {
+      item.querySelector('.popup-time__btn .btn').classList.add('disabled');
+    }
+  });
+
+  document.querySelector('[data-specId]').addEventListener('click', () => {
+    const popupSpecialistsContainer = document.querySelector('.popup-specialists');
+    popupSpecialistsContainer.innerHTML = '<div class="loader"></div>';
+
+    fetch('https://cdz-alter.ru/api/crm.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([
+        {
+          wid: 'newOnlineWidgetForm',
+          mode: 'autocomplete',
+          data: {
+            attribute: 'executor_id',
+            arg_fields: {
+              agreementPrivacy: false,
+              agreementMessaging: false,
+              autocompleteCountry: 'RU',
+              start_date: formatDateReverse(currentDate),
+              finish_day: formatDate(finishDate),
+              start_day: formatDate(currentDate),
+              account_id: 22727,
+            },
+          },
+        },
+      ]),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const specialists = data.newOnlineWidgetForm.items;
+
+        const loader = popupSpecialistsContainer.querySelector('.loader');
+        loader.classList.add('hide');
+
+        specialists.forEach((specialist) => {
+          const specialistElement = document.createElement('label');
+          specialistElement.className = 'popup-specialists__item';
+
+          const nameParts = specialist.name.split(' ');
+
+          const nameWithBreak = [nameParts[0], '<br>', ...nameParts.slice(1)].join(' ');
+
+          specialistElement.innerHTML = `
+          <input type="radio" name="specialistId" value="${specialist.id}" />
+          <div class="popup-specialists__item-photo"><img src="https://klientiks.ru${specialist.image}" alt=""></div>
+          <h4 class="popup-specialists__item-name">${nameWithBreak}</h4>
+          <div class="popup-specialists__item-quote"><p>${specialist.position}</p></div>
+        `;
+
+          popupSpecialistsContainer.appendChild(specialistElement);
+        });
+      })
+      .catch((error) => console.error('Ошибка:', error));
+
+    const specId = document.querySelector('[data-specId').getAttribute('data-specId');
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+          if (node.nodeType === 1 && node.matches('.popup-specialists__item')) {
+            const input = node.querySelector('input[name="specialistId"][value="' + specId + '"]');
+            if (input) {
+              input.click();
+              observer.disconnect();
+            }
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    const popupServicesContainer = document.querySelector('.popup-services:not(.all)');
+    popupServicesContainer.innerHTML = '<div class="loader"></div>';
+
+    fetch('https://cdz-alter.ru/api/crm.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([
+        {
+          wid: 'newOnlineWidgetForm',
+          mode: 'autocomplete',
+          data: {
+            attribute: 'service_id',
+            arg_fields: {
+              agreementPrivacy: false,
+              agreementMessaging: false,
+              autocompleteCountry: 'RU',
+              executor_id: specId,
+              start_date: formatDateReverse(currentDate),
+              finish_day: formatDate(finishDate),
+              start_day: formatDate(currentDate),
+              account_id: 22727,
+            },
+          },
+        },
+      ]),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const services = data.newOnlineWidgetForm.items;
+
+        const loader = popupServicesContainer.querySelector('.loader');
+        loader.classList.add('hide');
+
+        services.forEach((service) => {
+          const serviceElement = document.createElement('label');
+          serviceElement.className = 'popup-services__item';
+
+          const price = parseInt(service.price, 10);
+          const formattedPrice = `${price.toLocaleString('ru-RU')} руб.`;
+
+          const hours = Math.floor(service.duration / 60);
+          const minutes = service.duration % 60;
+          let formattedDuration = '';
+          if (hours > 0) {
+            if (minutes === 0) {
+              formattedDuration += `60 минут`;
+            } else {
+              formattedDuration += `${hours} час${hours > 1 ? 'а' : ''} ${minutes} минут`;
+            }
+          } else if (minutes > 0) {
+            formattedDuration += `${minutes} минут`;
+          }
+
+          serviceElement.innerHTML = `
+          <input type="radio" name="serviceId" value="${service.id}" />
+          <h4>${service.name}</h4>
+          <span>${formattedPrice}</span>
+          <span>${formattedDuration}</span>
+        `;
+
+          popupServicesContainer.appendChild(serviceElement);
+        });
+      })
+      .catch((error) => console.error('Ошибка:', error));
   });
 });
