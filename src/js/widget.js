@@ -551,146 +551,149 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.querySelector('[data-specId]').addEventListener('click', () => {
-    const popupSpecialistsContainer = document.querySelector('.popup-specialists');
-    popupSpecialistsContainer.innerHTML = '<div class="loader"></div>';
+  const btnSpecId = document.querySelectorAll('[data-specId]');
+  btnSpecId?.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const popupSpecialistsContainer = document.querySelector('.popup-specialists');
+      popupSpecialistsContainer.innerHTML = '<div class="loader"></div>';
 
-    fetch('https://cdz-alter.ru/api/crm.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify([
-        {
-          wid: 'newOnlineWidgetForm',
-          mode: 'autocomplete',
-          data: {
-            attribute: 'executor_id',
-            arg_fields: {
-              agreementPrivacy: false,
-              agreementMessaging: false,
-              autocompleteCountry: 'RU',
-              start_date: formatDateReverse(currentDate),
-              finish_day: formatDate(finishDate),
-              start_day: formatDate(currentDate),
-              account_id: 22727,
+      fetch('https://cdz-alter.ru/api/crm.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify([
+          {
+            wid: 'newOnlineWidgetForm',
+            mode: 'autocomplete',
+            data: {
+              attribute: 'executor_id',
+              arg_fields: {
+                agreementPrivacy: false,
+                agreementMessaging: false,
+                autocompleteCountry: 'RU',
+                start_date: formatDateReverse(currentDate),
+                finish_day: formatDate(finishDate),
+                start_day: formatDate(currentDate),
+                account_id: 22727,
+              },
             },
           },
-        },
-      ]),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const specialists = data.newOnlineWidgetForm.items;
-
-        const loader = popupSpecialistsContainer.querySelector('.loader');
-        loader.classList.add('hide');
-
-        specialists.forEach((specialist) => {
-          const specialistElement = document.createElement('label');
-          specialistElement.className = 'popup-specialists__item';
-
-          const nameParts = specialist.name.split(' ');
-
-          const nameWithBreak = [nameParts[0], '<br>', ...nameParts.slice(1)].join(' ');
-
-          specialistElement.innerHTML = `
-          <input type="radio" name="specialistId" value="${specialist.id}" />
-          <div class="popup-specialists__item-photo"><img src="https://klientiks.ru${specialist.image}" alt=""></div>
-          <h4 class="popup-specialists__item-name">${nameWithBreak}</h4>
-          <div class="popup-specialists__item-quote"><p>${specialist.position}</p></div>
-        `;
-
-          popupSpecialistsContainer.appendChild(specialistElement);
-        });
+        ]),
       })
-      .catch((error) => console.error('Ошибка:', error));
+        .then((response) => response.json())
+        .then((data) => {
+          const specialists = data.newOnlineWidgetForm.items;
 
-    const specId = document.querySelector('[data-specId').getAttribute('data-specId');
-    const observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
-        mutation.addedNodes.forEach(function (node) {
-          if (node.nodeType === 1 && node.matches('.popup-specialists__item')) {
-            const input = node.querySelector('input[name="specialistId"][value="' + specId + '"]');
-            if (input) {
-              input.click();
-              observer.disconnect();
+          const loader = popupSpecialistsContainer.querySelector('.loader');
+          loader.classList.add('hide');
+
+          specialists.forEach((specialist) => {
+            const specialistElement = document.createElement('label');
+            specialistElement.className = 'popup-specialists__item';
+
+            const nameParts = specialist.name.split(' ');
+
+            const nameWithBreak = [nameParts[0], '<br>', ...nameParts.slice(1)].join(' ');
+
+            specialistElement.innerHTML = `
+            <input type="radio" name="specialistId" value="${specialist.id}" />
+            <div class="popup-specialists__item-photo"><img src="https://klientiks.ru${specialist.image}" alt=""></div>
+            <h4 class="popup-specialists__item-name">${nameWithBreak}</h4>
+            <div class="popup-specialists__item-quote"><p>${specialist.position}</p></div>
+          `;
+
+            popupSpecialistsContainer.appendChild(specialistElement);
+          });
+        })
+        .catch((error) => console.error('Ошибка:', error));
+
+      const specId = document.querySelector('[data-specId').getAttribute('data-specId');
+      const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          mutation.addedNodes.forEach(function (node) {
+            if (node.nodeType === 1 && node.matches('.popup-specialists__item')) {
+              const input = node.querySelector('input[name="specialistId"][value="' + specId + '"]');
+              if (input) {
+                input.click();
+                observer.disconnect();
+              }
             }
-          }
+          });
         });
       });
-    });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
 
-    const popupServicesContainer = document.querySelector('.popup-services:not(.all)');
-    popupServicesContainer.innerHTML = '<div class="loader"></div>';
+      const popupServicesContainer = document.querySelector('.popup-services:not(.all)');
+      popupServicesContainer.innerHTML = '<div class="loader"></div>';
 
-    fetch('https://cdz-alter.ru/api/crm.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify([
-        {
-          wid: 'newOnlineWidgetForm',
-          mode: 'autocomplete',
-          data: {
-            attribute: 'service_id',
-            arg_fields: {
-              agreementPrivacy: false,
-              agreementMessaging: false,
-              autocompleteCountry: 'RU',
-              executor_id: specId,
-              start_date: formatDateReverse(currentDate),
-              finish_day: formatDate(finishDate),
-              start_day: formatDate(currentDate),
-              account_id: 22727,
+      fetch('https://cdz-alter.ru/api/crm.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify([
+          {
+            wid: 'newOnlineWidgetForm',
+            mode: 'autocomplete',
+            data: {
+              attribute: 'service_id',
+              arg_fields: {
+                agreementPrivacy: false,
+                agreementMessaging: false,
+                autocompleteCountry: 'RU',
+                executor_id: specId,
+                start_date: formatDateReverse(currentDate),
+                finish_day: formatDate(finishDate),
+                start_day: formatDate(currentDate),
+                account_id: 22727,
+              },
             },
           },
-        },
-      ]),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const services = data.newOnlineWidgetForm.items;
-
-        const loader = popupServicesContainer.querySelector('.loader');
-        loader.classList.add('hide');
-
-        services.forEach((service) => {
-          const serviceElement = document.createElement('label');
-          serviceElement.className = 'popup-services__item';
-
-          const price = parseInt(service.price, 10);
-          const formattedPrice = `${price.toLocaleString('ru-RU')} руб.`;
-
-          const hours = Math.floor(service.duration / 60);
-          const minutes = service.duration % 60;
-          let formattedDuration = '';
-          if (hours > 0) {
-            if (minutes === 0) {
-              formattedDuration += `60 минут`;
-            } else {
-              formattedDuration += `${hours} час${hours > 1 ? 'а' : ''} ${minutes} минут`;
-            }
-          } else if (minutes > 0) {
-            formattedDuration += `${minutes} минут`;
-          }
-
-          serviceElement.innerHTML = `
-          <input type="radio" name="serviceId" value="${service.id}" />
-          <h4>${service.name}</h4>
-          <span>${formattedPrice}</span>
-          <span>${formattedDuration}</span>
-        `;
-
-          popupServicesContainer.appendChild(serviceElement);
-        });
+        ]),
       })
-      .catch((error) => console.error('Ошибка:', error));
+        .then((response) => response.json())
+        .then((data) => {
+          const services = data.newOnlineWidgetForm.items;
+
+          const loader = popupServicesContainer.querySelector('.loader');
+          loader.classList.add('hide');
+
+          services.forEach((service) => {
+            const serviceElement = document.createElement('label');
+            serviceElement.className = 'popup-services__item';
+
+            const price = parseInt(service.price, 10);
+            const formattedPrice = `${price.toLocaleString('ru-RU')} руб.`;
+
+            const hours = Math.floor(service.duration / 60);
+            const minutes = service.duration % 60;
+            let formattedDuration = '';
+            if (hours > 0) {
+              if (minutes === 0) {
+                formattedDuration += `60 минут`;
+              } else {
+                formattedDuration += `${hours} час${hours > 1 ? 'а' : ''} ${minutes} минут`;
+              }
+            } else if (minutes > 0) {
+              formattedDuration += `${minutes} минут`;
+            }
+
+            serviceElement.innerHTML = `
+            <input type="radio" name="serviceId" value="${service.id}" />
+            <h4>${service.name}</h4>
+            <span>${formattedPrice}</span>
+            <span>${formattedDuration}</span>
+          `;
+
+            popupServicesContainer.appendChild(serviceElement);
+          });
+        })
+        .catch((error) => console.error('Ошибка:', error));
+    });
   });
 });
