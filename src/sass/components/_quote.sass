@@ -1,23 +1,40 @@
 .quote
-  padding-top: var(--gap-lg)
+  background: #f5f2ef
   .container
     @include flexbox
     align-items: center
-  &-img
-    width: 500px
-    height: 500px
-    object-fit: cover
-    object-position: center
-  &-text
-    width: calc(100% - 500px)
-    padding-left: var(--gap-md)
-    font-size: 22px
-    line-height: 1.6
-    font-weight: 500
-    span
-      color: var(--color-brown)
-      font-size: 18px
-      margin-top: 40px
+  &-left
+    width: 1070px
+    .title
+      i
+        color: var(--color-green)
+    .text
+      b
+        color: var(--color-green)
+  &-right
+    margin-left: auto
+    width: calc(100% - 1160px)
+    border-left: 1px solid rgba(42, 70, 112, 0.10)
+    padding: var(--gap-xl) 0
+    padding-left: 120px
+    @include flexbox
+    align-items: center
+    .title-xl, .title-md
+      margin-bottom: 36px
+    .label
+      margin-bottom: 20px
+    .btn
+      margin: 36px 0
+      width: 100%
+      p
+        width: 100%
+        justify-content: center
+    small
       display: block
-  & + .template-text
-    padding: var(--gap-md) 0 0
+      text-align: center
+      font-size: 14px
+      line-height: 1.6
+      color: var(--color-dark)
+      a
+        font-weight: 500
+        color: var(--color-black)

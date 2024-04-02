@@ -1,17 +1,38 @@
 .gallery
-  padding-top: var(--gap-xl)
-  &-grid
-    margin-top: var(--gap-md)
-    a
-      display: block
+  padding: var(--gap-xl) 0
+  .title
+    i
+      color: var(--color-green)
+  &-slider
+    margin-top: calc(var(--gap-md) / 2)
+    width: 45%
+    .swiper-slide
+      padding: 20px
+      border: 1px solid var(--color-border)
+      border-left: 0
+      &:first-child
+        border-left: 1px solid var(--color-border)
       img
-        width: 100%
         aspect-ratio: 1 / 1
+        width: 100%
         object-fit: cover
         object-position: center
-    &__slider
-      display: block
-      .swiper-wrapper
-        display: grid
-        grid-template-columns: repeat(3, 1fr)
-        gap: 24px
+    &__wrapper
+      @include flexbox
+      align-items: center
+      justify-content: space-between
+      margin-top: calc(var(--gap-md) / 2)
+    &__control
+      @include flexbox
+      align-items: center
+      gap: 24px
+    &__info
+      p
+        margin-bottom: 12px
+        line-height: 1
+        font-weight: 500
+      b
+        line-height: 1
+        color: rgba(0, 46, 37, .5)
+        span
+          color: var(--color-black)

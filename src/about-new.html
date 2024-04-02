@@ -1,0 +1,223 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'О клинике' %}
+{% set white = true %}
+
+{% block content %}
+
+<section class="top">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">О клинике доктора Шмиловича</a></li>
+    </ul>
+    <h2 class="top-title">О клинике доктора Шмиловича</h2>
+    <h3 class="top-subtitle">Профессиональная помощь психологов, врачей-психиатров и психоаналитиков</h3>
+  </div>
+</section>
+
+<section class="principle about-principle">
+  <div class="container">
+    <h3 class="subtitle">Основной принцип</h3>
+    <h2 class="title">“Для каждого пациента терапевт должен создавать <i>свой язык терапии</i>”</h2>
+    <p class="text">написал в одной из своих книг психиатр и психотерапевт, доктор медицины Ирвин Дэвид Ялом. Именно это высказывание как нельзя лучше характеризует наше отношение к работе с пациентами.<br><br><b>Мы не трудимся строго по шаблону, мы берем человека за руку и ведем к пути исцеления, излечения, восстановления и обретения своей ценности, своего «Я»</b></p>
+  </div>
+  <a href="#" data-fancybox class="principle-video">
+    <img src="img/principle-video.jpg" alt="" class="principle-video__poster">
+    <div class="container">
+      <div class="principle-video__text">
+        <h3 class="title">Андрей<br> Аркадьевич<br> Шмилович</h3>
+        <p>основатель клиники, практикующий врач, доктор медицинских наук</p>
+      </div>
+    </div>
+  </a>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <h3 class="subtitle">Галерея фотографий</h3>
+    <h2 class="title">Центр доктора Шмиловича<br> «Ре-Альт», это место встречи — <i>встречи со своим здоровым счастливым будущем!</i></h2>
+    <p class="text">Центр доктора Шмиловича «Re-Alt» основан врачом высшей категории с 28-летним профессиональным опытом <b>Андреем Аркадьевичем Шмиловичем</b></p>
+    <div class="gallery-slider__wrapper">
+      <div class="gallery-slider__info"><p>Фотографии:</p><b></b></div>
+      <div class="gallery-slider__control">
+        <div class="arrow gallery-prev"></div>
+        <div class="arrow gallery-next"></div>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+      <div class="swiper-slide"><a href="img/dynasty-photo-5.jpg" data-fancybox><img src="img/dynasty-photo-5.jpg" alt="" loading="lazy"></a></div>
+    </div>
+  </div>
+</section>
+
+<div class="quote">
+  <div class="container">
+    <div class="quote-left">
+      <h3 class="subtitle">Заголовок</h3>
+      <h2 class="title">Каждый специалист клиники<br> — психолог, психотерапевт, врач-психиатр — <i>это член слаженной команды,</i></h2>
+      <p class="text">которую собрали из профессионалов, <b>способных говорить на одном языке, думать созвучными категориями, иметь один взгляд и направлять свои действия в одну сторону, увеличивая в десятки раз эффективность лечебно-коррекционных мероприятий. </b></p>
+    </div>
+    <div class="quote-right">
+      <form action="#">
+        <h3 class="title-xl">Записаться на прием</h3>
+        <label class="label">
+          <p>Представьтесь</p>
+          <input type="text" placeholder="Ваше имя и фамилия" />
+        </label>
+        <label class="label">
+          <p>Номер телефона</p>
+          <input type="text" class="masked" placeholder="+7 (000) 000-00-00" />
+        </label>
+        <button class="btn btn-outline btn-lg"><p>Записаться</p></button>
+        <small>Нажимая на эту кнопку вы принимаете условия <a href="#">Соглашения о передаче личных данных</a></small>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section class="specialists about-specialists">
+  <div class="container">
+    <h3 class="subtitle">Наши специалисты</h3>
+    <h2 class="title">Врачи здесь не заменяют, а <i>дополняют друг друга</i></h2>
+    <p class="text">Каждый пациент может одномоментно получить консультацию психолога и психиатра. <b>Такая методика позволяет уже на первом приеме выявить проблему и наметить путь ее решения. Кроме того, это экономит время и финансы пациента.</b></p>
+    <div href="#" class="btn-wrap"><a href="" class="btn btn-green btn-md"><p>Наши специалисты</p></a></div>
+  </div>
+  <div class="container-fluid">
+    <div class="specialists-grid specialists-grid__slider">
+      <div class="arrow specialists-grid__prev"></div>
+      <div class="arrow specialists-grid__next"></div>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+        <div class="swiper-slide">{% include 'components/specialists-item.html' %}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="communication">
+  <div class="container">
+    <h3 class="subtitle">Заголовок</h3>
+    <h2 class="title">Люди идут в «Re-Alt», потому что общение специалиста с клиентом <i>не ограничивается только часами&nbsp;приема</i></h2>
+    <p class="text">Каждый пациент владеет личными контактами доктора для связи в <b>любое время и день недели<br> Руководство клиники разработало несколько форматов проведения приема</b></p>
+    <div class="communication-row">
+      <div class="communication-item">
+        <div class="communication-item__head">
+          <h3>Очный прием</h3>
+          <span><svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 15.9999C19 14.2583 17.3304 12.7767 15 12.2275M13 16C13 13.7909 10.3137 12 7 12C3.68629 12 1 13.7909 1 16M13 9C15.2091 9 17 7.20914 17 5C17 2.79086 15.2091 1 13 1M7 9C4.79086 9 3 7.20914 3 5C3 2.79086 4.79086 1 7 1C9.20914 1 11 2.79086 11 5C11 7.20914 9.20914 9 7 9Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="communication-item__content">
+          <div class="communication-item__text">
+            <span>Описание</span>
+            <p>Наши пациенты знают, что мы бережно храним информацию об обращениях, ведь это врачебная тайна</p>
+          </div>
+        </div>
+      </div>
+      <div class="communication-item">
+        <div class="communication-item__head">
+          <h3>Онлайн-консультация</h3>
+          <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17H5M16 14H14M11.0002 6H4.2002C3.08009 6 2.51962 6 2.0918 6.21799C1.71547 6.40973 1.40973 6.71547 1.21799 7.0918C1 7.51962 1 8.08009 1 9.2002V10.8002C1 11.9203 1 12.4796 1.21799 12.9074C1.40973 13.2837 1.71547 13.5905 2.0918 13.7822C2.5192 14 3.07899 14 4.19691 14H11.0001M11.0002 6L11 13.8002C11 13.8689 11 13.9354 11.0001 14M11.0002 6L11 4.2002C11 3.08009 11 2.51962 11.218 2.0918C11.4097 1.71547 11.7155 1.40973 12.0918 1.21799C12.5196 1 13.0801 1 14.2002 1H15.8002C16.9203 1 17.4796 1 17.9074 1.21799C18.2837 1.40973 18.5905 1.71547 18.7822 2.0918C19 2.5192 19 3.07899 19 4.19691V13.8031C19 14.921 19 15.48 18.7822 15.9074C18.5905 16.2837 18.2837 16.5905 17.9074 16.7822C17.48 17 16.921 17 15.8031 17H14.1969C13.079 17 12.5192 17 12.0918 16.7822C11.7155 16.5905 11.4097 16.2837 11.218 15.9074C11.0134 15.5058 11.0008 14.9884 11.0001 14M15.002 4V4.002L15 4.00195V4H15.002Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="communication-item__content">
+          <div class="communication-item__text">
+            <span>Описание</span>
+            <p>Многие из них возвращаются к нам с друзьями или родными, <b>чтобы каждый смог пройти свой путь к здоровью и счастью!</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="communication-item">
+        <div class="communication-item__head">
+          <h3>Выезд на дом</h3>
+          <span><svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 17H3M3 17H14M3 17V11.3682C3 10.8428 3 10.58 3.063 10.335C3.11883 10.1178 3.21073 9.91184 3.33496 9.72518C3.47505 9.51468 3.67114 9.33842 4.06152 8.9877L6.3631 6.91997C7.11784 6.24192 7.49549 5.90264 7.92249 5.77393C8.29894 5.66045 8.7007 5.66045 9.07715 5.77393C9.50451 5.90275 9.88267 6.2422 10.6387 6.92139L12.9387 8.9877C13.3295 9.33881 13.5245 9.51456 13.6647 9.72518C13.7889 9.91184 13.8807 10.1178 13.9365 10.335C13.9995 10.58 14 10.8428 14 11.3682V17M14 17H19M19 17H21M19 17V4.19691C19 3.07899 19 2.5192 18.7822 2.0918C18.5905 1.71547 18.2837 1.40973 17.9074 1.21799C17.4796 1 16.9203 1 15.8002 1H9.2002C8.08009 1 7.51962 1 7.0918 1.21799C6.71547 1.40973 6.40973 1.71547 6.21799 2.0918C6 2.51962 6 3.08009 6 4.2002V7.0002" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="communication-item__content">
+          <div class="communication-item__text">
+            <span>Описание</span>
+            <p>Каждый пациент владеет личными контактами доктора для связи в <b>любое время и день недели</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advantages about-advantages">
+  <div class="container">
+    <h3 class="subtitle">Наши преимущества</h3>
+    <h2 class="title">Наши преимущества</h2>
+    <p class="text">Наши пациенты знают, что мы бережно храним информацию об обращениях, ведь это врачебная тайна. <b>Поэтому многие из них возвращаются к нам с друзьями или родными, чтобы каждый смог пройти свой путь к здоровью и счастью!</b></p>
+    <ul class="advantages-list">
+      <li>
+        <span>
+          <small>Профессионализм</small>
+          <h4 class="title-md">Специалисты высочайшего уровня — <i>доктора наук, кафедральные и научные сотрудники</i></h4>
+        </span>
+      </li>
+      <li>
+        <span>
+          <small>Индивидуальность</small>
+          <h4 class="title-md"><i>Групповая</i>, <i>индивидуальная</i> и <i>семейная</i> консультация</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <small>Уникальность</small>
+          <h4 class="title-md">Уникальная методика совместной работы специалистов <i>разного профиля и направлений</i></p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <small>Универсальность</small>
+          <h4 class="title-md"><i>Полный спектр</i> психологических и психотерапевтических методик</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <small>Мобильность</small>
+          <h4 class="title-md">Возможность выезда специалиста <i>на дом</i> для консультации</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <small>Широкий охват</small>
+          <h4 class="title-md">Работа со всеми контингентами, <i>взрослыми и детьми</i></p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <small>Анонимность</small>
+          <h4 class="title-md">Гарантия <i>100% анонимности</i> лечения каждого пациента</p>
+        </span>
+      </li>
+      <li>
+        <span>
+          <small>Авторские методики</small>
+          <h4 class="title-md">Авторские методики лечения, <i>опыт зарубежных специалистов</i></p>
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="free">
+  <div class="container">
+    <h2 class="title">Бесплатная беседа «Альтер-фон» это предварительная беседа с нашими специалистами по телефону.</h2>
+    <p>В течение 10-минутной беседы вы сможете обозначить или выявить свои проблемы, и понять, кто из врачей вам нужен и нужен ли вообще. <b>Запишитесь на бесплатный разговор к специалисту</b></p>
+    <div class="btn-wrap"><a href="javascript:;" data-button="call" class="btn btn-green btn-lg"><p>Записаться</p></a></div>
+  </div>
+</section>
+
+{% endblock %}

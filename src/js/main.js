@@ -813,16 +813,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  if (window.innerWidth < 768) {
-    const galleryGrid = new Swiper('.gallery-grid__slider', {
-      slidesPerView: 1,
-      spaceBetween: 12,
-      breakpoints: {
-        576: {
-          slidesPerView: 2,
-        },
+  const galleryGrid = new Swiper('.gallery-slider', {
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.gallery-next',
+      prevEl: '.gallery-prev',
+    },
+    on: {
+      init: function () {
+        updateGalleryInfo(this.activeIndex + 1, this.slides.length);
       },
-    });
+      slideChange: function () {
+        updateGalleryInfo(this.activeIndex + 1, this.slides.length);
+      },
+    },
+  });
+
+  function updateGalleryInfo(currentSlide, totalSlides) {
+    const totalSlidesElem = document.querySelector('.gallery-slider__info b');
+    totalSlidesElem.innerHTML = `<span>${currentSlide}</span> / ${totalSlides}`;
   }
 
   const popupReviews = document.querySelector('.popup-reviews');

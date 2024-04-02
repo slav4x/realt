@@ -1,0 +1,126 @@
+.about
+  &-principle
+    .title
+      max-width: 1000px
+      i
+        color: var(--color-green)
+    .text
+      max-width: 840px
+      b
+        color: var(--color-green)
+  &-specialists
+    padding: var(--gap-xl) 0
+    .title
+      i
+        color: var(--color-green)
+    .text
+      max-width: 740px
+      b
+        color: var(--color-green)
+    .btn-wrap
+      margin-top: calc(var(--gap-md) / 2)
+  &-advantages
+    .text
+      max-width: 700px
+    .advantages-list
+      li
+        small
+          text-transform: uppercase
+          font-size: 14px
+          line-height: 1.6
+          font-weight: 500
+          margin-bottom: 12px
+          display: block
+        h4
+          line-height: 1.2
+          font-weight: 600
+        i
+          font-style: italic
+          color: var(--color-green)
+
+.communication
+  padding: var(--gap-lg) 0
+  background: #f5f2ef
+  .subtitle, .title, .text
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+  .title
+    i
+      color: var(--color-green)
+  .text
+    max-width: 1200px
+  &-row
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 24px
+    margin-top: var(--gap-md)
+  &-item
+    background: #fff
+    border-radius: 12px
+    border: 1px dashed var(--color-border)
+    overflow: hidden
+    transition: .25s
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.08)
+    &__head
+      padding: 24px 24px 24px 32px
+      @include flexbox
+      align-items: center
+      justify-content: space-between
+      background: #00574f
+      color: #fff
+      transition: .25s
+      h3
+        font-size: 32px
+        font-weight: 500
+        line-height: 1
+        flex: 1
+      span
+        @include flexbox
+        align-items: center
+        justify-content: center
+        width: 72px
+        height: 72px
+        border: 1px dashed rgba(255,255,255,.7)
+        border-radius: 100%
+        position: relative
+        &::before
+          content: ''
+          position: absolute
+          top: 4px
+          left: 4px
+          right: 4px
+          bottom: 4px
+          border-radius: 100%
+          border: 1px solid rgba(255,255,255,.1)
+          transition: .25s
+        svg
+          position: relative
+          z-index: 2
+          path
+            stroke: #fff
+            transition: .25s
+    &__text
+      padding: 48px 30px
+      line-height: 1.6
+      span
+        font-size: 14px
+        text-transform: uppercase
+        opacity: 0.55
+        margin-bottom: 10px
+        display: block
+      p
+        color: #25343e
+        max-width: 320px
+        b
+          color: var(--color-black)
+    &:hover
+      border-color: var(--color-brown)
+      box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.08)
+      .communication-item__head
+        background: var(--color-brown)
+        span::before
+          background: #fff
+          border-color: #fff
+        span svg path
+          stroke: var(--color-brown)

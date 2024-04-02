@@ -829,14 +829,6 @@
     height: 50px
     font-size: 16px
 
-  .gallery-grid__slider .swiper-wrapper
-    gap: 12px
-
-  .quote-text
-    font-size: 18px
-    span
-      font-size: 16px
-
   .service-item
     &::after
       top: 28px
@@ -1036,6 +1028,47 @@
           height: 42px
           p
             width: 180px
+
+  .about-principle .title
+    max-width: 660px
+  .about-principle .text
+    max-width: 660px
+  .about-specialists .text
+    max-width: 580px
+  .about-advantages .text
+    max-width: 550px
+
+  .quote
+    .text
+      max-width: 500px
+    &-left
+      width: 700px
+    &-right
+      width: calc(100% - 830px)
+      padding-left: 80px
+      .title-xl, .title-md
+        margin-bottom: 24px
+      .btn-green
+        margin: 24px 0
+      small
+        font-size: 12px
+
+  .communication
+    &-row
+      gap: 8px
+    &-item
+      &__head
+        padding: 20px 12px 20px 20px
+        h3
+          font-size: 24px
+        span
+          width: 60px
+          height: 60px
+      &__text
+        padding: 30px 20px
+        span
+          margin-bottom: 6px
+          font-size: 12px
 
 @media(max-width: 1550px)
   .dropdown
