@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const timesListHtml = appointments
         .map(
           (time) =>
-            `<label><input type="radio" name="time" value="${new Date(time).getHours()}:${
+            `<label data-step="5"><input type="radio" name="time" value="${new Date(time).getHours()}:${
               new Date(time).getMinutes() === 0 ? '00' : new Date(time).getMinutes()
             }:00" />${new Date(time).getHours()}:${new Date(time).getMinutes() === 0 ? '00' : new Date(time).getMinutes()}</label>`
         )
@@ -399,7 +399,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="popup-time__content">
           <div class="popup-time__list">${timesListHtml}</div>
         </div>
-        <div class="popup-time__btn"><a href="javascript:;" class="btn btn-outline btn-md disabled" data-step="5"><p>Записаться</p></a></div>
       `;
     } else {
       contentHtml = `
@@ -509,45 +508,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.body.addEventListener('change', function (e) {
-    // Проверяем, выбрано ли время внутри popup-time__list
-    if (e.target.matches('.popup-time__list input[type="radio"]')) {
-      const selectedItem = e.target.closest('.popup-time__item');
-
-      document.querySelectorAll('.popup-time__list label.active').forEach((label) => {
-        label.classList.remove('active');
-      });
-      e.target.parentNode.classList.add('active');
-
-      document.querySelectorAll('.popup-time__item .popup-time__list ~ .popup-time__btn .btn').forEach((btn) => {
-        btn.classList.remove('disabled');
-      });
-
-      document.querySelectorAll('.popup-time__item').forEach((item) => {
-        if (item.querySelector('.popup-time__list') && item !== selectedItem) {
-          item.querySelector('.popup-time__btn .btn').classList.add('disabled');
-        }
-      });
-
-      selectedItem.querySelector('.popup-time__btn .btn').classList.remove('disabled');
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.popup-time__list label')) {
+      e.target.closest('.popup-time__item').querySelector('input[type="radio"][name="date"]').checked = true;
     }
-  });
 
-  document.body.addEventListener('click', function (e) {
-    if (
-      e.target.matches('.popup-time__item .popup-time__btn .btn:not(.disabled), .popup-time__item .popup-time__btn .btn:not(.disabled) *')
-    ) {
-      const currentItem = e.target.closest('.popup-time__item');
-      const dateRadio = currentItem.querySelector('input[type="radio"][name="date"]');
-      if (dateRadio) {
-        dateRadio.checked = true;
-      }
-    }
-  });
-
-  document.querySelectorAll('.popup-time__item').forEach((item) => {
-    if (item.querySelector('.popup-time__list')) {
-      item.querySelector('.popup-time__btn .btn').classList.add('disabled');
+    if (e.target.closest('.popup-time__btn .btn')) {
+      e.target.closest('.popup-time__item').querySelector('input[type="radio"][name="date"]').checked = true;
     }
   });
 

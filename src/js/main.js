@@ -481,6 +481,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // document.querySelector('.popup-online').addEventListener('submit', function (e) {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(this);
+  //   for (const [key, value] of formData.entries()) {
+  //     console.log(`${key}: ${value}`);
+  //   }
+  // });
+
   // Функция для получения utm-меток из URL
   function getUtmParams() {
     const urlParams = new URLSearchParams(window.location.search);
