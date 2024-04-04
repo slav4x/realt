@@ -35,5 +35,18 @@
     <script src="./js/libs.js?cb"></script>
     <script src="./js/main.js?cb"></script>
     <script src="./js/widget.js?cb"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.location.hash === '#onlain_zapis') {
+          const onlineDiv = document.createElement('div');
+          onlineDiv.style.display = 'none';
+          onlineDiv.className = 'onlain_zapis';
+          onlineDiv.setAttribute('data-button', 'online');
+          document.body.appendChild(onlineDiv);
+            onlineDiv.click();
+        }
+      });
+    </script>
   </body>
 </html>

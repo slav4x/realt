@@ -175,8 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
   setupPageScrolling('.specialists-single', '.specialists-head__slider', 'specialists-section', 'specialists-head__item');
 
   // ** POPUP ** //
-  document.querySelectorAll('[data-button]').forEach((button) => {
-    button.addEventListener('click', () => openPopup(button.getAttribute('data-button'), button.getAttribute('data-form')));
+  document.body.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-button]');
+    if (button) openPopup(button.getAttribute('data-button'), button.getAttribute('data-form'));
   });
 
   document.querySelectorAll('.popup-close, .popup-bg').forEach((closeTrigger) => {
@@ -469,6 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const formUrl = form.getAttribute('action');
       const formData = new FormData(this);
+      const goal = form.dataset.goal;
 
       fetch(formUrl, {
         method: 'POST',
@@ -480,6 +482,10 @@ document.addEventListener('DOMContentLoaded', function () {
             phone: formData.get('phone'),
             message: formData.get('form'),
           });
+
+          ym(40801469, 'reachGoal', goal);
+          ym(40801469, 'reachGoal', 'send-form');
+
           window.location.href = '/thanks';
         })
         .catch((error) => console.error('Error:', error));
@@ -992,7 +998,19 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+
   if (header.classList.contains('header-white')) {
     header.dataset.originalClass = 'header-white';
   }
+
+  document.body.addEventListener('click', function (e) {
+    let target = e.target;
+    while (target != document.body) {
+      if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.getAttribute('onclick') || target.style.cursor === 'pointer') {
+        ym(40801469, 'reachGoal', 'user_activity');
+        break;
+      }
+      target = target.parentNode;
+    }
+  });
 });
