@@ -227,6 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (parent) {
           button.classList.toggle('active');
+          button.textContent = button.classList.contains('active') ? 'Скрыть' : 'Раскрыть подробнее';
 
           const textElement = parent.querySelector('.service-price__text');
           if (textElement) {
