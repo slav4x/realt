@@ -475,7 +475,12 @@ document.addEventListener('DOMContentLoaded', function () {
         body: formData,
       })
         .then((response) => {
-          return (window.location.href = '/thanks');
+          Comagic.addOfflineRequest({
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            message: formData.get('form'),
+          });
+          window.location.href = '/thanks';
         })
         .catch((error) => console.error('Error:', error));
     });
