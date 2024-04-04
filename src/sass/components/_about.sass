@@ -100,6 +100,16 @@
           path
             stroke: #fff
             transition: .25s
+        b
+          font-size: 24px
+          font-family: 'Wulkan Display'
+          font-weight: 500
+          line-height: 1
+          letter-spacing: -0.02em
+          padding-top: 4px
+          position: relative
+          z-index: 5
+          transition: .25s
     &__text
       padding: 48px 30px
       line-height: 1.6
@@ -114,6 +124,69 @@
         max-width: 320px
         b
           color: var(--color-black)
+    &__bonus
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      .communication-item__head
+        width: 100%
+    &__wrap
+      @include flexbox
+      flex-direction: column
+      align-items: flex-start
+      flex: 1
+      width: 100%
+    &__plus
+      padding: 20px 86px 20px 32px
+      @include flexbox
+      justify-content: center
+      flex-direction: column
+      gap: 10px
+      border-bottom: 1px solid rgba(0,0,0,.1)
+      flex: 1
+      width: 100%
+      position: relative
+      &::after
+        content: ''
+        width: 32px
+        height: 32px
+        position: absolute
+        top: 0
+        right: 32px
+        bottom: 0
+        margin: auto 0
+        background: rgba(0, 87, 79, 0.05) url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.26351 8V4.73289H0V3.24945H3.26351V0H4.74531V3.24945H8V4.73289H4.74531V8H3.26351Z' fill='%2300574F'/%3E%3C/svg%3E%0A") no-repeat center
+        border-radius: 100%
+      &:last-of-type
+        border: 0
+      b
+        font-weight: 500
+        line-height: 1.5
+      p
+        font-size: 14px
+        line-height: 1.5
+        font-weight: 500
+        color: #25343e
+    &__link
+      padding: 32px
+      @include flexbox
+      align-items: center
+      gap: 8px
+      margin-top: auto
+      border-top: 1px solid rgba(0,0,0,.1)
+      width: 100%
+      p
+        line-height: 1
+        font-weight: 600
+        border-bottom: 1px solid var(--color-black)
+        padding: 2px 0
+      &::after
+        content: ''
+        width: 12px
+        height: 12px
+        display: block
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.36279 0L4.61279 5.87234L2.36279 12L10.6128 5.87234L2.36279 0Z' fill='%230A0A0B' fill-opacity='0.75'/%3E%3C/svg%3E%0A")
+        margin-top: 3px
     &:hover
       border-color: var(--color-brown)
       box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.08)
@@ -124,3 +197,6 @@
           border-color: #fff
         span svg path
           stroke: var(--color-brown)
+        span
+          b
+            color: var(--color-brown)

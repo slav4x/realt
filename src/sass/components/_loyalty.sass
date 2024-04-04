@@ -1,0 +1,174 @@
+.loyalty
+  &-hero
+    padding-top: 100px
+    height: 760px
+    color: #fff
+    background: url(../img/top-bg.jpg) no-repeat top center / cover
+    .container
+      @include flexbox
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      text-align: center
+      height: 100%
+    &__title
+      font-size: 80px
+      font-family: 'Wulkan Display'
+      font-weight: 500
+      line-height: 1
+      letter-spacing: -0.02em
+    &__subtitle
+      font-size: 18px
+      font-weight: 500
+      margin-top: 12px
+      line-height: 1.25
+      color: rgba(255, 255, 255, 0.7)
+      span
+        color: #fff
+        font-weight: 600
+  &-uniq
+    padding: var(--gap-xl) 0
+    background: #f5f2ef
+    .title
+      max-width: 1000px
+    .text
+      max-width: 100%
+      b
+        color: var(--color-green)
+  &-advantages
+    padding: var(--gap-xl) 0
+    .title-md
+      line-height: 1.2
+  &-bonus
+    color: #fff
+    background: url(../img/bonus.jpg) no-repeat center / cover
+    .container
+      @include flexbox
+    &__left
+      width: 1070px
+      padding: var(--gap-xl) 0
+      .subtitle
+        color: #fff
+      .title
+        max-width: 620px
+        span
+          color: #F2BE8B
+      .text
+        color: rgba(255,255,255,.7)
+        max-width: 720px
+      .btn-wrap
+        margin-top: 60px
+    &__right
+      margin-left: auto
+      width: calc(100% - 1160px)
+      max-width: 500px
+      border-left: 1px solid rgba(255, 255, 255, 0.3)
+      padding: 30px 0
+      @include flexbox
+      align-items: center
+      justify-content: center
+      img
+        margin-top: auto
+        width: 240px
+      p
+        margin-top: auto
+        opacity: 0.7
+  &-status
+    background: #f5f2ef
+    padding: var(--gap-xl) 0
+    .subtitle
+      text-align: center
+      width: 100%
+    .title
+      text-align: center
+      margin: 0 auto
+      max-width: 800px
+    .text
+      max-width: 100%
+      text-align: center
+    &__grid
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      gap: 12px
+      margin-top: calc(var(--gap-lg) / 2)
+    &__item
+      text-align: center
+      padding: 35px
+      border-radius: 12px
+      border: 1px dashed rgba(0,0,0,.3)
+      h3
+        font-weight: 700
+        font-size: 184px
+        font-family: 'Wulkan Display'
+        line-height: 190px
+        padding-top: 7px
+        span
+          font-size: 120px
+      p
+        font-size: 16px
+        line-height: 1.6
+        letter-spacing: -0.02em
+        padding-top: 16px
+        b
+          font-weight: 700
+      h4
+        @include flexbox
+        align-items: center
+        justify-content: center
+        width: 210px
+        height: 74px
+        border-radius: 99px
+        margin: 26px auto 0
+        background: #eee
+        font-size: 18px
+        font-weight: 500
+        letter-spacing: 0.05em
+        color: #fff
+        position: relative
+        &::before
+          content: ''
+          position: absolute
+          top: 6px
+          left: 6px
+          right: 6px
+          bottom: 6px
+          border-radius: 99px
+          border: 1px dashed #fff
+        &.bronze
+          background: #705E5B
+        &.silver
+          background: #95949A
+        &.gold
+          background: #D0C3A0
+        &.platinum
+          background: #C19395
+  &-join
+    text-align: center
+    padding: 160px 0 50px
+    position: relative
+    color: #fff
+    background: url(../img/join.jpg) no-repeat center
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: #000
+      opacity: 0.6
+    .title
+      max-width: 1460px
+      margin: 0 auto
+      span
+        font-weight: 600
+      a
+        font-style: italic
+        color: #72e6b3
+        border-bottom: 3px solid #72E6B3
+    p
+      opacity: 0.7
+      margin-top: 90px
+      font-size: 14px
+      line-height: 1.5
+      font-weight: 500
