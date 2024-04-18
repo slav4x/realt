@@ -701,3 +701,23 @@
 
   .loyalty-join p
     font-size: 12px
+
+  .vh
+    &-scroll
+      &::before,
+      &::after
+        height: 20px
+      &::-webkit-scrollbar
+        width: 1px
+      &::-webkit-scrollbar-thumb
+        background: var(--color-brown) !important
+        border-top: 20px solid rgba(255,255,255,0) !important
+        border-bottom: 20px solid rgba(255,255,255,0) !important
+        border-left: 0px solid rgba(255,255,255,0) !important
+      &::-webkit-scrollbar-track
+        border-top: 20px solid #fbfaf9 !important
+        border-bottom: 20px solid #fbfaf9 !important
+        border-left: 0px solid #fbfaf9 !important
+
+  .service-element__list ul li
+    padding-right: 20px
