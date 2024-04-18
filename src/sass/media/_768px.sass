@@ -584,13 +584,15 @@
     &__main
       &::after
         display: none
-      .title-md
+      .title-md span
         --thickness: 1px
         padding-bottom: 2px
       &.toggle .title-md
+        gap: 8px
         &::after
-          right: -20px
-          top: 5px
+          width: 10px
+          height: 10px
+          background-size: cover
     &__links
       a
         padding-right: 0px
