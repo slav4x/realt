@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ** SEARCH ** //
-  const searchInput = document.querySelector('.service-search input');
+  const searchInput = document.querySelector('.service-search:not([method="get"]) input');
   const serviceBlock = document.querySelector('.service');
 
   if (searchInput) {
@@ -449,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Инициализация токена для каждой формы на странице
-  const forms = document.querySelectorAll('form');
+  const forms = document.querySelectorAll('form:not([method="get"])');
   forms.forEach(function (form) {
     setToken(form);
 
@@ -507,7 +507,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const utmParams = {};
     for (const [key, value] of urlParams.entries()) {
-      utmParams[key] = value;
+      if (key !== 's') {
+        utmParams[key] = value;
+      }
     }
     return utmParams;
   }
@@ -517,11 +519,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const forms = document.querySelectorAll('form');
     forms.forEach((form) => {
       Object.keys(utmParams).forEach((key) => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = utmParams[key];
-        form.appendChild(input);
+        if (key !== 's') {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = utmParams[key];
+          form.appendChild(input);
+        }
       });
     });
   }
