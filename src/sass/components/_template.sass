@@ -80,6 +80,8 @@
           width: 8px
           height: 8px
           border-radius: 100%
+    & + .template-text-3
+      background: #f5f2ef
   &-help
     position: relative
     &::before
@@ -252,12 +254,114 @@
   &-specialists
     padding: var(--gap-lg) 0
     overflow: hidden
+  &-text-2
+    padding: var(--gap-lg) 0
+    .container
+      @include flexbox
+      align-items: flex-start
+    &__content
+      max-width: 640px
+      font-size: 22px
+      line-height: 1.6
+      font-weight: 500
+      p
+        margin-top: 40px
+        &:first-child
+          margin-top: 0 !important
+    &__image
+      width: calc(100% - 640px - 60px)
+      max-width: 890px
+      margin-left: auto
+  &-link
+    padding: var(--gap-lg) 0
+    &__block
+      padding: 50px 80px
+      padding-right: 200px
+      position: relative
+      background: #f5f2ef
+      display: block
+      &::after
+        content: ''
+        position: absolute
+        top: 56px
+        right: 86px
+        display: block
+        width: 62px
+        height: 62px
+        border-radius: 100%
+        background-color: var(--color-green)
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.63721 12.6084L7.38721 6.73606L9.63721 0.608398L1.38721 6.73606L9.63721 12.6084Z' fill='white'/%3E%3C/svg%3E%0A")
+        background-repeat: no-repeat
+        background-position: center
+        border: 1px dashed #fff
+        box-shadow: 0 0 0 6px var(--color-green)
+        transition: .25s
+        transform: rotate(180deg)
+    &__text
+      font-size: 22px
+      line-height: 1.6
+      font-weight: 500
+      max-width: 1400px
+      margin-top: 40px
+      p
+        margin-top: 40px
+        &:first-child
+          margin-top: 0
+  &-text-3
+    padding: var(--gap-lg) 0
+    .title-xl
+      max-width: 1380px
+    &__content
+      margin-top: 40px
+      max-width: 1440px
+      font-size: 22px
+      line-height: 1.6
+      font-weight: 500
+      p
+        margin-top: 30px
+        &:first-child
+          margin-top: 0
+    &__row
+      @include flexbox
+      align-items: center
+      margin-top: 80px
+    &__quote
+      max-width: 690px
+      padding: 40px
+      border-radius: 12px
+      border: 1px dashed var(--color-green)
+      font-size: 26px
+      font-weight: 600
+      color: var(--color-green)
+      line-height: 1.6
+    &__arrow
+      width: 650px
+      margin-left: 190px
+      font-size: 22px
+      line-height: 1.6
+      font-weight: 500
+      position: relative
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: -117px
+        bottom: 0
+        margin: auto 0
+        width: 44px
+        height: 46px
+        background: url("data:image/svg+xml,%3Csvg width='44' height='46' viewBox='0 0 44 46' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.66406 1.43359L16.9141 22.9655L8.66406 45.4336L38.9141 22.9655L8.66406 1.43359Z' fill='%2325343E'/%3E%3C/svg%3E%0A") no-repeat center / cover
 
-  &-text, &-section, &-specialists, &-photo, &-stats
+  &-text, &-section, &-specialists, &-photo, &-stats, &-text-2, &-link, &-text-3
     & + .template-text,
     & + .template-section,
     & + .template-specialists,
     & + .template-reviews,
     & + .template-stats,
-    & + .template-photo
+    & + .template-photo,
+    & + .template-text-2,
+    & + .template-text-3,
+    & + .template-link
       padding-top: 0
+    & + .template-cta
+      margin-top: 0
