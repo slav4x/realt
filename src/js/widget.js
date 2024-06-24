@@ -224,6 +224,8 @@ document.addEventListener('DOMContentLoaded', function () {
             formattedDuration += `${minutes} минут`;
           }
 
+          if (service.id == 1902994) return;
+
           serviceElement.innerHTML = `
           <input type="radio" name="serviceId" value="${service.id}" />
           <h4>${service.name}</h4>
@@ -291,6 +293,8 @@ document.addEventListener('DOMContentLoaded', function () {
           } else if (minutes > 0) {
             formattedDuration += `${minutes} минут`;
           }
+
+          if (service.id == 1902994) return;
 
           serviceElement.innerHTML = `
           <input type="radio" name="serviceId" value="${service.id}" />
@@ -649,6 +653,8 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (minutes > 0) {
               formattedDuration += `${minutes} минут`;
             }
+
+            if (service.id == 1902994) return;
 
             serviceElement.innerHTML = `
             <input type="radio" name="serviceId" value="${service.id}" />
