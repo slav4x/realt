@@ -12,8 +12,51 @@
     max-width: 1024px
 
   .hero
-    &-photos
-      width: 200px
+    padding-top: 110px
+    background-position: top right -250px
+    h3
+      margin-bottom: 35px
+    h1
+      font-size: 50px
+      max-width: 550px
+    h2
+      font-size: 16px
+      max-width: 390px
+      margin-bottom: 80px
+    &-bubble
+      width: 430px
+      top: 150px
+      right: 40px
+      li
+        &:nth-child(1)
+          top: 0
+          left: 110px
+          &::before
+            top: 17px
+            left: -40px
+        &:nth-child(2)
+          width: 120px
+          top: 35px
+          right: 0
+          &::before
+            transform: rotate(70deg)
+            top: -48px
+            left: -13px
+        &:nth-child(3)
+          width: 140px
+          top: 225px
+          right: 0px
+          &::before
+            transform: rotate(138deg)
+            top: -84px
+            left: 40px
+        &:nth-child(4)
+          width: 115px
+          top: 225px
+          &::before
+            transform: scaleX(-1) rotate(150deg)
+            top: -84px
+            left: 34px
 
   .principle
     &-video
