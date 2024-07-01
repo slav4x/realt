@@ -19,11 +19,11 @@ const isMinify = true;
 
 const clean = () => del(['app']);
 
+// .pipe(typograf({ locale: ['ru', 'en-US'], htmlEntity: { type: 'digit' } }))
 const html = () => {
   return src(['src/**/*.html', '!src/components/**/*.html'])
     .pipe(njk({ path: 'src/' }))
     .pipe(replace('?cb', '?cb=' + new Date().getTime()))
-    .pipe(typograf({ locale: ['ru', 'en-US'], htmlEntity: { type: 'digit' } }))
     .pipe(isMinify ? replace('libs.css', 'libs.min.css') : noop())
     .pipe(isMinify ? replace('main.css', 'main.min.css') : noop())
     .pipe(isMinify ? replace('libs.js', 'libs.min.js') : noop())
