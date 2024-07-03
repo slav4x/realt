@@ -1,0 +1,39 @@
+.dir
+  padding-top: var(--gap-xl)
+  .title
+    max-width: 800px
+  &-carousel
+    position: relative
+    overflow: hidden
+    margin: var(--gap-md) 0
+  &-item
+    display: block
+    img
+      aspect-ratio: 1 / 1
+      object-fit: cover
+      object-position: center
+    b
+      display: block
+      margin-top: 20px
+      font-size: 26px
+      font-weight: 700
+      line-height: 1.2
+  .arrow
+    position: absolute
+    z-index: 100
+    margin-top: -31px
+    &.swiper-button-disabled
+      border: 1px dashed var(--color-green)
+      background-color: #fff
+      box-shadow: 0 0 0 6px #fff
+      &::before
+        display: none
+  &-prev
+    left: 42px
+  &-next
+    right: 42px
+  .btn-wrap
+    justify-content: center
+  .btn
+    p
+      padding: 0 60px

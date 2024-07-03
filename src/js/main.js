@@ -377,6 +377,43 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 
+  const dirCarousel = new Swiper('.dir-carousel', {
+    slidesPerView: 1,
+    spaceBetween: 12,
+    arrow: true,
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      1760: {
+        spaceBetween: 24,
+        slidesPerView: 3,
+      },
+    },
+    navigation: {
+      nextEl: '.dir-next',
+      prevEl: '.dir-prev',
+    },
+    on: {
+      init: function () {
+        const firstSlideImage = document.querySelector('.dir-carousel .swiper-slide img');
+        const arrowElements = document.querySelectorAll('.dir-carousel .arrow');
+
+        if (firstSlideImage) {
+          const imageHeight = firstSlideImage.clientHeight;
+          const halfHeight = imageHeight / 2;
+
+          arrowElements.forEach((arrow) => {
+            arrow.style.top = `${halfHeight}px`;
+          });
+        }
+      },
+    },
+  });
+
   const blogSpecialists = new Swiper('.blog-specialists__slider', {
     slidesPerView: 1,
     spaceBetween: 12,
