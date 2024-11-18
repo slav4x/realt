@@ -3,6 +3,8 @@
 /* eslint-disable no-inner-declarations */
 
 document.addEventListener('DOMContentLoaded', function () {
+  const excludedIds = new Set([1902994, 2069803, 2069804]);
+
   document.addEventListener('click', function (e) {
     const button = e.target.closest('[data-step]');
 
@@ -130,11 +132,18 @@ document.addEventListener('DOMContentLoaded', function () {
           const nameWithBreak = [nameParts[0], '<br>', ...nameParts.slice(1)].join(' ');
 
           specialistElement.innerHTML = `
-          <input type="radio" name="specialistId" value="${specialist.id}" />
-          <div class="popup-specialists__item-photo"><img src="https://klientiks.ru${specialist.image}" alt=""></div>
-          <h4 class="popup-specialists__item-name">${nameWithBreak}</h4>
-          <div class="popup-specialists__item-quote"><p>${specialist.position}</p></div>
-        `;
+            <input type="radio" name="specialistId" value="${specialist.id}" />
+            <div class="popup-specialists__item-photo"><img src="https://klientiks.ru${specialist.image}" alt=""></div>
+            <h4 class="popup-specialists__item-name">${nameWithBreak}</h4>
+            <div class="popup-specialists__item-quote">
+              ${
+                specialist.staj_rabot
+                  ? `<p style="margin-bottom: 4px; color: var(--color-green); font-weight: 700;">Опыт работы ${specialist.staj_rabot.toLowerCase()}</p>`
+                  : ''
+              }
+              <p>${specialist.position}</p>
+            </div>
+          `;
 
           popupSpecialistsContainer.appendChild(specialistElement);
         });
@@ -167,9 +176,62 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  let activeFilters = [];
+
+  // Функция для фильтрации услуг
+  function filterServices(activeFilters, servicesContainer) {
+    const serviceItems = servicesContainer.querySelectorAll('.popup-services__item');
+
+    serviceItems.forEach((service) => {
+      const serviceGroups = service.getAttribute('group').split(',');
+
+      // Проверяем, есть ли совпадения между активными фильтрами и группами услуги
+      const match = activeFilters.some((filter) => serviceGroups.includes(filter));
+
+      // Добавляем или убираем класс hidden
+      if (match || activeFilters.length === 0) {
+        service.classList.remove('hidden');
+      } else {
+        service.classList.add('hidden');
+      }
+    });
+  }
+
+  // Находим все родительские элементы для делегирования событий
+  document.querySelectorAll('.popup-service__filter').forEach((filterList) => {
+    const servicesContainer = filterList.closest('.popup').querySelectorAll('.popup-services');
+
+    // Делегируем событие клика на родительский элемент фильтров
+    filterList.addEventListener('click', function (event) {
+      if (event.target.tagName === 'LI') {
+        // Переключаем класс active
+        event.target.classList.toggle('active');
+
+        const filterText = event.target.textContent;
+
+        // Добавляем или удаляем фильтр из массива активных фильтров
+        if (event.target.classList.contains('active')) {
+          activeFilters.push(filterText);
+        } else {
+          activeFilters = activeFilters.filter((filter) => filter !== filterText);
+        }
+
+        // Фильтруем услуги в соответствии с активными фильтрами
+        servicesContainer.forEach((container) => {
+          filterServices(activeFilters, container);
+        });
+      }
+    });
+  });
+
   document.querySelector('.getSpecialistServices').addEventListener('click', () => {
+    activeFilters = [];
+
     const popupServicesContainer = document.querySelector('.popup-services:not(.all)');
     popupServicesContainer.innerHTML = '<div class="loader"></div>';
+
+    const popupServiceFilter = document.querySelector('ul.popup-service__filter.single');
+    popupServiceFilter.innerHTML = '';
 
     const id = document.querySelector('input[name="specialistId"]:checked').value;
     fetch('https://cdz-alter.ru/api/crm.php', {
@@ -204,9 +266,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const loader = popupServicesContainer.querySelector('.loader');
         loader.classList.add('hide');
 
+        const allServiceGroups = services.map((service) => service.service_groups).join(',');
+        const uniqueServiceGroups = [...new Set(allServiceGroups.split(','))];
+
         services.forEach((service) => {
           const serviceElement = document.createElement('label');
           serviceElement.className = 'popup-services__item';
+          serviceElement.setAttribute('group', service.service_groups);
 
           const price = parseInt(service.price, 10);
           const formattedPrice = `${price.toLocaleString('ru-RU')} руб.`;
@@ -224,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formattedDuration += `${minutes} минут`;
           }
 
-          if (service.id == 1902994) return;
+          if (excludedIds.has(service.id)) return;
 
           serviceElement.innerHTML = `
           <input type="radio" name="serviceId" value="${service.id}" />
@@ -235,13 +301,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
           popupServicesContainer.appendChild(serviceElement);
         });
+
+        uniqueServiceGroups.forEach((group) => {
+          if (group == '') return;
+          const groupElement = document.createElement('li');
+          groupElement.textContent = group;
+          popupServiceFilter.appendChild(groupElement);
+        });
       })
       .catch((error) => console.error('Ошибка:', error));
   });
 
   document.querySelector('.getServices').addEventListener('click', () => {
+    activeFilters = [];
+
     const popupServicesContainer = document.querySelector('.popup-services.all');
     popupServicesContainer.innerHTML = '<div class="loader"></div>';
+
+    const popupServiceFilter = document.querySelector('ul.popup-service__filter.all');
+    popupServiceFilter.innerHTML = '';
 
     fetch('https://cdz-alter.ru/api/crm.php', {
       method: 'POST',
@@ -274,9 +352,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const loader = popupServicesContainer.querySelector('.loader');
         loader.classList.add('hide');
 
+        const allServiceGroups = services.map((service) => service.service_groups).join(',');
+        const uniqueServiceGroups = [...new Set(allServiceGroups.split(','))];
+
         services.forEach((service) => {
           const serviceElement = document.createElement('label');
           serviceElement.className = 'popup-services__item';
+          serviceElement.setAttribute('group', service.service_groups);
 
           const price = parseInt(service.price, 10);
           const formattedPrice = `${price.toLocaleString('ru-RU')} руб.`;
@@ -294,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formattedDuration += `${minutes} минут`;
           }
 
-          if (service.id == 1902994) return;
+          if (excludedIds.has(service.id)) return;
 
           serviceElement.innerHTML = `
           <input type="radio" name="serviceId" value="${service.id}" />
@@ -304,6 +386,13 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
           popupServicesContainer.appendChild(serviceElement);
+        });
+
+        uniqueServiceGroups.forEach((group) => {
+          if (group == '') return;
+          const groupElement = document.createElement('li');
+          groupElement.textContent = group;
+          popupServiceFilter.appendChild(groupElement);
         });
       })
       .catch((error) => console.error('Ошибка:', error));
@@ -654,7 +743,7 @@ document.addEventListener('DOMContentLoaded', function () {
               formattedDuration += `${minutes} минут`;
             }
 
-            if (service.id == 1902994) return;
+            if (excludedIds.has(service.id)) return;
 
             serviceElement.innerHTML = `
             <input type="radio" name="serviceId" value="${service.id}" />

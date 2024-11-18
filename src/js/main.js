@@ -378,6 +378,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   const dirCarousel = new Swiper('.dir-carousel', {
+    loop: true,
     slidesPerView: 1,
     spaceBetween: 12,
     arrow: true,

@@ -201,6 +201,46 @@ a.service-item:hover
             line-height: 1.6
             letter-spacing: 0.05em
             margin-top: 8px
+    &__infograph
+      &-grid
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 40px
+      ul
+        li
+          margin-top: 60px
+          position: relative
+          background: #F5F2EF
+          padding: 25px 30px 25px 105px
+          font-family: 'Wulkan Display'
+          font-weight: 500
+          font-size: 26px
+          line-height: 1.2
+          position: relative
+          span
+            position: absolute
+            width: 70px
+            height: 70px
+            border-radius: 100%
+            @include flexbox
+            align-items: center
+            justify-content: center
+            left: 10px
+            top: -10px
+            background: #00574F
+            &::before
+              content: ''
+              position: absolute
+              top: 2px
+              left: 2px
+              right: 2px
+              bottom: 2px
+              border: 1px dashed #fff
+              border-radius: 100%
+            svg
+              width: 100%
+              height: 100%
+
   &-price
     &__table
       margin-top: 40px
